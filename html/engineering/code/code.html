@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>工程编程</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/engineering.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="补料申请" data-event="feed"><i class="layui-icon layui-icon-survey"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="制作程式单" data-event="make"><i class="iconfont icon-zhizuo"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="上传程式单" data-event="upload"><i class="layui-icon layui-icon-upload"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="打印程式单" data-event="print"><i class="iconfont icon-print"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="旧单复制" data-event="copy"><i class="iconfont icon-fuzhi"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="新增主件" data-event="add"><i class="layui-icon layui-icon-add-1"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="新增拆件" data-event="add1"><i class="layui-icon layui-icon-add-circle"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="编辑" data-event="edit"><i class="layui-icon layui-icon-edit"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-disabled btn" data-title="撤销" data-event="cancle"
+					 disabled><i class="iconfont icon-chexiao"></i></button>
+				</div>
+			</blockquote>
+			<div class="layui-table-1">
+				<div class="layui-table-caption">
+					<div>编程记录</div>
+					<div></div>
+				</div>
+				<div>
+					<table id="codeTable" class="layui-simple-table layui-form" lay-filter="codeTable"></table>
+				</div>
+			</div>
+			<div class="code-edit">
+				<div>
+					<a class="aBtn" data-event="scrap" data-title="报废登记" href="javascript:;">报废登记</a>
+					<a class="aBtn" data-event="work" data-title="加工补单" href="javascript:;">加工补单</a>
+					<a class="aBtn" data-event="del" data-title="授权删除" href="javascript:;">授权删除</a>
+					<a class="aBtn" data-event="lathe" data-title="车床开料" href="javascript:;">车床开料</a>
+					<a class="aBtn" data-event="complex" data-title="复模开料" href="javascript:;">复模开料</a>
+					<a class="aBtn" data-event="send" data-title="外发申购" href="javascript:;">外发申购</a>
+					<a class="aBtn" data-event="print" href="javascript:;">打印清单</a>
+					<a class="aBtn" data-event="sign" data-title="编程签名" href="javascript:;">编程签名</a>
+					<a class="aBtn" data-event="operation" data-title="操机记录" href="javascript:;">操机记录</a>
+					<span><cite>补料数：</cite>0</span>
+				</div>
+				<div>
+					<div class="layui-row layui-col-space10">
+						<div class="code-edit-form">
+							<div class="layui-col-md9">
+								<form class="layui-form layui-form-pane" action="" lay-filter="codeForm">
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:90px">零件名称</label>
+											<div class="layui-input-inline" style="width:180px">
+												<input type="text" name="part_num" required lay-verify="required" value="" autocomplete="off"
+												 class="layui-input layui-disabled" disabled>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:90px">材质</label>
+											<div class="layui-input-inline" style="width:180px">
+												<div class="layui-btn-input">
+													<input type="" name="part_material" id="" value="" class="layui-disabled" disabled/>
+													<button class="moreBtn layui-btn-disabled" data-title="材质" disabled><i class="layui-icon layui-icon-more"></i></button>
+												</div>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:90px">零件尺寸</label>
+											<div class="layui-input-inline" style="width:180px">
+												<input type="text" name="" required lay-verify="required" value="" autocomplete="off"
+												 class="layui-input layui-disabled" disabled>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:90px">制作方式</label>
+											<div class="layui-input-inline" style="width:180px">
+												<select name="city" lay-verify="required" disabled>
+													<option value="请选择"></option>
+													<option value="0">手工制作</option>
+													<option value="1">委外制作</option>
+												</select>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:90px">制作数量</label>
+											<div class="layui-input-inline" style="width:180px">
+												<input type="text" name="make_amount" required lay-verify="required" value="" autocomplete="off"
+												 class="layui-input layui-btn-disabled" disabled>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:90px">零件编号</label>
+											<div class="layui-input-inline" style="width:180px">
+												<input type="text" name="part_num" required lay-verify="required" value="" autocomplete="off"
+												 class="layui-input layui-disabled" disabled>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:90px">编程人员</label>
+											<div class="layui-input-inline" style="width:180px">
+												<input type="text" name="coder" required lay-verify="required" value="" autocomplete="off"
+												 class="layui-input layui-disabled" disabled>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:90px">生产单号</label>
+											<div class="layui-input-inline" style="width:180px">
+												<input type="text" name="" required lay-verify="required" value="" autocomplete="off"
+												 class="layui-input layui-disabled" disabled>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<div class="layui-input-block" style="margin-left: 85px;">
+												<input type="checkbox" name="" title="只显示未完成" disabled>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item layui-form-text">
+										<div class="layui-inline">
+											<label class="layui-form-label">备注</label>
+											<div class="layui-input-inline" style="width: 565px;">
+												<textarea name="remarks" placeholder="请输入内容" class="layui-textarea layui-disabled"
+												 disabled></textarea>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<div class="layui-input-block" style="margin-left: 100px;">
+												<button id="submitBtn" class="layui-btn layui-btn-primary layui-btn-disabled" lay-submit
+												 lay-filter="codeSubmit" disabled=>保存</button>
+												<button type="reset" class="layui-btn layui-btn-primary layui-btn-disabled" disabled>重置</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="layui-col-md3">
+								<div class="image">
+									<p>工程计划完成日期：2018-08-22 12:00</p>
+									<div>
+										<img src="../../../img/3D3_03.png" alt="" />
+										<button type="button" class="layui-btn layui-btn-xs layui-btn-disabled" id="partImg"
+										 disabled> <i class="layui-icon">&#xe67c;</i></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="sheet">
+			{{# if(d.sheet === 1){ }}
+			<i class="iconfont icon-duigou" style="color:#007DDB"><i/>
+			{{# }else{ }}
+				<i class="iconfont icon-chacha" style="color:#ff0000"><i/>
+			{{# } }}
+		</script>
+		<script type="text/html" id="program">
+			{{# if(d.program === 1){ }}
+			<i class="iconfont icon-duigou" style="color:#007DDB"><i/>
+			{{# }else{ }}
+				<i class="iconfont icon-chacha" style="color:#ff0000"><i/>
+			{{# } }}
+		</script>
+		<script type="text/html" id="nc">
+			{{# if(d.nc === 1){ }}
+			<i class="iconfont icon-duigou" style="color:#007DDB"><i/>
+			{{# }else{ }}
+				<i class="iconfont icon-chacha" style="color:#ff0000"><i/>
+			{{# } }}
+		</script>
+		<script type="text/html" id="hardware">
+			{{# if(d.hardware === 1){ }}
+			<i class="iconfont icon-duigou" style="color:#007DDB"><i/>
+			{{# }else{ }}
+				<i class="iconfont icon-chacha" style="color:#ff0000"><i/>
+			{{# } }}
+		</script>
+		<script type="text/htmml" id="delete">
+			<a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del"><i class="layui-icon layui-icon-delete"></i></a>
+		</script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			var row;
+			layui.use(['jquery', 'form', 'layer', 'table', 'upload'], function() {
+				var $ = layui.jquery,
+					form = layui.form,
+					table = layui.table,
+					upload = layui.upload,
+					_layer = layui.layer,
+					layer = parent.layer == undefined ? laui.layer : parent.layer;
+				form.on('submit(codeSubmit)', function(data) {
+					console.log(data.elem)
+					console.log(data.form)
+					console.log(data.field)
+					return false;
+				});
+				$('.btn').mouseenter(function() {
+					var title = $(this).attr('data-title');
+					_layer.tips(title, this, {
+						tips: [1, '#1E82D2']
+					})
+				}).click(function() {
+					var layEvent = $(this).attr('data-event');
+					if(layEvent === 'feed') {
+						E.page('补料申请单', '../engineering/code/code-feed.html', '840px',
+							'425px')
+					} else if(layEvent === 'add') {
+						E.addHandler(this);
+					} else if(layEvent === 'add1') {
+						var _this = this;
+						E.tip(row, function() {
+							E.addHandler(_this);
+						})
+					} else if(layEvent === 'edit') {
+						E.tip(row, function() {
+							E.editHandler(_this);
+						})
+					} else if(layEvent === 'make') {
+						E.page('制作程式单', '../engineering/code/code-make.html', '1200px',
+							'625px')
+					} else if(layEvent === 'upload') {
+						E.page('上传程式单', '../engineering/code/code-upload.html', '600px',
+							'425px')
+					} else if(layEvent === 'copy') {
+						layer.open({
+							title: '旧单复制',
+							type: 2,
+							skin: 'layer-skin-class',
+							area: ['700px', '400px'],
+							content: '../engineering/code/code-copy.html',
+							btn: ['确定'],
+							yes: function(index, layero) {
+								//ajax
+								layer.close(index);
+							}
+						})
+					} else if(layEvent === 'print') {
+						E.showLoad('打印完成');
+					} else if(layEvent == 'cancle') {
+						$(this).attr('disabled', true).addClass('layui-btn-disabled').removeClass(
+								'layui-btn-blue').siblings('button')
+							.filter(
+								'.layui-btn-disabled').removeClass('layui-btn-disabled').addClass(
+								'layui-btn-blue').removeClass('layui-btn-primary').removeAttr(
+								'disabled')
+						$('.code-edit-form').find('input,textarea,button').attr(
+							'disabled', true).addClass('layui-disabled').addClass(
+							'layui-btn-disabled');
+						$('#submitBtn').addClass('layui-btn-disabled').removeClass(
+							'layui-btn-blue').attr(
+							'disabled', true).next().attr('disabled', true).addClass(
+							'layui-btn-disabled');
+						form.val('codeForm', row);
+					}
+				});
+				$('.aBtn').click(function() {
+					var layEvent = $(this).attr('data-event');
+					var title = $(this).attr('data-title');
+					var _this = this;
+					E.tip(row, function() {
+						if(layEvent === 'scrap') {
+							E.page(title, '../engineering/code/code-scrap.html', '880px',
+								'530px')
+						} else if(layEvent === 'work') {
+							E.page(title, '../engineering/code/code-work.html', '840px',
+								'485px');
+						} else if(layEvent === 'del') {
+							layer.open({
+								title: title,
+								type: 2,
+								resize: false,
+								skin: 'layer-skin-class',
+								area: ['1000px', '645px'],
+								content: '../engineering/code/code-del.html',
+								btn: ['删除'],
+								yes: function(index, layero) {
+									//									var body = layero.getChildFrame('body', index);
+									//									body.find('input').attr('checked',true);
+								}
+							})
+						} else if(layEvent === 'lathe') {
+							E.page(title, '../engineering/code/code-lathe.html', '660px',
+								'415px');
+						} else if(layEvent === 'send') {
+							E.page(title, '../engineering/code/code-send.html', '600px',
+								'375px');
+						} else if(layEvent === 'print') {
+							E.showLoad('打印完成');
+						} else if(layEvent === 'sign') {
+							if(title === '编程签名') {
+								layer.msg('签名成功', function() {
+									$(_this).attr('data-title', '取消签名').html('取消签名');
+								})
+							} else {
+								layer.msg('取消签名成功', function() {
+									$(_this).attr('data-title', '编程签名').html('编程签名');
+								})
+							}
+						} else if(layEvent === 'operation') {
+							E.page(title, '../engineering/code/code-operation.html', '1000px',
+								'545px');
+						}
+					});
+				})
+				table.render({
+					id: 'code_table',
+					elem: '#codeTable',
+					height: 300,
+					page: true,
+					url: '../../../json/code-list.json',
+					cols: [
+						[{
+								type: 'numbers',
+								title: '序号',
+								width: 65,
+								sort: true,
+								fixed: 'left'
+							},
+							{
+								field: 'part_num',
+								title: '零件编号',
+								fixed: 'left',
+								width: 95
+							}, {
+								field: 'part_name',
+								title: '零件名称',
+								minWidth: 95,
+							}, {
+								field: 'part_material',
+								title: '零件材质',
+								minWidth: 95
+							}, {
+								field: 'make_amount',
+								title: '制作数量',
+								minWidth: 95
+							}, {
+								field: 'aerobics_num',
+								title: '操机数',
+								minWidth: 75
+							}, {
+								field: 'manual_num',
+								title: '手工数',
+								minWidth: 75
+							}, {
+								field: 'sheet',
+								title: '开料单',
+								templet: '#sheet',
+								align: 'center',
+								width: 75
+							}, {
+								field: 'program',
+								templet: '#program',
+								title: '程式单',
+								align: 'center',
+								minWidth: 75
+							},
+							{
+								field: 'nc',
+								title: 'NC文件',
+								templet: '#nc',
+								align: 'center',
+								minWidth: 80
+							}, {
+								field: 'hardware',
+								title: '五金加工',
+								templet: '#hardware',
+								align: 'center',
+								minWidth: 95
+							}, {
+								field: 'up_machine_num',
+								title: '上机数',
+								minWidth: 75
+							}, {
+								field: 'down_machine_num',
+								title: '下机数',
+								minWidth: 75
+							},
+							{
+								field: 'coder',
+								title: '编程员',
+								minWidth: 75
+							},
+							{
+								field: 'code_time',
+								title: '编程时间',
+								minWidth: 95
+							},
+							{
+								field: 'register',
+								title: '登记人',
+								minWidth: 75
+							},
+							{
+								field: 'remarks',
+								title: '工程备注',
+								minWidth: 95
+							}, {
+								field: 'machine_select',
+								title: '指派机台',
+								minWidth: 95
+							}, {
+								field: 'pretrial_statement',
+								title: '项目预审说明',
+								minWidth: 120
+							}, {
+								field: 'handle_demand',
+								title: '后处理要求',
+								minWidth: 105
+							}, {
+								title: '操作',
+								fixed: 'right',
+								toolbar: '#delete',
+								width: 60
+							}
+						]
+					]
+				});
+				table.on('row(codeTable)', function(obj) {
+					obj.tr.addClass('tr-selected').siblings('tr').removeClass(
+						'tr-selected')
+					row = obj;
+				});
+				$('.moreBtn').click(function() {
+					event.preventDefault();
+					var title = $(this).attr('data-title');
+					layer.open({
+						title: title,
+						type: 2,
+						skin: 'layer-skin-class',
+						area: ['900px', '600px'],
+						content: '../layer/staff.html'
+					})
+				})
+				upload.render({
+					elem: '#partImg',
+					url: '/upload/',
+					done: function(res) {
+
+					},
+					error: function() {
+						//请求异常回调
+					}
+				});
+				table.on('tool(codeTable)', function(obj) {
+					var data = obj.data;
+					var layEvent = obj.event;
+					var tr = obj.tr;
+					if(layEvent === 'del') {
+						layer.confirm('您确定的删除行？', {
+								icon: 3,
+								title: '询问'
+							},
+							function(index) {
+								obj.del();
+								layer.msg('删除成功');
+							});
+					}
+				});
+				var E = (function(obj) {
+					obj.page = function(title, url, w, h) {
+						layer.open({
+							type: 2,
+							skin: 'layer-skin-class',
+							resize: false,
+							title: title,
+							area: [w, h],
+							content: url
+						});
+					}
+					obj.showLoad = function(msg) {
+						layer.load(1, {
+							time: 2 * 1000
+						})
+						setTimeout(function() {
+							layer.msg(msg);
+						}, 2 * 1000)
+					}
+					obj.addHandler = function(elem) {
+						$(elem).attr('disabled', true).removeClass('layui-btn-blue').addClass(
+								'layui-btn-disabled').siblings(
+								'button').last()
+							.removeAttr('disabled').removeClass(
+								'layui-btn-disabled').addClass('layui-btn-blue');
+						$('.code-edit-form').find('input,textarea,button').removeAttr(
+							'disabled').removeClass('layui-disabled').removeClass(
+							'layui-btn-disabled').val(null);
+						$('#submitBtn').removeClass('layui-btn-primary').addClass(
+							'layui-btn-blue').removeAttr(
+							'disabled').next().removeAttr('disabled');
+						form.render('checkbox');
+					}
+					obj.editHandler = function(elem) {
+						$(elem).attr('disabled', true).removeClass('layui-btn-blue').addClass(
+								'layui-btn-disabled').siblings(
+								'button').last()
+							.removeAttr('disabled').removeClass(
+								'layui-btn-disabled').addClass('layui-btn-blue');
+						$('.code-edit-form').find('input,textarea,button').removeAttr(
+							'disabled').removeClass('layui-disabled').removeClass(
+							'layui-btn-disabled');
+						$('#submitBtn').removeClass('layui-btn-primary').addClass(
+							'layui-btn-blue').removeAttr(
+							'disabled').next().removeAttr('disabled');
+						form.render('checkbox');
+					}
+					obj.tip = function(row, callback) {
+						if(!row) {
+							layer.msg('请选择行');
+							return;
+						}
+						if(callback !== undefined && typeof(callback) === 'function') {
+							callback();
+						}
+					}
+					return obj
+				})(E || {})
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/project.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid">
+			<div class="follow-up">
+				<div class="follow-up-form">
+					<div class="layui-table-caption">
+						<div>
+							基本详情
+						</div>
+						<div></div>
+					</div>
+					<form class="layui-form" action="">
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">生成单号</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" value="H180108012" required lay-verify="required" placeholder=""
+									 autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">订单组别</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" value="国际业务部" required lay-verify="required" placeholder="" autocomplete="off"
+									 class="layui-input layui-disabled">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">制作组别</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" value="数码组" required lay-verify="required" placeholder="" autocomplete="off"
+									 class="layui-input layui-disabled">
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">下单日期</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" value="2018-01-08 14:42" required lay-verify="required" placeholder=""
+									 autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">交货日期</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" value="2018-01-14 12:00" required lay-verify="required" placeholder=""
+									 autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">项目跟单</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" value="汪淼" required lay-verify="required" placeholder="" autocomplete="off"
+									 class="layui-input">
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">产品名称</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" value="耳机" required lay-verify="required" placeholder="" autocomplete="off"
+									 class="layui-input">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">制作级别</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" value="A" required lay-verify="required" placeholder="" autocomplete="off"
+									 class="layui-input">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">营业跟单</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" value="汪淼" required lay-verify="required" placeholder="" autocomplete="off"
+									 class="layui-input">
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item layui-form-text">
+							<label class="layui-form-label">备注</label>
+							<div class="layui-input-inline" style="width: 708px;">
+								<textarea name="" placeholder="1.此为重要客户第一笔单！！！！！！！！
+2.请按照最高品质按时按质完成，严格按照图纸要求制作。
+3.交期是7天。
+4.务必加急，此单必须按时交货。5.尽量提供物料报告" class="layui-textarea"></textarea>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="follow-up-table scroll">
+					<div class="layui-table-caption">
+						<div>
+							项目进度
+						</div>
+						<div></div>
+					</div>
+					<table class="layui-table layui-simple-table layui-form" lay-size="sm" lay-skin="line">
+						<colgroup>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col width="65">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>工序名称</th>
+								<th>工序排序</th>
+								<th>是否完成</th>
+								<th>完成日期</th>
+								<th>完成备注</th>
+								<th>登记人</th>
+								<th>登记日期</th>
+								<th>图片数量</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>项目</td>
+								<td>2018-01-08 08:18</td>
+								<td><input type="checkbox" name="" lay-skin="primary" checked lay-filter="complete"></td>
+								<td>2018-01-08 18:18</td>
+								<td></td>
+								<td>汪淼</td>
+								<td>2018-01-08 18:18</td>
+								<td>0</td>
+								<td>
+									<button class="layui-btn layui-btn-danger layui-btn-xs"><i class="layui-icon layui-icon-delete delBtn"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>项目</td>
+								<td>2018-01-08 08:18</td>
+								<td><input type="checkbox" name="" lay-skin="primary" checked lay-filter="complete"></td>
+								<td>2018-01-08 18:18</td>
+								<td></td>
+								<td>汪淼</td>
+								<td>2018-01-08 18:18</td>
+								<td>0</td>
+								<td>
+									<button class="layui-btn layui-btn-danger layui-btn-xs"><i class="layui-icon layui-icon-delete delBtn"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>项目</td>
+								<td>2018-01-08 08:18</td>
+								<td><input type="checkbox" name="" lay-skin="primary" checked lay-filter="complete"></td>
+								<td>2018-01-08 18:18</td>
+								<td></td>
+								<td>汪淼</td>
+								<td>2018-01-08 18:18</td>
+								<td>0</td>
+								<td>
+									<button class="layui-btn layui-btn-danger layui-btn-xs"><i class="layui-icon layui-icon-delete delBtn"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>项目</td>
+								<td>2018-01-08 08:18</td>
+								<td><input type="checkbox" name="" lay-skin="primary" lay-filter="complete"></td>
+								<td>2018-01-08 18:18</td>
+								<td></td>
+								<td>汪淼</td>
+								<td>2018-01-08 18:18</td>
+								<td>0</td>
+								<td>
+									<button class="layui-btn layui-btn-danger layui-btn-xs"><i class="layui-icon layui-icon-delete delBtn"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>项目</td>
+								<td>2018-01-08 08:18</td>
+								<td><input type="checkbox" name="" lay-skin="primary" lay-filter="complete"></td>
+								<td>2018-01-08 18:18</td>
+								<td></td>
+								<td>汪淼</td>
+								<td>2018-01-08 18:18</td>
+								<td>0</td>
+								<td>
+									<button class="layui-btn layui-btn-danger layui-btn-xs"><i class="layui-icon layui-icon-delete delBtn"></i></button>
+								</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<script src="../../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'layer'], function() {
+				var $ = layui.jquery,
+					_layer = layui.layer,
+					layer = parent.layer == undefined ? layui.layer : parent.layer,
+					form = layui.form;
+				form.on('checkbox(complete)', function(data) {
+					var checked = data.elem.checked
+					if(checked) {
+						data.elem.checked = false;
+					} else {
+						data.elem.checked = true;
+					}
+					form.render();
+					layer.msg('您没有权限进行操作！')
+
+				});
+
+				$('.moreBtn').click(function() {
+					event.preventDefault();
+					var title = $(this).attr('data-title');
+					layer.open({
+						title: title,
+						type: 2,
+						skin: 'layer-skin-class',
+						area: ['900px', '600'],
+						content: '../layer/staff.html'
+					})
+				})
+				$('.delBtn').click(function() {
+					var tr = $(this).parents('tr');
+					layer.confirm('您确定删除吗？', {
+						icon: 3,
+						title: '询问'
+					}, function(index) {
+						tr.remove();
+						layer.close(index);
+					})
+				})
+			});
+		</script>
+	</body>
+
+</html>

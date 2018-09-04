@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>数码五金加工</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../../css/engineering.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="导出" data-event="export"><i class="iconfont icon-daochu"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="搜索" data-event="search"><i class="layui-icon layui-icon-search"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="刷新" data-event="refresh"><i class="layui-icon layui-icon-refresh"></i></button>
+				</div>
+			</blockquote>
+			<blockquote class="layui-tools layui-tools-margin">
+				<div class="layui-form">
+					<div>
+						<div class="layui-inline">
+							<div class="layui-input-inline">
+								<input type="text" id="date-input1" name="" placeholder="下单日期" class="layui-input"
+								 autocomplete="off">
+							</div>
+							<div class="layui-input-inline">
+								<input type="text" id="date-input2" name="" placeholder="交货日期" class="layui-input"
+								 autocomplete="off">
+							</div>
+							<div class="layui-input-inline" style="width: auto;">
+								<div class="layui-search-input">
+									<select name="">
+										<option value="">关键字</option>
+										<option value="">零件编号</option>
+										<option value="">生产单号</option>
+									</select>
+									<input type="text" name="" placeholder="请输入关键字" autocomplete="off">
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr class="layui-bg-red" style="height: 2px;" />
+					<b><span class="layui-badge-dot" style="height: 12px;width: 12px;"></span>&#160;未提交</b>&#160;&#160;
+					<b><span class="layui-badge-dot layui-bg-green" style="height: 12px;width: 12px;"></span>&#160;已提交</b>&#160;&#160;
+					<b><span class="layui-badge-dot layui-bg-cyan" style="height: 12px;width: 12px;"></span>&#160;已审核</b>&#160;&#160;
+					<b><span class="layui-badge-dot layui-bg-blue" style="height: 12px;width: 12px;"></span>&#160;已发货</b>&#160;&#160;
+					<b><span class="layui-badge-dot layui-bg-orange" style="height: 12px;width: 12px;"></span>&#160;已暂停</b>&#160;&#160;
+				</div>
+			</blockquote>
+			<div class="layui-table-1">
+				<div class="layui-table-caption">
+					<div>数码五金加工记录表</div>
+					<div></div>
+				</div>
+				<div>
+					<table class="layui-simple-table" id="machiningTable" lay-filter="machiningTable"></table>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="status">
+			{{# if(d.status===0){ }}
+			<span class="layui-badge-dot" style="height: 12px;width: 12px;"></span> {{# }else
+			if(d.status===1){ }}
+			<span class="layui-badge-dot layui-bg-green" style="height: 12px;width: 12px;"></span>			{{# }else if(d.status==2){ }}
+			<span class="layui-badge-dot layui-bg-cyan" style="height: 12px;width: 12px;"></span>			{{# }else if(d.status==3){ }}
+			<span class="layui-badge-dot layui-bg-blue" style="height: 12px;width: 12px;"></span>			{{# }else if(d.status===4){ }}
+			<span class="layui-badge-dot layui-bg-orange" style="height: 12px;width: 12px;"></span>			{{# } }}
+		</script>
+		<script type="text/html" id="program">
+			{{# if(d.is_program===0){ }}
+			<i class="iconfont icon-duigou" style="color: #007DDB;"></i> {{# }else{ }}
+			<i class="iconfont icon-chacha" style="color: #ff0000;"></i> {{# } }}
+		</script>
+		<script type="text/html" id="cnc">
+			{{# if(d.is_cnc===0){ }}
+			<i class="iconfont icon-duigou" style="color: #007DDB;"></i> {{# }else{ }}
+			<i class="iconfont icon-chacha" style="color: #ff0000;"></i> {{# } }}
+		</script>
+		<script type="text/html">
+
+		</script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['layer', 'jquery', 'form', 'element', 'table', 'laydate'],
+				function() {
+					var layer = parent.layer == undefined ? layui.layer : parent.layer,
+						_layer = layui.layer,
+						form = layui.form,
+						$ = layui.jquery,
+						element = layui.element,
+						laydate = layui.laydate,
+						table = layui.table;
+					laydate.render({
+						elem: '#date-input1',
+						type: 'datetime'
+					})
+					laydate.render({
+						elem: '#date-input2',
+						type: 'datetime'
+					})
+					$('.btn').mouseenter(function() {
+						var title = $(this).attr('data-title');
+						_layer.tips(title, this, {
+							tips: [1, '#1E82D2']
+						})
+					}).click(function() {
+						var layEvent = $(this).data('event');
+						var title = $(this).data('title');
+						if(layEvent === 'export') {
+							layer.load(2, {
+								time: 2 * 1000
+							})
+							setTimeout(function() {
+								layer.msg('导出完成')
+							}, 2 * 1000)
+
+						} else if(layEvent === 'refresh') {
+							layer.load(2, {
+								time: 2 * 1000
+							})
+							setTimeout(function() {
+								layer.msg('刷新完成')
+							}, 2 * 1000)
+						}
+					})
+					$('.moreBtn').click(function() {
+						layer.open({
+							type: 2,
+							resize: false,
+							title: '选择用户',
+							skin: 'layer-skin-class',
+							area: ['900px', '620px'],
+							content: '../layer/staff.html'
+						})
+					})
+					table.on('tool(machiningTable)', function(obj) {
+						var layEvent = obj.event;
+						if(layEvent === 'detail') {
+							layer.open({
+								title: '零件操机记录',
+								type: 2,
+								skin: 'layer-skin-class',
+								resize: false,
+								area: ['1200px', '540px'],
+								content: '../engineering/machining/machining-operation.html'
+							})
+						}
+					})
+					table.render({
+						elem: '#machiningTable',
+						height: 500,
+						limits: [10, 15, 20],
+						url: '../../../json/machining-list.json',
+						page: true,
+						cols: [
+							[{
+									type: 'numbers',
+									width: 65,
+									title: '序号',
+									sort: true,
+									fixed: 'left'
+								}, {
+									field: 'status',
+									title: '状态',
+									align: 'center',
+									templet: '#status',
+									minWidth: 60
+								}, {
+									field: 'product_num',
+									title: '生产单号',
+									align: 'center',
+									width: 130
+								}, {
+									field: 'product_name',
+									title: '产品名称',
+									align: 'center',
+									minWidth: 90
+								}, {
+									field: 'parts_num',
+									title: '零件编号',
+									align: 'center',
+									width: 90
+								}, {
+									field: 'parts_name',
+									title: '零件名称',
+									align: 'center',
+									width: 90
+								}, {
+									field: 'parts_material',
+									title: '零件材质',
+									align: 'center',
+									minWidth: 90
+								}, {
+									field: 'delivery_time',
+									title: '交货日期',
+									align: 'center',
+									width: 145
+								},
+								{
+									field: 'amount',
+									title: '制作数量',
+									align: 'center',
+									minWidth: 90
+								}, {
+									field: 'operation_amount',
+									title: '操机数',
+									align: 'center',
+									width: 75
+								}, {
+									field: 'manual_amount',
+									title: '手工数',
+									align: 'center',
+									width: 75
+								}, {
+									field: 'is_program',
+									templet: '#program',
+									title: '程式单',
+									align: 'center',
+									width: 75
+								},
+								{
+									field: 'is_cnc',
+									title: 'CNC文件',
+									templet: '#cnc',
+									align: 'center',
+									minWidth: 90
+								}, {
+									field: 'up_amount',
+									title: '上机数',
+									align: 'center',
+									width: 75
+								}, {
+									field: 'down_amount',
+									title: '下机数',
+									align: 'center',
+									width: 75
+								}, {
+									field: 'coder',
+									title: '编程员',
+									width: 75
+								}, {
+									field: 'code_time',
+									title: '编程时间',
+									align: 'center',
+									width: 145
+								}, {
+									field: 'regist_person',
+									title: '登记人',
+									align: 'center',
+									width: 75
+								}, {
+									field: 'remarks',
+									title: '工程备注',
+									minWidth: 90
+								}, {
+									field: 'project_examine',
+									title: '项目预审说明',
+									minWidth: 135
+								}, {
+									field: 'handle_demand',
+									title: '后期处理要求',
+									minWidth: 135
+								}, {
+									title: '操作',
+									width: 60,
+									fixed: 'right',
+									align: 'center',
+									toolbar: '<div><button title="查看操机记录" class="layui-btn layui-btn-normal layui-btn-xs" lay-event="detail"><i class="iconfont icon-chakan"></i></button></div>'
+								}
+							]
+						]
+					});
+				});
+		</script>
+	</body>
+
+</html>

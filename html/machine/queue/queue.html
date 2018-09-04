@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>操机加工队列</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../../plugins/mCustomScrollbar/css/jquery.mCustomScrollbar.css"
+		/>
+		<link rel="stylesheet" href="../../../css/machine.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid queue">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="上机登记" data-event="up"><i class="iconfont icon-msnui-state-poweron"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="换机" data-event="change"><i class="iconfont icon-plus-transfer"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="NC程序下载" data-event="program"><i class="layui-icon layui-icon-app"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="下载程序单" data-event="download"><i class="iconfont icon-download"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="高光文件下载" data-event="light"><i class="iconfont icon-jinguangdeng"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="刀具配置" data-event="config"><i class="layui-icon layui-icon-set"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="补料申请" data-event="feed"><i class="layui-icon layui-icon-survey"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="搜索" data-event="search"><i class="layui-icon layui-icon-search"></i></button>
+				</div>
+			</blockquote>
+			<div class="layui-row layui-col-space10">
+				<div class="layui-col-md10">
+					<blockquote class="layui-tools layui-tools-margin">
+						<div class="layui-row layui-col-space10">
+							<div class="layui-col-md8">
+								<div class="layui-form left">
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<div class="layui-input-inline">
+												<select name="">
+													<option>制作组别</option>
+													<option value="0">全部</option>
+													<option value="DJ">机壳组</option>
+													<option value="HJJ">五金组</option>
+													<option value="ZD">数码组</option>
+												</select>
+											</div>
+											<div class="layui-input-inline">
+												<select name="">
+													<option>配刀状态</option>
+													<option value="0">全部</option>
+													<option value="DJ">未配</option>
+													<option value="HJJ">已配</option>
+												</select>
+											</div>
+											<div class="layui-input-inline">
+												<select name="">
+													<option>机台类型</option>
+													<option value="0">CNC</option>
+													<option value="DJ">佳铁</option>
+													<option value="HJJ">精雕</option>
+												</select>
+											</div>
+											<div class="layui-input-inline">
+												<select name="">
+													<option>完工状态</option>
+													<option value="0">全部</option>
+													<option value="DJ">未上机</option>
+													<option value="HJJ">已上机未下机</option>
+													<option value="DJ">已下机</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-input-inline">
+											<input type="text" name="" id="date-input1" placeholder="要求完成日期" class="layui-input" autocomplete="off">
+										</div>
+										<div class="layui-inline">
+											<div class="layui-input-inline">
+												<input type="text" name="" id="date-input2" placeholder="工程出单" class="layui-input" autocomplete="off">
+											</div>
+											<div class="layui-input-inline">
+												<input type="text" name="" id="date-input3" placeholder="上机时间" class="layui-input">
+											</div>
+											<div class="layui-input-inline">
+												<input type="text" name="" placeholder="生产单号" class="layui-input">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-md4">
+								<div class="btns">
+									<ul>
+										<li>
+											<a data-event="insert" href="javascript:;">紧急插单</a>
+										</li>
+										<li>
+											<a data-event="finish" href="javascript:;">完工下机登记</a>
+										</li>
+										<li>
+											<a data-event="handover" href="javascript:;">接班登记</a>
+										</li>
+										<li>
+											<a data-event="await" href="javascript:;">待装机</a>
+										</li>
+										<li>
+											<a data-event="print" href="javascript:;">配刀打印</a>
+										</li>
+										<li>
+											<a data-event="transfer" href="javascript:;">转分机登记</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</blockquote>
+				</div>
+				<div class="layui-col-md2">
+					<div class="layui-image" style="margin-top: 10px;">
+						<img src="../../../img/3D3_03.png" height="100" />
+					</div>
+				</div>
+			</div>
+			<hr class="layui-bg-green" style="height: 3px;" />
+			<div class="layui-row layui-col-space10">
+				<div class="layui-col-md9">
+					<div class="layui-table-1">
+						<div class="layui-table-caption">
+							<div>操机加工队列</div>
+							<div></div>
+						</div>
+						<div>
+							<table class="layui-simple-table" id="queueTable" lay-filter="queueTable"></table>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md3 knife">
+					<div class="list">
+						<h2>加工详情</h2>
+						<div>
+							<div class="head">
+								<span>加工面</span><span>刀具</span>
+								<span>刃长</span><span>夹长</span>
+							</div>
+							<div class="body scroll">
+								<ul>
+									<li><span>侧面</span><span>DJD006</span><span>80cm</span><span>25cm</span></li>
+									<li><span>侧面</span><span>DJD006</span><span>80cm</span><span>25cm</span></li>
+									<li><span>侧面</span><span>DJD006</span><span>80cm</span><span>25cm</span></li>
+									<li><span>侧面</span><span>DJD006</span><span>80cm</span><span>25cm</span></li>
+									<li><span>侧面</span><span>DJD006</span><span>80cm</span><span>25cm</span></li>
+									<li><span>侧面</span><span>DJD006</span><span>80cm</span><span>25cm</span></li>
+									<li><span>侧面</span><span>DJD006</span><span>80cm</span><span>25cm</span></li>
+									<li><span>侧面</span><span>DJD006</span><span>80cm</span><span>25cm</span></li>
+									<li><span>侧面</span><span>DJD006</span><span>80cm</span><span>25cm</span></li>
+									<li><span>侧面</span><span>DJD006</span><span>80cm</span><span>25cm</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="open">
+			{{# if(d.is_open === 1){ }}
+			<i class="iconfont icon-duigou" style="color:#007DDB"><i/>
+			{{# }else{ }}
+				<i class="iconfont icon-chacha" style="color:#ff0000"><i/>
+			{{# } }}
+		</script>
+		<script type="text/html" id="knife">
+			{{# if(d.knife === 1){ }}
+			<i class="iconfont icon-duigou" style="color:#007DDB"><i/>
+			{{# }else{ }}
+				<i class="iconfont icon-chacha" style="color:#ff0000"><i/>
+			{{# } }}
+		</script>
+		<script type="text/html" id="operation">
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon layui-icon-delete"></i></a>
+		</script>
+		<script src="../../../plugins/jquery/jquery-3.2.1.min.js" type="text/javascript"
+		 charset="utf-8"></script>
+		<script src="../../../plugins/mCustomScrollbar/js/jquery.mCustomScrollbar.min.js"
+		 type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			var row;
+			layui.use(['layer', 'jquery', 'form', 'element', 'table', 'laydate'],
+				function() {
+					var layer = parent.layer == undefined ? layui.layer : parent.layer,
+						_layer = layui.layer,
+						form = layui.form,
+						$ = layui.jquery,
+						laydate = layui.laydate,
+						table = layui.table;
+					laydate.render({
+						elem: '#date-input1',
+						type: 'datetime',
+						range: true,
+					})
+					laydate.render({
+						elem: '#date-input2',
+						type: 'datetime',
+						range: true,
+					})
+					laydate.render({
+						elem: '#date-input3',
+						type: 'datetime',
+						range: true,
+					})
+					$('.btn').mouseenter(function() {
+						var title = $(this).attr('data-title');
+						_layer.tips(title, this, {
+							tips: [1, '#1E82D2']
+						})
+					}).click(function() {
+						var layEvent = $(this).data('event');
+						var title = $(this).data('title');
+						if(layEvent === 'up') {
+							E.tip(row, function() {
+								layer.prompt({
+									formType: 0,
+									title: '请填写加工数量',
+								}, function(value, index, elem) {
+									E.showLoad('上机登记成功');
+									layer.close(index);
+								});
+							});
+						} else if(layEvent === 'change') {
+							E.tip(row, function() {
+								E.page(title, '../machine/queue/queue-change-machine.html',
+									'400px',
+									'235px')
+							})
+						} else if(layEvent === 'program') {
+							E.tip(row, function() {
+								E.showLoad('下载成功');
+							})
+						} else if(layEvent === 'download') {
+							E.tip(row, function() {
+								E.showLoad('下载成功');
+							})
+						} else if(layEvent === 'light') {
+							E.tip(row, function() {
+								E.showLoad('下载成功');
+							})
+						} else if(layEvent === 'config') {
+							E.tip(row, function() {
+								E.page(title, '../machine/queue/queue-knife-config.html', '820px',
+									'300px');
+							})
+						} else if(layEvent === 'feed') {
+							E.page(title, '../machine/queue/queue-feed-sheet.html', '870px',
+								'670px');
+						}
+					});
+					$('.moreBtn').click(function() {
+						event.preventDefault();
+						layer.open({
+							title: '请选择部门',
+							type: 2,
+							skin: 'layer-skin-class',
+							area: ['800px', '610px'],
+							resiez: false,
+							content: '../layer/department.html'
+						})
+					});
+					$('.btns').on('click', 'a', function() {
+						var title = $(this).text();
+						var layEvent = $(this).data('event');
+						if(layEvent === 'insert') {
+							E.page(title, '../machine/queue/queue-inset-sheet.html', '1300px',
+								'810px')
+						} else if(layEvent === 'finish') {
+							layer.confirm('你是否确定当前队列加工产品已经全部完成（如未完成需要转到其它机器继续加工请使用【转机下机登记】下机）？', {
+								title: '询问',
+								icon: 3
+							}, function(index) {
+								E.page(title, '../machine/queue/queue-down-machine.html', '700px',
+									'580px')
+								layer.close(index);
+							})
+						} else if(layEvent === 'handover') {
+							E.page(title, '../machine/queue/queue-handover.html', '750px',
+								'500px')
+						} else if(layEvent === 'await') {
+							layer.confirm('是否确定将当前机台【TEST】加工的零件【09XR01】转入待机状态?', {
+								title: '询问',
+								icon: 3
+							}, function(index) {
+								layer.msg('转待机成功')
+							})
+						} else if(layEvent === 'print') {
+							E.showLoad('打印成功');
+						} else if(layEvent === 'transfer') {
+							layer.confirm('你是否确定当前队列未全部完成需要分转到其它机器继续加工(如果全部完成,请执行【完工下机登记】）？', {
+								title: '询问',
+								icon: 3
+							}, function(index) {
+								E.page(title, '../machine/queue/queue-transfer-machine.html',
+									'1000px',
+									'755px')
+								layer.close(index);
+							})
+						}
+					});
+					table.render({
+						elem: '#queueTable',
+						height: 495,
+						limits: [10, 15, 20],
+						url: '../../../json/machine-queue-list.json',
+						page: true,
+						cols: [
+							[{
+									type: 'numbers',
+									width: 65,
+									title: '序号',
+									sort: true,
+									fixed: 'left'
+								}, {
+									field: 'product_num',
+									title: '生产单号',
+									fixed: 'left',
+									align: 'center',
+									width: 120
+								}, {
+									field: 'goods',
+									title: '产品名称',
+									fixed: 'left',
+									minWidth: 130
+								}, {
+									field: 'group',
+									align: 'center',
+									fixed: 'left',
+									title: '制作组别',
+									width: 90
+								}, {
+									field: 'rank',
+									align: 'center',
+									title: '制作级别',
+									width: 90
+								}, {
+									field: 'part_num',
+									align: 'center',
+									title: '零件编号',
+									width: 90
+								}, {
+									field: 'part_material',
+									title: '零件材质',
+									align: 'center',
+									width: 90
+								},
+								{
+									field: 'size',
+									title: '开料尺寸',
+									align: 'center',
+									width: 90
+								}, {
+									field: 'coder',
+									align: 'center',
+									title: '工程编程',
+									width: 90
+								}, {
+									field: 'issue',
+									title: '工程出单时间',
+									minWidth: 90
+								}, {
+									field: 'machine_type',
+									title: '机台类型',
+									width: 90
+
+								}, {
+									field: 'machine_num',
+									minWidth: 90,
+									title: '机台编号'
+								}, {
+									field: 'await_amount',
+									minWidth: 90,
+									title: '待机数量'
+								}, {
+									field: 'action_times',
+									minWidth: 90,
+									title: '执行次数'
+								}, {
+									field: 'delivery_time',
+									minWidth: 130,
+									title: '要求完成时间'
+								}, {
+									field: 'is_open',
+									minWidth: 60,
+									templet: '#open',
+									align: 'center',
+									title: '开料'
+								}, {
+									field: 'up_time',
+									minWidth: 90,
+									title: '上机时间'
+								}, {
+									field: 'over_times',
+									minWidth: 90,
+									align: 'center',
+									title: '完工次数'
+								}, {
+									field: 'down_time',
+									minWidth: 90,
+									title: '下机时间'
+								}, {
+									field: 'down_person',
+									minWidth: 75,
+									title: '下机人'
+								}, {
+									field: 'last_register',
+									minWidth: 100,
+									title: '最后登记人'
+								}, {
+									field: 'last_time',
+									minWidth: 120,
+									title: '最后登记时间'
+								}, {
+									field: 'knife',
+									minWidth: 60,
+									align: 'center',
+									templet: '#knife',
+									title: '刀具'
+								}, {
+									field: 'config_time',
+									width: 120,
+									title: '刀具配置时间'
+								}, {
+									field: 'regist_person',
+									minWidth: 75,
+									title: '登记人'
+								}, {
+									field: 'remarks',
+									minWidth: 90,
+									title: '工程备注'
+								}, {
+									title: '操作',
+									width: 60,
+									fixed: 'right',
+									toolbar: '#operation'
+								}
+							]
+						]
+					});
+					table.on('row(queueTable)', function(obj) {
+						obj.tr.addClass('tr-selected').siblings('tr').removeClass(
+							'tr-selected')
+						row = obj;
+					});
+					table.on('tool(queueTable)', function(obj) {
+						var data = obj.data;
+						var layEvent = obj.event;
+						var tr = obj.tr;
+						if(layEvent === 'del') {
+							layer.confirm('您确定删除吗?', {
+								icon: 3,
+								title: '询问'
+							}, function(index) {
+								obj.del();
+								layer.msg('删除成功');
+							})
+						}
+					});
+					//美化滚动条
+					$.mCustomScrollbar.defaults.axis = "y";
+					$(".scroll").mCustomScrollbar({
+						theme: "minimal-dark"
+					});
+					var E = (function(obj) {
+						obj.page = function(title, url, w, h) {
+							layer.open({
+								type: 2,
+								skin: 'layer-skin-class',
+								resize: false,
+								title: title,
+								area: [w, h],
+								content: url
+							});
+						}
+						obj.showLoad = function(msg) {
+							layer.load(1, {
+								time: 2 * 1000
+							})
+							setTimeout(function() {
+								layer.msg(msg);
+							}, 2 * 1000)
+						}
+						obj.tip = function(row, callback) {
+							if(!row) {
+								layer.msg('请选择行');
+								return;
+							}
+							if(callback !== undefined && typeof(callback) === 'function') {
+								callback();
+							}
+						}
+						return obj
+					})(E || {})
+				});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>制作程式单</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../../plugins/mCustomScrollbar/css/jquery.mCustomScrollbar.css"
+		/>
+		<link rel="stylesheet" href="../../../css/engineering.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="code-make">
+			<div class="col left">
+				<h2>加工开料单参数</h2>
+				<div>
+					<div class="info">
+						<ul>
+							<li>
+								<span>生产单号：H180629016</span><span>零件编号：09YZ02</span>
+							</li>
+							<li>
+								<span>零件材质：POM</span><span>制作数量：5</span>
+							</li>
+							<li><span>工程备注:尽快完成</span></li>
+						</ul>
+					</div>
+					<div class="layui-form">
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label" style="width:60px">机器类型</label>
+								<div class="layui-input-inline" style="width:150px">
+									<select name="city" lay-verify="">
+										<option value="">CNC</option>
+										<option value="010">精雕</option>
+										<option value="021">佳铁</option>
+										<option value="0571">车床</option>
+									</select>
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label" style="width:60px">开料尺寸</label>
+								<div class="layui-input-inline" style="width:43px">
+									<input type="text" name="" required lay-verify="required" placeholder="长" value="" autocomplete="off"
+									 class="layui-input">
+								</div>
+								<div class="layui-input-inline" style="width:43px">
+									<input type="text" name="" required lay-verify="required" placeholder="宽" value="" autocomplete="off"
+									 class="layui-input">
+								</div>
+								<div class="layui-input-inline" style="width:43px">
+									<input type="text" name="" required lay-verify="required" placeholder="高" value="" autocomplete="off"
+									 class="layui-input">
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label" style="width:60px">执行次数</label>
+								<div class="layui-input-inline" style="width:150px">
+									<input type="text" name="" required lay-verify="required" value="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<div class="layui-input-block" style="margin-left: 8px;">
+									<input type="checkbox" name="" title="生成开料单" checked>
+									<span class="layui-form-mid text">已生成开料单：0</span>
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label" style="width:60px">开料备注</label>
+								<div class="layui-input-inline" style="width: 250px;">
+									<textarea name="" placeholder="请输入内容" class="layui-textarea"></textarea>
+								</div>
+							</div>
+							<div class="layui-inline">
+								<img src="../../img/3D3_03.png" />
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-input-block" style="margin-left: 90px;">
+								<button class="layui-btn layui-btn-blue layui-btn-sm" lay-submit lay-filter="">保存</button>
+								<button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+							</div>
+						</div>
+					</div>
+					<div class="explain">
+						<h3>开料单生成说明:</h3>
+						<ul>
+							<li>保存开料数据：选择【生成开料单】则生成;否则不生成</li>
+							<li>加工机台指派新增保存:选择【生成开料单】则生成;否则不生成成</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col right">
+				<h2>加工指派单</h2>
+				<div class="table scroll">
+					<table class="layui-table layui-simple-table" lay-skin="line" lay-size="sm">
+						<colgroup>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>机台编号</th>
+								<th>加工数量</th>
+								<th>执行次数</th>
+								<th>预计工时</th>
+								<th>完成时间</th>
+								<th>加工备注</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td data-field="num">HG4565</td>
+								<td data-field="amount">9</td>
+								<td data-field="times">8</td>
+								<td data-field="time">8</td>
+								<td data-field="datetime">2018-08-15 12:00:00</td>
+								<td data-field="remarks">这是加工注备注</td>
+							</tr>
+							<tr>
+								<td data-field="num">HG4565</td>
+								<td data-field="amount">9</td>
+								<td data-field="times">8</td>
+								<td data-field="time">8</td>
+								<td data-field="datetime">2018-08-15 12:00:00</td>
+								<td data-field="remarks">这是加工注备注</td>
+							</tr>
+							<tr>
+								<td data-field="num">HG4565</td>
+								<td data-field="amount">9</td>
+								<td data-field="times">8</td>
+								<td data-field="time">8</td>
+								<td data-field="datetime">2018-08-15 12:00:00</td>
+								<td data-field="remarks">这是加工注备注</td>
+							</tr>
+							<tr>
+								<td data-field="num">HG4565</td>
+								<td data-field="amount">9</td>
+								<td data-field="times">8</td>
+								<td data-field="time">8</td>
+								<td data-field="datetime">2018-08-15 12:00:00</td>
+								<td data-field="remarks">这是加工注备注</td>
+							</tr>
+							<tr>
+								<td data-field="num">HG4565</td>
+								<td data-field="amount">9</td>
+								<td data-field="times">8</td>
+								<td data-field="time">8</td>
+								<td data-field="datetime">2018-08-15 12:00:00</td>
+								<td data-field="remarks">这是加工注备注</td>
+							</tr>
+							<tr>
+								<td data-field="num">HG4565</td>
+								<td data-field="amount">9</td>
+								<td data-field="times">8</td>
+								<td data-field="time">8</td>
+								<td data-field="datetime">2018-08-15 12:00:00</td>
+								<td data-field="remarks">这是加工注备注</td>
+							</tr>
+							<tr>
+								<td data-field="num">HG4565</td>
+								<td data-field="amount">9</td>
+								<td data-field="times">8</td>
+								<td data-field="time">8</td>
+								<td data-field="datetime">2018-08-15 12:00:00</td>
+								<td data-field="remarks">这是加工注备注</td>
+							</tr>
+							<tr>
+								<td data-field="num">HG4565</td>
+								<td data-field="amount">9</td>
+								<td data-field="times">8</td>
+								<td data-field="time">8</td>
+								<td data-field="datetime">2018-08-15 12:00:00</td>
+								<td data-field="remarks">这是加工注备注</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="layui-btn-container">
+					<div class="layui-btn-group">
+						<button class="layui-btn layui-btn-sm" data-event="add"><i class="layui-icon layui-icon-add-1"></i></button>
+						<button class="layui-btn layui-btn-sm" data-event="edit"><i class="layui-icon layui-icon-edit"></i></button>
+						<button class="layui-btn layui-btn-sm" data-event="del"><i class="layui-icon layui-icon-delete"></i></button>
+						<button class="layui-btn layui-btn-sm layui-btn-disabled " data-event="save" disabled><i class="iconfont icon-baocun"></i></button>
+						<button class="layui-btn layui-btn-sm layui-btn-disabled" data-event="cancle" disabled><i class="iconfont icon-chexiao"></i></button>
+					</div>
+				</div>
+				<div class="layui-form" lay-filter="machineForm">
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label" style="width: 60px;">机台编号</label>
+							<div class="layui-input-inline" style="max-width: 140px;">
+								<div class="layui-btn-input">
+									<input type="" name="num" id="" value="" disabled class="layui-disabled" />
+									<button class="moreBtn layui-disabled" disabled><i class="layui-icon layui-icon-more"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label" style="width: 60px;">加工数量</label>
+							<div class="layui-input-inline" style="width: 45px;">
+								<input type="text" name="amount" value="" required lay-verify="required" placeholder="" autocomplete="off"
+								 class="layui-input layui-disabled" disabled>
+							</div>
+						</div>
+						<a class="layui-form-mid" href="javascript:;" data-event="info">查看当前机台信息</a>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label" style="width: 60px;">加工工时</label>
+							<div class="layui-input-inline" style="width: 140px;">
+								<input type="text" name="time" value="" required lay-verify="required" placeholder="" autocomplete="off"
+								 class="layui-input layui-disabled" disabled>
+							</div>
+							<div class="layui-form-mid layui-word-aux">【分钟】</div>
+						</div>
+						<a class="layui-form-mid" href="javascript:;" data-event="platoon">查看当前机台排单</a>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label" style="width: 60px;">完成时间</label>
+							<div class="layui-input-inline" style="width: 140px;">
+								<input type="text" name="datetime" value="" id="date-input" required lay-verify="required"
+								 placeholder="" autocomplete="off" class="layui-input layui-disabled" disabled>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label" style="width: 60px;">执行次数</label>
+							<div class="layui-input-inline" style="width: 45px;">
+								<input type="text" name="times" value="" required lay-verify="required" placeholder="" autocomplete="off"
+								 class="layui-input layui-disabled" disabled>
+							</div>
+						</div>
+						<a class="layui-form-mid" href="javascript:;" data-event="status">查看当前机台状态</a>
+					</div>
+					<div class="layui-form-item layui-form-text">
+						<label class="layui-form-label" style="width: 60px;">加工备注</label>
+						<div class="layui-input-inline" style="width: 300px;">
+							<textarea name="remarks" placeholder="请输入内容" class="layui-textarea layui-disabled" disabled></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../../plugins/jquery/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../plugins/mCustomScrollbar/js/jquery.mCustomScrollbar.min.js" type="text/javascript"
+		 charset="utf-8"></script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			var obj;
+			var row;
+			layui.use(['jquery', 'form', 'element', 'layer', 'laydate'], function() {
+				var form = layui.form,
+					$ = layui.jquery,
+					layer = parent.layer == undefined ? layui.layer : parent.layer,
+					element = layui.element,
+					laydate = layui.laydate;
+				laydate.render({
+					elem: '#date-input',
+					type: 'datetime',
+					isValue: true
+				})
+				$('.table .layui-table').on('click', 'tr', function() {
+					$(this).addClass('tr-selected').siblings().removeClass('tr-selected');
+					row = $(this);
+					obj = {};
+					$(this).children('td').each(function() {
+						var key = $(this).attr('data-field');
+						obj[key] = $(this).html();
+					})
+					form.val('machineForm', obj);
+				})
+				$('.col.right').on('click', 'a', function() {
+					if(!obj) {
+						layer.msg("请选择机台");
+						return;
+					}
+					var layEvent = $(this).attr('data-event');
+					if(layEvent === 'platoon') {
+						layer.open({
+							title: '当前机台排单',
+							type: 2,
+							skin: 'layer-skin-class',
+							area: ['1400px', '570px'],
+							content: '../layer/machine-platoon.html'
+						})
+					} else if(layEvent === 'info') {
+						layer.open({
+							title: '当前机台信息',
+							type: 2,
+							skin: 'layer-skin-class',
+							area: ['750px', '310px'],
+							content: '../layer/machine-info.html'
+						})
+					} else if(layEvent === 'status') {
+						layer.open({
+							title: '当前机台信息',
+							type: 2,
+							skin: 'layer-skin-class',
+							area: ['1200px', '645px'],
+							content: '../layer/machine-status.html'
+						})
+					}
+				})
+				$('.moreBtn').click(function() {
+					layer.open({
+						title: '选择机台',
+						type: 2,
+						skin: 'layer-skin-class',
+						area: ['1200px', '650px'],
+						content: '../layer/machine.html'
+					})
+				})
+				$('.col.right').on('click', '.layui-btn', function() {
+					var layEvent = $(this).attr('data-event');
+					if(layEvent === 'add') {
+						$(this).siblings('.layui-btn').removeAttr('disabled').removeClass(
+							'layui-btn-disabled');
+						$('.col.right .layui-form').find('input,textarea,button').val(null).removeAttr(
+							'disabled').removeClass('layui-disabled')
+					} else if(layEvent === 'edit') {
+						if(!obj) {
+							layer.msg("请选择机台");
+							return;
+						}
+						$(this).siblings('.layui-btn').removeAttr('disabled').removeClass(
+							'layui-btn-disabled');
+						$('.col.right .layui-form').find('input,textarea,button').removeAttr(
+							'disabled').removeClass('layui-disabled')
+					} else if(layEvent === 'del') {
+						layer.confirm('您确定删除吗?', {
+							icon: 3,
+							title: '询问'
+						}, function(index) {
+							row.remove();
+							//ajax
+							layer.close(index);
+						})
+					} else if(layEvent === 'save') {
+						//ajax
+						$(this).attr('disabled', true).addClass('layui-btn-disabled').next(
+							'.layui-btn').attr('disabled', true).addClass(
+							'layui-btn-disabled');
+						$('.col.right .layui-form').find('input,textarea,button').attr(
+							'disabled', true).addClass('layui-disabled');
+					} else if(layEvent === 'cancle') {
+						form.val('machineForm', obj);
+						$(this).attr('disabled', true).addClass('layui-btn-disabled').prev('.layui-btn')
+							.attr('disabled', true).addClass('layui-btn-disabled');
+						$('.col.right .layui-form').find('input,textarea,button').attr(
+							'disabled', true).addClass('layui-disabled');
+					}
+				})
+				//美化滚动条
+				$.mCustomScrollbar.defaults.axis = "y";
+				$(".scroll").mCustomScrollbar({
+					theme: "minimal-dark"
+				});
+			});
+		</script>
+	</body>
+
+</html>

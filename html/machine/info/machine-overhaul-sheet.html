@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>检修停用申请</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../../css/machine.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<form class="layui-form info" action="">
+			<div class="layui-fluid" style="padding-top: 10px;padding-bottom: 10px;">
+				<div class="layui-row">
+					<div class="layui-col-md6">
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label" style="width:60px">检修时间</label>
+								<div class="layui-input-inline" style="width:150px">
+									<input type="text" id="date-input2" class="layui-input" value="" required lay-verify="required"
+									 autocomplete="off">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label" style="width:60px">检修次数</label>
+								<div class="layui-input-inline" style="width:150px">
+									<input type="text" class="layui-input" value="1" required lay-verify="required|number">
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item layui-form-text">
+							<label class="layui-form-label" style="width:60px">备注</label>
+							<div class="layui-input-inline" style="width: 415px">
+								<textarea name="" placeholder="请输入内容" class="layui-textarea"></textarea>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label" style="width:60px">操作时间</label>
+								<div class="layui-input-inline" style="width:150px">
+									<input type="text" id="date-input1" class="layui-input layui-disabled" value="" required
+									 lay-verify="required" disabled="" autocomplete="off">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label" style="width:60px">操作类型</label>
+								<div class="layui-input-inline" style="width:150px">
+									<select name="" disabled="">
+										<option value="DJ" selected="">检修停用</option>
+										<option value="HJJ">机台闲置</option>
+										<option value="ZD">正在制作</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label" style="width:60px">机台编号</label>
+								<div class="layui-input-inline" style="width:150px">
+									<input type="text" class="layui-input layui-disabled" value="JKJD002" required lay-verify="required"
+									 disabled="">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label" style="width:60px">操作人</label>
+								<div class="layui-input-inline" style="width:150px">
+									<input type="text" class="layui-input layui-disabled" value="汪淼" required lay-verify="required"
+									 disabled="" autocomplete="off">
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="layui-col-md6">
+						<div class="record">
+							<div class="layui-table-caption">
+								<div>机台维修记录</div>
+								<div></div>
+							</div>
+							<div>
+								<table class="layui-table layui-simple-table">
+									<colgroup>
+										<col>
+										<col>
+										<col>
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>检修次数</th>
+											<th>开始时间</th>
+											<th>结束数据</th>
+											<th>检修工时</th>
+										</tr>
+									</thead>
+									<tbody id="tbody-view"></tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-layer-btns">
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<button class="layui-btn layui-btn-blue" lay-submit>保存</button>
+			</div>
+		</form>
+		<script type="text/html" id="tpl">
+			{{# for(var i=0;i
+			<5;i++){ }} <tr>
+				<td>{{i+1}}</td>
+				<td>2018-09-03 10:06</td>
+				<td>2018-09-04 12:06</td>
+				<td>26</td>
+				</tr>
+				{{# } }}
+		</script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'layer', 'laydate', 'util', 'laytpl'], function() {
+				var $ = layui.jquery,
+					laydate = layui.laydate,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					form = layui.form,
+					laytpl = layui.laytpl,
+					util = layui.util;
+				laydate.render({
+					elem: '#date-input1',
+					position: 'fixed',
+					format: 'yyyy-MM-dd HH:mm',
+					isValue: true,
+					value: util.toDateString(new Date().getTime(), 'yyyy-MM-dd HH:mm')
+				})
+				laydate.render({
+					elem: '#date-input2',
+					position: 'fixed',
+					isValue: true,
+					format: 'yyyy-MM-dd HH:mm',
+					isValue: true,
+					value: util.toDateString(new Date().getTime(), 'yyyy-MM-dd HH:mm')
+				})
+				var getTpl = tpl.innerHTML
+
+				laytpl(getTpl).render({}, function(html) {
+					$('#tbody-view').html(html);
+				});
+			});
+		</script>
+	</body>
+
+</html>

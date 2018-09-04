@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>机壳加工队列补料申请单</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/machine.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<form class="layui-form" action="">
+			<div class="queue">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="panel">
+								<h2 style="background-color: #00CFAD">插单相关信息</h2>
+								<div style="border-color: #00CFAD;">
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:60px">加工数量</label>
+											<div class="layui-input-inline" style="width:150px">
+												<input type="text" name="" required lay-verify="required|number" value="" autocomplete="off"
+												 class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:60px">插单零件</label>
+											<div class="layui-btn-input" style="max-width: 150px;">
+												<input type="text" name="" id="" value="" placeholder="选择插单零件" />
+												<button data-event="material" class="moreBtn"><i class="layui-icon layui-icon-more moreBtn"></i></button>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:60px">插单订单</label>
+											<div class="layui-input-inline" style="width:150px">
+												<input type="text" name="" required lay-verify="required" value="H180629009" autocomplete="off"
+												 class="layui-input layui-disabled" disabled="">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:60px">执行次数</label>
+											<div class="layui-input-inline" style="width:150px">
+												<input type="text" name="" required lay-verify="required|number" value="" autocomplete="off"
+												 class="layui-input">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:60px">预计工时</label>
+											<div class="layui-input-inline" style="width:150px">
+												<input type="text" name="" required lay-verify="required|number" value="" autocomplete="off"
+												 class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:60px">完成时间</label>
+											<div class="layui-input-inline" style="width:150px">
+												<input type="text" name="" id="date-input" required lay-verify="required" value=""
+												 autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item layui-form-text">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:60px">自动上机</label>
+											<div class="layui-input-inline" style="vertical-align: top;">
+												<input type="checkbox" name="" lay-skin="switch" lay-text="开启|关闭">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item layui-form-text">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:60px">加工备注</label>
+											<div class="layui-input-inline" style="width: 305px">
+												<textarea name="" placeholder="拉坏" class="layui-textarea"></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col right">
+							<div class="panel">
+								<h2 style="background-color: #00B1DA">插件开料信息
+									<div><input type="checkbox" name="" title="生成开料单" lay-skin="primary" lay-filter="create_sheet"></div>
+									</h2>
+								<div id="feed-sheet" style="border-color: #00B1DA;">
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width:60px">开料备注</label>
+											<div class="layui-input-inline" style="width: 208px">
+												<textarea name="" placeholder="" class="layui-textarea layui-disabled" disabled=""></textarea>
+											</div>
+										</div>
+										<div class="layui-inline" style="vertical-align: top;">
+											<label class="layui-form-label" style="width:60px">开料尺寸</label>
+											<div class="layui-input-inline" style="width:45px">
+												<input type="text" name="" required lay-verify="required" placeholder="长" autocomplete="off"
+												 class="layui-input layui-disabled" value="" disabled="">
+											</div>
+											<div class="layui-input-inline" style="width:45px">
+												<input type="text" name="" required lay-verify="required" placeholder="宽" autocomplete="off"
+												 class="layui-input layui-disabled" value="" disabled="">
+											</div>
+											<div class="layui-input-inline" style="width:45px">
+												<input type="text" name="" required lay-verify="required" placeholder="高" autocomplete="off"
+												 class="layui-input layui-disabled" value="" disabled="">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="layui-info" style="margin-top: 10px;">
+								<div>
+									<fieldset>
+										<legend style="font-size: 16px;">当前机台信息</legend>
+										<ul>
+											<li>
+												<span>生产单号：H180628056</span>
+												<span>生产部门：研发部</span>
+
+											</li>
+											<li>
+												<span>生产人员：汪淼</span>
+												<span>产品名称：2630530BARI</span>
+											</li>
+											<li>
+												<span>生产组别：机壳组</span>
+												<span>上机时间:2018-08-28 14:39</span>
+											</li>
+											<li>
+												<span>插单机台：TEST</span>
+												<span>机台类型：精雕</span>
+											</li>
+										</ul>
+									</fieldset>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="layui-info">
+								<div>
+									<fieldset>
+										<legend style="font-size: 16px;">插单零件信息</legend>
+										<ul style="width: 70%;">
+											<li>
+												<span>零件名称：HPS_G5_VSE-208</span>
+												<span>零件材质：黑色POM</span>
+											</li>
+											<li>
+												<span>零件尺寸：18X25X36</span>
+												<span>制作方式：手工</span>
+											</li>
+											<li>
+												<span>制作数量：1</span>
+												<span>制作方式：手工</span>
+											</li>
+											<li>
+												<span>零件编号:09DR02</span>
+												<span>编程人员：章北海</span>
+											</li>
+											<li><span>备注：</span></li>
+										</ul>
+										<div style="width:30%">
+											<img src="../../../img/3D3_03.png" />
+										</div>
+									</fieldset>
+								</div>
+							</div>
+						</div>
+						<div class="col right">
+							<div class="layui-info">
+								<div>
+									<fieldset>
+										<legend style="font-size: 16px;">当前上机零件信息</legend>
+										<ul style="width: 70%;">
+											<li>
+												<span>零件名称：HPS_G5_VSE-208</span>
+												<span>零件材质：黑色POM</span>
+											</li>
+											<li>
+												<span>零件尺寸：18X25X36</span>
+												<span>制作方式：手工</span>
+											</li>
+											<li>
+												<span>制作数量：1</span>
+												<span>制作方式：手工</span>
+											</li>
+											<li>
+												<span>零件编号:09DR02</span>
+												<span>编程人员：章北海</span>
+											</li>
+											<li><span>备注：</span></li>
+										</ul>
+										<div style="width:30%">
+											<img src="../../../img/3D3_03.png" />
+										</div>
+									</fieldset>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-layer-btns">
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<button class="layui-btn layui-btn-blue" lay-submit lay-filter="">保存</button>
+			</div>
+		</form>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'laydate', 'layer', 'util'], function() {
+				var $ = layui.jquery,
+					laydate = layui.laydate,
+					util = layui.util,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					form = layui.form;
+				form.on('checkbox(create_sheet)', function(data) {
+					if(data.elem.checked) {
+						$('#feed-sheet').find('input,textarea').removeAttr('disabled').removeClass(
+							'layui-disabled');
+					} else {
+						$('#feed-sheet').find('input,textarea').attr('disabled', true).addClass(
+							'layui-disabled');
+					}
+				});
+				laydate.render({
+					elem: '#date-input',
+					type: 'datetime',
+					isValue: true,
+					value: util.toDateString(new Date().getTime(), 'yyyy-MM-dd HH:mm:ss')
+				})
+				$('.moreBtn').click(function() {
+					event.preventDefault();
+					var layEvent = $(this).attr('data-event');
+					if(layEvent === 'material') {
+						page('选择补料材质', '../layer/material.html', '750px', '620px')
+					} else if(layEvent === 'department') {
+						page('选择责任部门', '../layer/department.html', '750px', '620px')
+					}
+				})
+				var page = function(title, url, w, h) {
+					layer.open({
+						type: 2,
+						skin: 'layer-skin-class',
+						resize: false,
+						title: title,
+						area: [w, h],
+						content: url
+					});
+				}
+			});
+		</script>
+	</body>
+
+</html>

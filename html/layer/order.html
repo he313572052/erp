@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>员工列表</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/layer.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div style="padding:10px 15px;">
+			<blockquote class="layer-tools">
+				<div class="layui-form">
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<select name="">
+								<option value="">订单组别</option>
+								<option value="0">日本业务组</option>
+								<option value="1">国内业务组</option>
+								<option value="2">国际业务组</option>
+								<option value="3">其他</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<select name="">
+								<option value="">制作组别</option>
+								<option value="0">复模组</option>
+								<option value="1">机壳组</option>
+								<option value="2">五金组</option>
+								<option value="3">数码组</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<select name="">
+								<option value="">订单状态</option>
+								<option value="0">已出货</option>
+								<option value="1">已审核</option>
+								<option value="2">已暂停</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" placeholder="下单日期" id="date-input">
+						</div>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" placeholder="下单人员">
+						</div>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" placeholder="客户名称">
+						</div>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" placeholder="生产订单">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<button class="layui-btn layui-btn-sm layui-btn-normal" lay-submit lay-filter="search">查询</button>
+					</div>
+				</div>
+			</blockquote>
+			<div class="staff-table">
+				<table id="orderTable" class="layui-simple-table" lay-filter="orderTable"></table>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'element', 'laydate', 'table', 'layer'], function() {
+				form = layui.form,
+					$ = layui.jquery,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					table = layui.table,
+					laydate = layui.laydate;
+				laydate.render({
+					elem: '#date-input',
+					type: 'date',
+					range: true
+				})
+				table.render({
+					elem: '#orderTable',
+					height: 490,
+					url: '../../json/order-list.json',
+					page: true,
+					cols: [
+						[{
+							type: 'numbers',
+							title: '序号',
+							width: 65,
+							sort: true,
+							fixed: 'left'
+						}, {
+							field: 'num',
+							title: '产品单号',
+							width: 100,
+							fixed: 'left'
+						}, {
+							field: 'name',
+							title: '产品名称',
+							minWidth: 100
+						}, {
+							field: 'order_group',
+							title: '订单组别',
+							minWidth: 100
+						}, {
+							field: 'make_group',
+							title: '制作组别',
+							minWidth: 100
+						}, {
+							field: 'commit_time',
+							title: '交货日期',
+							minWidth: 100
+						}, {
+							field: 'order_person',
+							title: '下单人员',
+							minWidth: 100
+						}, {
+							field: 'order_time',
+							title: '下单日期',
+							width: 100
+						}, {
+							title: '选择',
+							toolbar: '<div><button class="layui-btn layui-btn-xs layui-btn-normal" lay-event="selected"><i class="layui-icon layui-icon-ok"></i></button><div>',
+							width: 65
+						}]
+					]
+				});
+				table.on('tool(orderTable)', function(obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+					var data = obj.data;
+					var layEvent = obj.event;
+					var tr = obj.tr;
+					if(layEvent === 'selected') {
+						//dosomething
+						layer.close(layer.index);
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

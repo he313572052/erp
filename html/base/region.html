@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>地区资料</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/mCustomScrollbar/css/jquery.mCustomScrollbar.css"
+		/>
+		<link rel="stylesheet" href="../../css/base.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="新增" data-event="add"><i class="layui-icon layui-icon-add-1"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="搜索" data-event="search"><i class="layui-icon layui-icon-search"></i></button>
+				</div>
+			</blockquote>
+			<blockquote class="layui-tools layui-tools-margin">
+				<div class="layui-form">
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<input type="text" name="" placeholder="地区代码" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-input-inline">
+							<input type="text" name="" placeholder="地区名称" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+				</div>
+			</blockquote>
+			<div class="layui-form layui-table-1">
+				<div class="layui-table-caption">
+					<div>
+						地区资料
+					</div>
+					<div></div>
+				</div>
+				<div class="scroll" style="height: 500px;">
+					<table class="layui-table layui-simple-table" lay-skin="line">
+						<colgroup>
+							<col width="80">
+							<col>
+							<col width="100">
+							<col width="100">
+							<col width="130">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>地区名称</th>
+								<th>地区代码</th>
+								<th>地区级别</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id='node-1' class="parent collapsed">
+								<td>1</td>
+								<td>中国
+									<a class="layui-btn layui-btn-xs layui-btn-normal showSubBtn" data-id='1'>+</a>
+								</td>
+								<td>86</td>
+								<td>国家</td>
+								<td>
+									<a class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-edit"></i></a>
+								</td>
+							</tr>
+							<tr id='node-2' class="child-node-1 parent collapsed" style="display: none;" parentid="1">
+								<td>2</td>
+								<td style="padding-left: 30px;">├─广东省
+									<a class="layui-btn layui-btn-xs layui-btn-normal showSubBtn" data-id='2'>+</a>
+								</td>
+								<td>GD</td>
+								<td>省</td>
+								<td>
+									<a class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-edit"></i></a>
+								</td>
+							</tr>
+							<tr id='node-3' class="child-node-2 parent collapsed" style="display: none;" parentid="2">
+								<td>3</td>
+								<td style="padding-left: 60px;">├─深圳市
+									<a class="layui-btn layui-btn-xs layui-btn-normal showSubBtn" data-id='3'>+</a>
+								</td>
+								<td>shengzheng</td>
+								<td>市</td>
+								<td>
+									<a class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-edit"></i></a>
+								</td>
+							</tr>
+							<tr id='node-4' class="child-node-3" style="display: none;" parentid="3">
+								<td>4</td>
+								<td style="padding-left: 90px;">├─罗湖区
+								</td>
+								<td>SZ.LUOHU</td>
+								<td>区</td>
+								<td>
+									<a class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-edit"></i></a>
+								</td>
+							</tr>
+							<tr id='node-5' class="child-node-3" style="display: none;" parentid="3">
+								<td>5</td>
+								<td style="padding-left: 90px;">├─南山区
+								</td>
+								<td>SZ.NANSHAN</td>
+								<td>区</td>
+								<td>
+									<a class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-edit"></i></a>
+								</td>
+							</tr>
+							<tr id='node-6' class="child-node-3" style="display: none;" parentid="3">
+								<td>6</td>
+								<td style="padding-left: 90px;">├─宝安区
+								</td>
+								<td>SZ.BAOAN</td>
+								<td>区</td>
+								<td>
+									<a class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-edit"></i></a>
+								</td>
+							</tr>
+							<tr id='node-7' class="child-node-3 parent collapsed" style="display: none;" parentid="3">
+								<td>7</td>
+								<td style="padding-left: 90px;">├─福田区
+								</td>
+								<td>SZ.FUTIAN</td>
+								<td>区</td>
+								<td>
+									<a class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-edit"></i></a>
+								</td>
+							</tr>
+							<tr id='node-8' class="child-node-2" style="display: none;" parentid="2">
+								<td>8</td>
+								<td style="padding-left: 60px;">├─东莞市</td>
+								<td>dongguan</td>
+								<td>市</td>
+								<td>
+									<a class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-edit"></i></a>
+								</td>
+							</tr>
+							<tr id='node-9' class="child-node-2" style="display: none;" parentid="2">
+								<td>9</td>
+								<td style="padding-left: 60px;">├─广州市</td>
+								<td>guangzhou</td>
+								<td>市</td>
+								<td>
+									<a class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-edit"></i></a>
+								</td>
+							</tr>
+							<tr id='node-10'>
+								<td>10</td>
+								<td>香港</td>
+								<td>HongKong</td>
+								<td>区域</td>
+								<td>
+									<a class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-edit"></i></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<script src="../../plugins/jquery/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../plugins/mCustomScrollbar/js/jquery.mCustomScrollbar.min.js" type="text/javascript"
+		 charset="utf-8"></script>
+		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery'], function() {
+				var $ = layui.jquery;
+				//权限展开隐藏
+				$('.showSubBtn').on('click', function() {
+					var _this = $(this);
+					var id = _this.attr('data-id');
+					var parent = _this.parents('.parent');
+					var child = $('.child-node-' + id);
+					var childAll = $('tr[parentid=' + id + ']');
+					if(parent.hasClass('collapsed')) {
+						_this.html('-');
+						parent.addClass('expanded').removeClass('collapsed');
+						child.css('display', '');
+					} else {
+						_this.html('+');
+						parent.addClass('collapsed').removeClass('expanded');
+						child.css('display', 'none');
+						childAll.addClass('collapsed').removeClass('expanded').css('display',
+							'none');
+						childAll.find('.showSubBtn').html('+');
+					}
+				})
+				//美化滚动条
+				$.mCustomScrollbar.defaults.axis = "y";
+				$(".scroll").mCustomScrollbar({
+					theme: "minimal-dark"
+				});
+			})
+		</script>
+	</body>
+
+</html>

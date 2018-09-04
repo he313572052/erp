@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>数码加工计划表</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../../css/engineering.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="导出" data-event="export"><i class="iconfont icon-daochu"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="搜索" data-event="search"><i class="layui-icon layui-icon-search"></i></button>
+					<button class="layui-btn layui-btn-sm btn layui-btn-disabled" data-title="保存" data-event="save"
+					 disabled=""><i class="iconfont icon-baocun"></i></button>
+					<button class="layui-btn layui-btn-sm btn layui-btn-disabled" data-title="撤销" data-event="cancle"
+					 disabled=""><i class="iconfont icon-chexiao"></i></button>
+				</div>
+			</blockquote>
+			<blockquote class="layui-tools layui-tools-margin">
+				<div class="layui-form">
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<select name="">
+								<option>订单组别</option>
+								<option value="0">国内业务部</option>
+								<option value="1">国际业务部</option>
+								<option value="2">日本业务部</option>
+								<option value="3">其他</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<select name="">
+								<option>完成状态</option>
+								<option value="0">全部</option>
+								<option value="1">未完成</option>
+								<option value="2">已完成</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<input type="text" id="date-input" name="" placeholder="下单日期" class="layui-input"
+							 autocomplete="off">
+						</div>
+						<div class="layui-inline">
+							<input type="text" name="" placeholder="生产单号" class="layui-input" autocomplete="off">
+						</div>
+					</div>
+				</div>
+			</blockquote>
+			<div class="layui-table-1">
+				<div class="layui-table-caption">
+					<div>数码加工计划表</div>
+					<div></div>
+				</div>
+				<div>
+					<table class="layui-simple-table" id="digitalTable" lay-filter="digitalTable"></table>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="form-type">
+			<span class="layui-badge layui-bg-blue">{{d.form_type}}</span>
+		</script>
+		<script type="text/html" id="is-transfer">
+			{{# if(d.is_transfer === 1){ }}
+			<i class="iconfont icon-duigou" style="color:#007DDB"><i/>
+			{{# }else{ }}
+				<i class="iconfont icon-chacha" style="color:#ff0000"><i/>
+			{{# } }}
+		</script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			var rows=[];
+			layui.use(['layer', 'jquery', 'form', 'table', 'laydate','util'],
+				function() {
+					var layer = parent.layer == undefined ? layui.layer : parent.layer,
+						_layer = layui.layer,
+						form = layui.form,
+						$ = layui.jquery,
+						util=layui.util,
+						laydate = layui.laydate,
+						table = layui.table;
+					laydate.render({
+						elem: '#date-input',
+						type: 'datetime',
+						range: true
+					})
+					$('.btn').mouseenter(function() {
+						var title = $(this).attr('data-title');
+						_layer.tips(title, this, {
+							tips: [1, '#1E82D2']
+						})
+					}).click(function() {
+						var layEvent = $(this).data('event');
+						var title = $(this).data('title');
+					 	var _this = this;
+					 	if(layEvent ==='export'){
+							layer.prompt({formType:2,title:'请填写备注'},function(value,index,elem){
+								 layer.close(index);
+								 layer.load(2,{time:3*1000})
+									setTimeout(function(){
+										layer.msg('导出成功')
+									},3*1000);
+							})
+						}else if(layEvent==='save'){
+							layer.load(2,{time:2*1000});				
+							setTimeout(function(){
+								rows = [];
+								layer.msg('保存成功');
+								$(_this).removeClass('layui-btn-blue').addClass('layui-btn-disabled').attr('disabled',true).next().removeClass('layui-btn-blue').addClass('layui-btn-disabled').attr('disabled',true);
+							},2*1000)
+						}else if(layEvent==='cancle'){
+							$(_this).removeClass('layui-btn-blue').addClass('layui-btn-disabled').attr('disabled',true).prev().removeClass('layui-btn-blue').addClass('layui-btn-disabled').attr('disabled',true);
+							table.reload('digitalTable', {
+								  url: '../../../json/digital-list.json'
+							});
+						}
+					});
+					table.render({
+						id:'digitalTable',
+						elem: '#digitalTable',
+						height: 535,
+						limits: [10, 15, 20],
+						url: '../../../json/digital-list.json',
+						page: true,
+						cols: [
+							[{
+									type: 'numbers',
+									width: 65,
+									title: '序号',
+									sort: true,
+									rowspan:2,
+									fixed: 'left'
+								},  {
+									field: 'type',
+									title: '申请部门',
+									align:'center',
+									rowspan:2,
+									minWidth: 90
+								},{
+									field: 'product_num',
+									title: '生产单号',
+									rowspan:2,
+									width: 120
+								}, {
+									field: 'goods',
+									title: '产品名称',
+									rowspan:2,
+									width: 90
+								}, {
+									field: 'amount',
+									title: '数量',
+									rowspan:2,
+									align:'center',
+									width: 75
+								}, {
+									field: 'delivery_time',
+									rowspan:2,
+									title: '交货日期',
+									minWidth: 90
+								}, {
+									field: 'technology_confirm',
+									rowspan:2,
+									title: '工艺确认',
+									align:'center',
+									width: 90
+								}, {
+									field: 'dismantling_time',
+									rowspan:2,
+									title: '拆图完成时间',
+									align:'center',
+									width: 120
+								},
+								{
+									field: 'code_time',
+									title: '编程完成时间',
+									rowspan:2,
+									align:'center',
+									width: 120
+								},
+								{
+									title:'可编辑列',
+									align:'center',
+									colspan:3
+								},					
+								{
+									field: 'remarks',
+									title: '备注',
+									rowspan:2,
+									align:'center',
+									minWidth: 125
+								}
+							],[{
+								field: 'cnc_time',
+								title: 'CNC上机时间',
+								edit:'text',
+								style:'background-color:#FCF3CA;color:#000;font-weight:bold',
+								align:'center',
+								event:'cnc_up',
+								width: 145,
+								}, {
+									field: 'cnc_assess_time',
+									title: 'CNC评估时间',
+									style:'background-color:#FCF3CA;color:#000;font-weight:bold',
+									edit:'text',
+									event:'cnc_assess',
+									width: 145
+								}, {
+									field: 'repair_assess_time',
+									title: '修配评估时间',
+									style:'background-color:#FCF3CA;color:#000;font-weight:bold',
+									edit:'text',
+									event:'repair_assess',
+									align:'center',
+									width: 145
+								}
+							]
+						]});
+						table.on('edit(digitalTable)', function(obj){
+							$('.btn[data-event=save],.btn[data-event=cancle]').removeAttr('disabled').removeClass('layui-btn-disabled').addClass('layui-btn-blue');
+							if(rows.length>0){
+								rows.forEach(function(value,index,array){
+									if(value.product_num==obj.data.product_num){
+										rows.splice(index,index+1)
+									}
+									rows.push(obj.data);
+									return;
+								})
+							}else{
+								rows.push(obj.data);
+							}			
+						});
+						table.on('tool(digitalTable)', function(obj){
+						    var data = obj.data;
+						    var layEvent = obj.event;
+						   	var init_time = util.toDateString(new Date().getTime(),'yyyy-MM-dd HH:mm');
+						    if(layEvent==='cnc_up'){
+						    	 obj.update({
+						    	 	cnc_time:init_time
+						    	 })
+						    }else if(layEvent==='cnc_assess'){
+						    	obj.update({
+						    	 	cnc_assess_time:init_time
+						    	 })
+						    }else if(layEvent==='repair_assess'){
+						    	obj.update({
+						    	 	repair_assess_time:init_time
+						    	 })
+						    }
+						    obj.tr.find('.layui-input.layui-table-edit').trigger('change').val(init_time);
+				      	});
+					function page(title, url, w, h) {
+						layer.open({
+							type: 2,
+							skin: 'layer-skin-class',
+							resize: false,
+							title: title,
+							area: [w, h],
+							content: url
+						});
+					}
+				});
+		</script>
+	</body>
+
+</html>

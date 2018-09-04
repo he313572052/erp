@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>机台加工记录</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../../css/machine.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid progress">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="导出" data-event="export"><i class="iconfont icon-daochu"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="搜索" data-event="search"><i class="layui-icon layui-icon-search"></i></button>
+				</div>
+			</blockquote>
+			<div class="layui-row layui-col-space10">
+				<div class="layui-col-md9">
+					<blockquote class="layui-tools layui-tools-margin">
+						<div class="layui-form">
+							<div class="layui-form-item">
+								<div class="layui-inline">
+									<div class="layui-input-inline">
+										<select name="">
+											<option>加工组别</option>
+											<option value="1">复模</option>
+											<option value="2">机壳</option>
+											<option value="3">模具</option>
+											<option value="4">数码</option>
+											<option value="5">五金</option>
+										</select>
+									</div>
+									<div class="layui-input-inline">
+										<select name="">
+											<option>加工状态</option>
+											<option value="1">全部</option>
+											<option value="3">已上机未下机</option>
+											<option value="4">已下机</option>
+										</select>
+									</div>
+									<div class="layui-input-inline">
+										<div class="layui-btn-input">
+											<input type="" name="" value="" placeholder="加工部门" />
+											<button class="moreBtn"><i class="layui-icon layui-icon-more"></i></button>
+										</div>
+									</div>
+									<div class="layui-input-inline">
+										<input type="text" name="" placeholder="生产单号" class="layui-input" autocomplete="off">
+									</div>
+									<div class="layui-input-inline">
+										<input type="text" id="date-input" name="" placeholder="操机日期" class="layui-input"
+										 autocomplete="off">
+									</div>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<div class="layui-input-inline">
+									<input type="text" name="" placeholder="加工人员" class="layui-input" autocomplete="off">
+								</div>
+							</div>
+						</div>
+					</blockquote>
+				</div>
+				<div class="layui-col-md3">
+					<div class="layui-image" style="margin-top: 10px;">
+						<img src="../../../img/3D3_03.png" height="85px" />
+					</div>
+				</div>
+			</div>
+			<hr class="layui-bg-green" style="height: 3px;" />
+			<div class="layui-table-1">
+				<div class="layui-table-caption">
+					<div>机台加工记录</div>
+					<div></div>
+				</div>
+				<div>
+					<table class="layui-simple-table" id="recordTable" lay-filter="recordTable"></table>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="open">
+			{{# if(d.is_open === 1){ }}
+			<i class="iconfont icon-duigou" style="color:#007DDB"><i/>
+			{{# }else{ }}
+				<i class="iconfont icon-chacha" style="color:#ff0000"><i/>
+			{{# } }}
+		</script>
+		<script type="text/html" id="knife">
+			{{# if(d.knife === 1){ }}
+			<i class="iconfont icon-duigou" style="color:#007DDB"><i/>
+			{{# }else{ }}
+				<i class="iconfont icon-chacha" style="color:#ff0000"><i/>
+			{{# } }}
+		</script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			var row;
+			layui.use(['layer', 'jquery', 'form', 'element', 'table', 'laydate'],
+				function() {
+					var layer = parent.layer == undefined ? layui.layer : parent.layer,
+						_layer = layui.layer,
+						form = layui.form,
+						$ = layui.jquery,
+						laydate = layui.laydate,
+						table = layui.table;
+					laydate.render({
+						elem: '#date-input',
+						type: 'datetime',
+						range: true,
+					});
+					$('.btn').mouseenter(function() {
+						var title = $(this).attr('data-title');
+						_layer.tips(title, this, {
+							tips: [1, '#1E82D2']
+						})
+					}).click(function() {
+						var layEvent = $(this).data('event');
+						var title = $(this).data('title');
+						if(layEvent==='export'){
+							E.showLoad('导出成功');
+						}	
+					});
+					$('.moreBtn').click(function() {
+						event.preventDefault();
+						layer.open({
+							title: '请选择加工部门',
+							type: 2,
+							skin: 'layer-skin-class',
+							area: ['800px', '610px'],
+							resiez: false,
+							content: '../layer/department.html'
+						})
+					});
+					table.render({
+						elem: '#recordTable',
+						height: 495,
+						limits: [10, 15, 20],
+						url: '../../../json/machining-record.json',
+						page: true,
+						cols: [
+							[{
+								type: 'numbers',
+								width: 65,
+								title: '序号',
+								sort: true,
+								fixed: 'left'
+								},
+								{
+									field: 'product_num',
+									title: '生产单号',
+									width: 120
+								},{
+									field: 'goods',
+									title: '产品名称',
+									minWidth: 90
+								},{
+									field: 'operate_machine_time',
+									title: '上机时间',
+									align: 'center',
+									width: 120
+								}, {
+									field: 'operate_person',
+									title: '上机人',
+									align:'center',
+									minWidth: 75
+								}, {
+									field: 'down_machin_time',
+									align: 'center',
+									title: '下机时间',
+									width: 120
+								}, {
+									field: 'down_person',
+									align: 'center',
+									title: '下机人',
+									width: 75
+								}, {
+									field: 'department',
+									align: 'center',
+									title: '加工部门',
+									width: 120
+								}, {
+									field: 'group',
+									title: '加工组别',
+									align: 'center',
+									width: 120
+								},
+								{
+									field: 'machine_type',
+									title: '机台类型',
+									align: 'center',
+									width: 120
+								}, {
+									field: 'machine_num',
+									align: 'center',
+									title: '机台编号',
+									width: 120
+								}, {
+									field: 'parts_num',
+									title: '零件编号',
+									minWidth: 120	
+								}, {
+									field: 'parts_name',
+									minWidth: 120,
+									title: '零件名称'
+								}, {
+									field: 'parts_material',
+									minWidth: 120,
+									title: '零件材质'
+								}, {
+									field: 'size',
+									minWidth: 130,
+									title: '开料尺寸'
+								}, {
+									field: 'machining_amount',
+									minWidth: 120,
+									title: '加工数量'
+								}, {
+									field: 'machining_time',
+									minWidth: 120,
+									title: '加工工时'
+								},{
+									field: 'good_amount',
+									minWidth: 120,
+									align: 'center',
+									title: '合格数量'
+								},{
+									field: 'scrap_amount',
+									minWidth: 120,
+									align: 'center',
+									title: '报废数量'
+								},{
+									field: 'remarks',
+									minWidth: 65,
+									title: '备注'
+								}
+							]
+						]
+					});
+					table.on('row(queueTable)', function(obj) {
+						obj.tr.addClass('tr-selected').siblings('tr').removeClass(
+							'tr-selected')
+						row = obj;
+					});
+					var E = (function(obj) {
+						obj.page = function(title, url, w, h) {
+							layer.open({
+								type: 2,
+								skin: 'layer-skin-class',
+								resize: false,
+								title: title,
+								area: [w, h],
+								content: url
+							});
+						}
+						obj.showLoad = function(msg) {
+							layer.load(1, {
+								time: 2 * 1000
+							})
+							setTimeout(function() {
+								layer.msg(msg);
+							}, 2 * 1000)
+						}
+						obj.tip = function(row, callback) {
+							if(!row) {
+								layer.msg('请选择行');
+								return;
+							}
+							if(callback !== undefined && typeof(callback) === 'function') {
+								callback();
+							}
+						}
+						return obj
+					})(E || {})
+				});
+		</script>
+	</body>
+
+</html>

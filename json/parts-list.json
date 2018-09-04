@@ -1,0 +1,17 @@
+{
+	"code": 0,
+	"msg": "",
+	"count": 17,
+	"data": [
+		{
+			"num":"09YU01",
+			"name":"base600",
+			"material":"A6061",
+			"amount":"45",
+			"size":"130x130x90",
+			"unit":"PCS",
+			"demand":"最小公差做到正负0.03",
+			"remark":"详看客户图纸"
+		}
+	]
+}

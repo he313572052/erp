@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>工程零件及相关内容删除</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/engineering.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div style="padding:15px">
+			<div class="code-del">
+				<div class="col left">
+					<h2>选择要删除的零件</h2>
+					<div class="layui-form">
+						<table class="layui-table layui-simple-table" lay-skin="line">
+							<colgroup>
+								<col width="65">
+								<col width="65">
+								<col>
+								<col>
+								<col>
+								<col>
+							</colgroup>
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>选择</th>
+									<th>零件编号</th>
+									<th>零件名称</th>
+									<th>零件材质</th>
+									<th>制作数量</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="selectedDel"></td>
+									<td>09Y001</td>
+									<td>SNC-HS-08</td>
+									<td>ABS</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="selectedDel"></td>
+									<td>09Y001</td>
+									<td>SNC-HS-08</td>
+									<td>ABS</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="selectedDel"></td>
+									<td>09Y001</td>
+									<td>SNC-HS-08</td>
+									<td>ABS</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="selectedDel"></td>
+									<td>09Y001</td>
+									<td>SNC-HS-08</td>
+									<td>ABS</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="selectedDel"></td>
+									<td>09Y001</td>
+									<td>SNC-HS-08</td>
+									<td>ABS</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="selectedDel"></td>
+									<td>09Y001</td>
+									<td>SNC-HS-08</td>
+									<td>ABS</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="selectedDel"></td>
+									<td>09Y001</td>
+									<td>SNC-HS-08</td>
+									<td>ABS</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="selectedDel"></td>
+									<td>09Y001</td>
+									<td>SNC-HS-08</td>
+									<td>ABS</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="selectedDel"></td>
+									<td>09Y001</td>
+									<td>SNC-HS-08</td>
+									<td>ABS</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="selectedDel"></td>
+									<td>09Y001</td>
+									<td>SNC-HS-08</td>
+									<td>ABS</td>
+									<td>1</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="layui-page" id="page"></div>
+				</div>
+				<div class="col right layui-form">
+					<div>
+						<h2>选择删除的零件关联信息</h2>
+						<ul>
+							<li><span><input type="checkbox" name="" title="工程编程零件" lay-skin="primary"></span>
+								<span><input type="checkbox" name="" title="加工程式单" lay-skin="primary" checked></span>
+							</li>
+							<li><span><input type="checkbox" name="" title="工程资料" lay-skin="primary"></span>
+								<span><input type="checkbox" name="" title="项目作业指导书" lay-skin="primary" checked></span>
+							</li>
+							<li><span><input type="checkbox" name="" title="开料参数" lay-skin="primary"></span>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h2>当前零件已存在下列数据时禁止删除</h2>
+						<ul>
+							<li><span><input type="checkbox" name="" title="加工记录(操机、补单、后处理等)" lay-skin="primary" checked disabled></span>
+
+							</li>
+							<li><span><input type="checkbox" name="" title="开料记录" lay-skin="primary" checked disabled></span></li>
+							<li><span><input type="checkbox" name="" title="品检记录" lay-skin="primary" checked disabled></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'laypage'], function() {
+				var $ = layui.jquery,
+					laypage = layui.laypage,
+					form = layui.form;
+				laypage.render({
+					elem: 'page',
+					count: '20'
+				})
+			});
+		</script>
+	</body>
+
+</html>

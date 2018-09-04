@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>刀具报废</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../../css/machine.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div style="padding: 10px 15px">
+			<blockquote class="layui-tools">
+				<div class="layui-form">
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<input type="text" name="" placeholder="刀具编号" class="layui-input" autocomplete="off">
+						</div>
+						<div class="layui-input-inline">
+							<select name="">
+								<option>组别</option>
+								<option value="1">复模</option>
+								<option value="2">机壳</option>
+								<option value="3">模具</option>
+								<option value="4">数码</option>
+								<option value="5">五金</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<select name="">
+								<option>报废审核</option>
+								<option value="1">未审核</option>
+								<option value="3">已审核</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<div class="layui-btn-input">
+								<input type="" name="" value="" placeholder="部门" />
+								<button class="moreBtn" data-title="请选择部门" data-event="department"><i class="layui-icon layui-icon-more"></i></button>
+							</div>
+						</div>
+						<div class="layui-input-inline">
+							<div class="layui-btn-input">
+								<input type="" name="" value="" placeholder="刀具类型" />
+								<button class="moreBtn" data-title="请选择刀具类型" data-event="machine_type"><i class="layui-icon layui-icon-more"></i></button>
+							</div>
+						</div>
+
+						<div class="layui-input-inline">
+							<input type="text" id="date-input" name="" placeholder="报废日期" class="layui-input"
+							 autocomplete="off">
+						</div>
+					</div>
+				</div>
+			</blockquote>
+			<div class="layui-table-1">
+				<div class="layui-table-caption">
+					<div>刀具报废记录</div>
+					<div></div>
+				</div>
+				<div>
+					<table class="layui-simple-table layui-table" lay-data="{id:'scrapTable',height: 350,toolbar:'#toolbar',limit:5,limits: [5],url: '../../../json/machine-knife-scrap.json',page:true}"
+					 lay-filter="scrapTable">
+						<thead>
+							<tr>
+								<th lay-data="{type:'numbers', width:65, sort: true,fixed:'left'}">序号</th>
+								<th lay-data="{field:'knife_num', width:90}">刀具编号</th>
+								<th lay-data="{field:'machine_num', width:90}">机台编号</th>
+								<th lay-data="{field:'knife_type',minWidth:90}">刀具类型</th>
+								<th lay-data="{field:'knife_spec',minWidth:90}">刀具规格</th>
+								<th lay-data="{field:'edge_length',minWidth:90}">刀刃长度</th>
+								<th lay-data="{field:'overall_length',minWidth:90}">刀具总长</th>
+								<th lay-data="{field:'scrap_time',minWidth:90}">报废时间</th>
+								<th lay-data="{field:'scrap_amount',minWidth:90}">报废数量</th>
+								<th lay-data="{field:'scrap_person',minWidth:75}">报废人</th>
+								<th lay-data="{field:'is_verify',width:60,templet:'#verify',align:'center'}">审核</th>
+								<th lay-data="{field:'verify_person',minWidth:75}">审核人</th>
+								<th lay-data="{field:'verify_time', width: 120}">审核时间</th>
+								<th lay-data="{field:'department', width: 75}">部门</th>
+								<th lay-data="{field:'group', width: 65}">组别</th>
+								<th lay-data="{field:'remarks', minWidth: 65}">备注</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="toolbar">
+			<div class="layui-btn-group">
+				<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="新增" lay-event="add"><i class="layui-icon layui-icon-add-1"></i></button>
+				<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="编辑" lay-event="edit"><i class="layui-icon layui-icon-edit"></i></button>
+				<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="审核" lay-event="verify"><i class="iconfont icon-shenhe"></i></button>
+				<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="搜索" lay-event="search"><i class="layui-icon layui-icon-search"></i></button>
+			</div>
+		</script>
+		<script type="text/html" id="verify">
+			{{# if(d.is_verify===1){ }}
+			<i class="iconfont icon-duigou" style="color:#007DDB"><i/>
+			{{# }else{ }}
+				<i class="iconfont icon-chacha" style="color:#ff0000"><i/>
+			{{# } }}
+		</script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">	
+			layui.use(['layer', 'jquery', 'form', 'table', 'laydate','util'],function() {
+					var layer = parent.layer == undefined ? layui.layer : parent.layer,
+						_layer = layui.layer,
+						form = layui.form,
+						$ = layui.jquery,
+						util=layui.util,
+						laydate = layui.laydate,
+						table = layui.table;				
+						var row;
+					laydate.render({
+						elem: '#date-input',
+						format: 'yyyy-MM-dd HH:mm',
+						range: true,
+					});
+					$('.btn').mouseenter(function() {
+						var title = $(this).attr('data-title');
+						_layer.tips(title, this, {
+							tips: [1, '#1E82D2']
+						})
+					});
+					$('.moreBtn').click(function() {
+						event.preventDefault();
+						var title = $(this).data('title');
+						var layEvent = $(this).data('event');
+						if(layEvent === 'department'){
+							E.page(title,'../layer/department.html','800px','610px')
+						}else if(layEvent==='machine_type'){
+							E.page(title,'../layer/machine-type.html','800px','630px')	
+						}
+					});
+					table.on('row(scrapTable)', function(obj) {
+						obj.tr.addClass('tr-selected').siblings('tr').removeClass(
+							'tr-selected')
+						row = obj;
+					});
+					table.on('toolbar(scrapTable)',function(obj){
+						var layEvent = obj.event;
+						if(layEvent==='add'){
+							E.page('新增','../machine/info/machine-knife-scrap-add.html','820px','415px')
+						}else if(layEvent==='edit'){
+							E.tip(row,function(){
+								E.page('编辑','../machine/info/machine-knife-scrap-add.html','820px','415px')
+							})
+						}else if(layEvent==='verify'){
+							E.tip(row,function(){
+								if(row.data.verify_person){
+									layer.msg('请勿重复审核');
+									return;
+								}
+								row.update({
+									is_verify:1,
+									verify_person:'汪淼',
+									verify_time:util.toDateString(new Date().getTime(),'yyyy-MM-dd HH:mm')
+								});
+								layer.msg('审核成功');
+							})
+							
+						}else if(layEvent==='search'){
+							E.showLoad('搜索完成');
+						}
+					})
+					var E = (function(obj) {
+						obj.confirm = function(msg, callback) {
+							layer.confirm(msg, {
+								title: '询问',
+								icon: 3
+							}, function(index) {
+								callback();
+								layer.close(index);
+							})
+						}
+						obj.page = function(title, url, w, h) {
+							layer.open({
+								type: 2,
+								skin: 'layer-skin-class',
+								resize: false,
+								title: title,
+								area: [w, h],
+								content: url
+							});
+						}
+						obj.showLoad = function(msg) {
+							layer.load(1, {
+								time: 2 * 1000
+							})
+							setTimeout(function() {
+								layer.msg(msg);
+							}, 2 * 1000)
+						}
+						obj.tip = function(row, callback) {
+							if(!row) {
+								layer.msg('请选择行');
+								return;
+							}
+							if(callback !== undefined && typeof(callback) === 'function') {
+								callback();
+							}
+						}
+						return obj
+					})(E || {})
+				});
+		</script>
+	</body>
+
+</html>

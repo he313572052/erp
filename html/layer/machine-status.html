@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>机台信息</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/layer.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="machine">
+			<blockquote class="layer-tools">
+				<div class="layui-form">
+					<div class="layui-input-inline">
+						<select name="" lay-verify="">
+							<option>全部</option>
+							<option value="010">正在制作</option>
+							<option value="021">机台闲置</option>
+							<option value="0571">停机检修</option>
+						</select>
+					</div>
+					<div class="layui-input-inline">
+						<select name="" lay-verify="">
+							<option>机台类型</option>
+							<option value="010">CNC</option>
+							<option value="021">佳铁</option>
+							<option value="0571">精雕</option>
+						</select>
+					</div>
+					<div class="layui-input-inline">
+						<select name="" lay-verify="">
+							<option>制作组别</option>
+							<option value="010">复模组</option>
+							<option value="021">机壳组</option>
+							<option value="0571">模具组</option>
+						</select>
+					</div>
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" placeholder="机台编号">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" placeholder="机台型号">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<button class="layui-btn layui-btn-sm layui-btn-normal" lay-submit lay-filter="search">查询</button>
+					</div>
+				</div>
+			</blockquote>
+			<div class="machine-status">
+				<div>
+					<span class="layui-badge-dot layui-bg-blue"></span>正在制作
+				</div>
+				<div>
+					<span class="layui-badge-dot"></span>机台闲置
+				</div>
+				<div>
+					<span class="layui-badge-dot layui-bg-orange"></span>正在检修
+				</div>
+			</div>
+			<div class="machine-table">
+				<table id="mechineTable" class="layui-simple-table" lay-filter="mechineTable"></table>
+			</div>
+		</div>
+		<script type="text/html" id="status">
+			{{# if(d.status===1){ }}
+			<span class="layui-badge-dot layui-bg-blue"></span> {{# }else if(d.status===0){ }}
+			<span class="layui-badge-dot"></span> {{# }else{ }}
+			<span class="layui-badge-dot layui-bg-orange"></span> {{# } }}
+		</script>
+		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'element', 'table'], function() {
+				var form = layui.form,
+					$ = layui.jquery,
+					table = layui.table,
+					element = layui.element;
+				table.render({
+					elem: '#mechineTable',
+					page: true,
+					url: '../../json/machine-status-list.json',
+					cols: [
+						[{
+								type: 'numbers',
+								title: '序号',
+								width: 65,
+								sort: true,
+								fixed: 'left'
+							},
+							{
+								field: 'status',
+								title: '状态',
+								align: 'center',
+								fixed: 'left',
+								templet: '#status',
+								width: 65
+							}, {
+								field: 'num',
+								title: '机台编号',
+								minWidth: 95,
+							}, {
+								field: 'model',
+								title: '机台型号',
+								minWidth: 95
+							}, {
+								field: 'trip',
+								title: '机器行程',
+								minWidth: 95
+							}, {
+								field: 'rate_speed',
+								title: '主轴转速',
+								minWidth: 75
+							}, {
+								field: 'cut_speed',
+								title: '切削速度',
+								minWidth: 75
+							}, {
+								field: 'use_department',
+								title: '使用部门',
+								templet: '#sheet',
+								align: 'center',
+								width: 75
+							}, {
+								field: 'make_group',
+								templet: '#program',
+								title: '制作组别',
+								align: 'center',
+								minWidth: 75
+							},
+							{
+								field: 'product_num',
+								title: '生产单号',
+								minWidth: 80
+							}, {
+								field: 'goods',
+								title: '产品名称',
+								templet: '#hardware',
+								align: 'center',
+								minWidth: 95
+							}, {
+								field: 'parts_num',
+								title: '零件编号',
+								minWidth: 75
+							}, {
+								field: 'machine',
+								title: '加工人员',
+								minWidth: 75
+							},
+							{
+								field: 'operation_time',
+								title: '上机时间',
+								minWidth: 75
+							},
+							{
+								field: 'wait_amount',
+								title: '待机数量',
+								minWidth: 95
+							},
+							{
+								field: 'remarks',
+								title: '机台备注',
+								minWidth: 75
+							}
+						]
+					]
+				});
+			});
+		</script>
+	</body>
+
+</html>

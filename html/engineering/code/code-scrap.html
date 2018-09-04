@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>报废登记</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/engineering.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<form class="layui-form" action="">
+			<div style="padding: 15px;">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width: 60px;">零件编号</label>
+						<div class="layui-input-inline" style="width: 160px;">
+							<input type="text" name="" required lay-verify="required" value="09YC04" autocomplete="off"
+							 class="layui-input layui-disabled" disabled>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width: 60px;">生产单号</label>
+						<div class="layui-input-inline" style="width: 160px;">
+							<input type="text" name="" required lay-verify="required" value="H180628053" autocomplete="off"
+							 class="layui-input layui-disabled" disabled>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width: 60px;">登记人</label>
+						<div class="layui-input-inline" style="width: 160px;">
+							<input type="text" name="" required lay-verify="required" value="程心" autocomplete="off"
+							 class="layui-input layui-disabled" disabled>
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width: 60px;">登记时间</label>
+						<div class="layui-input-inline" style="width: 160px;">
+							<input type="text" name="" required lay-verify="required" value="2018-08-20 16:28"
+							 autocomplete="off" class="layui-input layui-disabled" disabled>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width: 60px;">报废数量</label>
+						<div class="layui-input-inline" style="width: 160px;">
+							<input type="text" name="" required lay-verify="required" value="1" autocomplete="off"
+							 class="layui-input layui-disabled" disabled>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width: 60px;">报废日期</label>
+						<div class="layui-input-inline" style="width: 160px;">
+							<input type="text" name="" id="date-input" required lay-verify="required" value="2018-08-20"
+							 autocomplete="off" class="layui-input">
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width: 60px;">责任人</label>
+						<div class="layui-input-inline" style="width: 160px;">
+							<div class="layui-btn-input">
+								<input type="text" name="" id="" value="" />
+								<button data-title="选择用户" class="moreBtn"><i class="layui-icon layui-icon-more moreBtn"></i></button>
+							</div>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width: 60px;">责任部门</label>
+						<div class="layui-input-inline" style="width: 160px;">
+							<div class="layui-btn-input">
+								<input type="text" name="" id="" value="" />
+								<button data-title="选择部门" class="moreBtn"><i class="layui-icon layui-icon-more moreBtn"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label" style="width: 60px;">报废原因</label>
+					<div class="layui-input-inline" style="width: 710px;">
+						<textarea name="" placeholder="请输入内容" class="layui-textarea"></textarea>
+					</div>
+				</div>
+				<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label" style="width: 60px;">改善措施</label>
+					<div class="layui-input-inline" style="width: 710px;">
+						<textarea name="" placeholder="请输入内容" class="layui-textarea"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="layui-layer-btns">
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<button class="layui-btn layui-btn-blue" lay-submit>保存</button>
+			</div>
+		</form>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'element', 'layer', 'laydate'], function() {
+				var $ = layui.jquery,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					form = layui.form,
+					laydate = layui.laydate;
+				laydate.render({
+					elem: '#date-input',
+					type: 'date',
+					isValue: true
+				});
+				layer.config({
+					type: 2,
+					skin: 'layer-skin-class',
+					resize: false
+				})
+				$('.moreBtn').click(function() {
+					event.preventDefault();
+					var title = $(this).attr('data-title');
+					if(title === '选择用户') {
+						layer.open({
+							title: title,
+							area: ['900px', '620px'],
+							resize:false,
+							content: '../layer/staff.html'
+						})
+					} else if(title === '选择部门') {
+						layer.open({
+							title: title,
+							area: ['800px', '620px'],
+							resize:false,
+							content: '../layer/department.html'
+						})
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

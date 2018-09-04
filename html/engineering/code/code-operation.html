@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>机台信息</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/layer.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div style="margin: -10px 0;">
+			<table id="operationTable" class="layui-simple-table" lay-filter="operationTable"></table>
+		</div>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'element', 'table'], function() {
+				var form = layui.form,
+					$ = layui.jquery,
+					table = layui.table;
+				table.render({
+					elem: '#operationTable',
+					page: true,
+					url: '../../../json/operation-list.json',
+					cols: [
+						[{
+								type: 'numbers',
+								title: '序号',
+								width: 65,
+								sort: true,
+								fixed: 'left'
+							},
+							{
+								field: 'machine_num',
+								title: '机台编号',
+								minWidth: 95
+							}, {
+								field: 'assgin_amount',
+								title: '指派数量',
+								minWidth: 95,
+							}, {
+								field: 'work_department',
+								title: '加工部门',
+								minWidth: 95
+							}, {
+								field: 'product_group',
+								title: '生产组别',
+								minWidth: 95
+							}, {
+								field: 'operator',
+								title: '上机人',
+								minWidth: 75
+							}, {
+								field: 'operation_time',
+								title: '上机时间',
+								minWidth: 95
+							}, {
+								field: 'handover_time',
+								title: '接班时间',
+								minWidth: 95
+							}, {
+								field: 'regist_amount',
+								title: '登记数量',
+								width: 95
+							},
+							{
+								field: 'over_person',
+								title: '下机人',
+								width: 75
+							}, {
+								field: 'over_time',
+								title: '下机时间',
+								minWidth: 95
+							}, {
+								field: 'machining_time',
+								title: '加工时间',
+								minWidth: 95
+							}, {
+								field: 'type',
+								title: '类型',
+								width: 75
+							}
+						]
+					]
+				});
+			});
+		</script>
+	</body>
+
+</html>

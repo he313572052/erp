@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>外发申购</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/engineering.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div style="padding:25px">
+			<div class="code-send">
+				<form class="layui-form" action="">
+					<div class="layui-form-item">
+						<label class="layui-form-label">要求交期</label>
+						<div class="layui-input-block">
+							<input type="text" name="" id="date-input" class="layui-input" autocomplete="off">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">外发类型</label>
+						<div class="layui-input-block">
+							<div class="layui-btn-input" style="max-width: 100%;">
+								<input type="text" name="" id="" value="" />
+								<button data-title="选择外发类型" class="moreBtn"><i class="layui-icon layui-icon-more moreBtn"></i></button>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<button class="layui-btn layui-btn-blue" lay-submit lay-filter="">提交</button>
+							<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'laydate', 'layer'], function() {
+				var $ = layui.jquery,
+					laydate = layui.laydate,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					form = layui.form;
+				laydate.render({
+					elem: '#date-input',
+					position:'fixed',
+					type: 'datetime'
+				})
+				$('.moreBtn').click(function() {
+					event.preventDefault();
+					var title = $(this).data('title');
+					layer.open({
+						type: 2,
+						skin: 'layer-skin-class',
+						resize: false,
+						title: title,
+						area: ['700px', '625px'],
+						content: '../layer/outsend.html'
+					});
+				})
+			});
+		</script>
+	</body>
+
+</html>

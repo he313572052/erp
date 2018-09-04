@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>机壳加工队列交接班登记</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../plugins/mCustomScrollbar/css/jquery.mCustomScrollbar.css"
+		/>
+		<link rel="stylesheet" href="../../../css/engineering.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<form class="layui-form" action="">
+			<div class="supply">
+				<div class="supply-edit">
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">交接时间</label>
+							<div class="layui-input-inline">
+								<input type="text" name="" id="date-input" required lay-verify="" value="" autocomplete="off"
+								 class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">接班人</label>
+							<div class="layui-input-inline">
+								<input type="text" name="" required lay-verify="required" value="汪淼" autocomplete="off"
+								 class="layui-input layui-disabled" disabled="">
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">加工机台</label>
+							<div class="layui-input-inline">
+								<input type="text" name="" required lay-verify="" value="TEST" autocomplete="off"
+								 class="layui-input layui-disabled" disabled="">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">交班人</label>
+							<div class="layui-input-inline">
+								<input type="text" name="" required lay-verify="required" value="叶文杰" autocomplete="off"
+								 class="layui-input layui-disabled" disabled="">
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">上次交班</label>
+							<div class="layui-input-inline">
+								<input type="text" name="" required lay-verify="" value="2018-08-29 12:45" autocomplete="off"
+								 class="layui-input layui-disabled" disabled="">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">交班人</label>
+							<div class="layui-input-inline">
+								<input type="text" name="" required lay-verify="required" value="叶文杰" autocomplete="off"
+								 class="layui-input layui-disabled" disabled="">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="scroll" style="height: 177px;">
+					<table class="layui-table layui-simple-table">
+						<colgroup>
+							<col>
+							<col>
+							<col>
+							<col>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>交接时间</th>
+								<th>交班人</th>
+								<th>接班人</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>2018-08-27 10:39/td>
+									<td>章北海</td>
+									<td>汪淼</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>2018-08-27 10:39/td>
+									<td>章北海</td>
+									<td>汪淼</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>2018-08-27 10:39/td>
+									<td>章北海</td>
+									<td>汪淼</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="layui-layer-btns">
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<button class="layui-btn layui-btn-blue" lay-submit lay-filter="save">保存</button>
+			</div>
+		</form>
+		<script src="../../../plugins/jquery/jquery-3.2.1.min.js" type="text/javascript"
+		 charset="utf-8"></script>
+		<script src="../../../plugins/mCustomScrollbar/js/jquery.mCustomScrollbar.min.js"
+		 type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'laydate', 'layer', 'util'], function() {
+				var $ = layui.jquery,
+					laydate = layui.laydate,
+					util = layui.util,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					form = layui.form;
+				laydate.render({
+					elem: '#date-input',
+					type: 'datetime',
+					isValue: true,
+					value: util.toDateString(new Date().getTime(), 'yyyy-MM-dd HH:mm:ss')
+				});
+				form.on('submit(save)', function(data) {
+					event.preventDefault();
+				})
+				$.mCustomScrollbar.defaults.axis = "y";
+				$(".scroll").mCustomScrollbar({
+					theme: "minimal-dark"
+				});
+				var page = function(title, url, w, h) {
+					layer.open({
+						type: 2,
+						skin: 'layer-skin-class',
+						resize: false,
+						title: title,
+						area: [w, h],
+						content: url
+					});
+				}
+			});
+		</script>
+	</body>
+
+</html>

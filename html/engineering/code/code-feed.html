@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>补料申请单</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/engineering.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<form class="layui-form" action="">
+			<div style="padding:15px 0">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width:60px">机台类型</label>
+						<div class="layui-input-inline" style="width:150px">
+							<select name="interest" lay-filter="aihao">
+								<option value="0">CNC</option>
+								<option value="1">精雕</option>
+								<option value="2">车床</option>
+								<option value="2">工牙机</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width:60px">完成时间</label>
+						<div class="layui-input-inline" style="width:150px">
+							<input type="text" class="layui-input" id="date-input">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width:60px">加工机台</label>
+						<div class="layui-input-inline" style="width:150px">
+							<div class="layui-btn-input">
+								<input type="" name="" id="" value="" />
+								<button class="moreBtn" data-event="machine"><i class="layui-icon layui-icon-more"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width:60px">责任部门</label>
+						<div class="layui-input-inline" style="width:150px">
+							<div class="layui-btn-input">
+								<input type="" name="" id="" value="" />
+								<button class="moreBtn" data-event="department"><i class="layui-icon layui-icon-more"></i></button>
+							</div>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width:60px">开料尺寸</label>
+						<div class="layui-input-inline" style="width:43px">
+							<input type="text" name="" required lay-verify="required" placeholder="长" autocomplete="off"
+							 class="layui-input">
+						</div>
+						<div class="layui-input-inline" style="width:43px">
+							<input type="text" name="" required lay-verify="required" placeholder="宽" autocomplete="off"
+							 class="layui-input">
+						</div>
+						<div class="layui-input-inline" style="width:43px">
+							<input type="text" name="" required lay-verify="required" placeholder="高" autocomplete="off"
+							 class="layui-input">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width:60px">补料材质</label>
+						<div class="layui-input-inline" style="width:150px">
+							<select name="city" lay-verify="required">
+								<option value="ABS">机壳组 ABS</option>
+								<option value="304不锈钢">机壳组 304不锈钢</option>
+								<option value="304不锈钢">机壳组 304不锈钢</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width:60px">补料数量</label>
+						<div class="layui-input-inline" style="width:150px">
+							<input type="text" name="" required lay-verify="required" value="" autocomplete="off"
+							 class="layui-input">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width:60px">执行次数</label>
+						<div class="layui-input-inline" style="width:150px">
+							<input type="text" name="" required lay-verify="required" value="09YB01" autocomplete="off"
+							 class="layui-input">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width:60px">补料人</label>
+						<div class="layui-input-inline" style="width:150px">
+							<input type="text" name="" required lay-verify="required" value="汪淼" autocomplete="off"
+							 class="layui-input layui-disabled">
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline" style="vertical-align: top;">
+						<label class="layui-form-label" style="width:60px">制作组别</label>
+						<div class="layui-input-inline" style="width:150px">
+							<input type="text" name="" required lay-verify="required" value="机壳组" autocomplete="off"
+							 class="layui-input layui-disabled">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width:60px">补料原因</label>
+						<div class="layui-input-inline" style="width: 415px">
+							<textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="layui-layer-btns">
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<button class="layui-btn layui-btn-blue" lay-submit>保存</button>
+			</div>
+		</form>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'laydate', 'layer'], function() {
+				var $ = layui.jquery,
+					laydate = layui.laydate,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					form = layui.form;
+				laydate.render({
+					elem: '#date-input',
+					type: 'datetime',
+					position:'fixed'
+				})
+				$('.moreBtn').click(function() {
+					event.preventDefault();
+					var layEvent = $(this).attr('data-event');
+					if(layEvent === 'machine') {
+						page('选择机台', '../layer/machine.html', '1000px', '650px')
+					} else if(layEvent === 'department') {
+						page('选择部门', '../layer/department.html', '700px', '600px')
+					}
+				})
+				var page = function(title, url, w, h) {
+					layer.open({
+						type: 2,
+						skin: 'layer-skin-class',
+						resize: false,
+						title: title,
+						area: [w, h],
+						content: url
+					});
+				}
+			});
+		</script>
+	</body>
+
+</html>

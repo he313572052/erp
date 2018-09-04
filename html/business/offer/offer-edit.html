@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>报价管理编辑</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/business.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<form action="" class="layui-form">
+			<div style="padding: 15px;">
+				<div class="layui-form-item">
+					<label class="layui-form-label">物品名称</label>
+					<div class="layui-input-block" style="width: 492px;">
+						<input type="text" name="" required lay-verify="required" value="4893684356" autocomplete="off"
+						 class="layui-input layui">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">单价</label>
+						<div class="layui-input-block">
+							<input type="text" name="" required lay-verify="required" value="吨" autocomplete="off"
+							 class="layui-input layui">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">报价期限</label>
+						<div class="layui-input-block">
+							<input type="text" name="" placeholder="报价前填写" required lay-verify="required" value="5"
+							 autocomplete="off" class="layui-input layui">
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">材料</label>
+						<div class="layui-input-block">
+							<input type="text" name="" required lay-verify="required" value="PEG" autocomplete="off"
+							 class="layui-input">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">数量</label>
+						<div class="layui-input-block">
+							<input type="text" name="" required lay-verify="required" value="45" autocomplete="off"
+							 class="layui-input">
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label">备注</label>
+					<div class="layui-input-block" style="width: 492px;">
+						<textarea name="" placeholder="" class="layui-textarea"></textarea>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">合计</label>
+						<div class="layui-input-block">
+							<input type="text" name="" required lay-verify="required" value="PEG" autocomplete="off"
+							 class="layui-input">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">币别</label>
+						<div class="layui-input-block">
+							<select name="" lay-verify="required">
+								<option value=""></option>
+								<option value="0">人民币</option>
+								<option value="1">港币</option>
+								<option value="2">英镑</option>
+								<option value="3">美元</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-layer-btns">
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<button class="layui-btn layui-btn-blue" lay-submit lay-filter="">保存</button>
+			</div>
+		</form>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['layer', 'jquery', 'element', 'form'], function() {
+				var layer = parent.layer == undefined ? layui.layer : parent.layer,
+					$ = layui.jquery,
+					form = layui.form,
+					element = layui.element;
+			});
+		</script>
+	</body>
+
+</html>

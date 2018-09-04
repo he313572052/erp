@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>项目工作指派</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/project.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid">
+			<div class="assign layui-form layui-form-pane">
+				<div class="layui-row layui-col-space30">
+					<div class="layui-col-md6">
+						<div class="layui-form-item">
+							<label class="layui-form-label">项目跟单</label>
+							<div class="layui-input-block">
+								<div class="layui-btn-input">
+									<input type="text" name="" id="" value="" />
+									<button data-title="选择跟单" class="moreBtn"><i class="layui-icon layui-icon-more moreBtn"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">指派人员</label>
+							<div class="layui-input-block">
+								<input type="text" name="title" required lay-verify="required" placeholder="" autocomplete="off"
+								 class="layui-input">
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">完成时间</label>
+							<div class="layui-input-block">
+								<input type="text" name="" id="date-input" required lay-verify="required" placeholder="请输入密码"
+								 autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-form-item layui-form-text">
+							<label class="layui-form-label">备注</label>
+							<div class="layui-input-block">
+								<textarea name="remark" placeholder="" class="layui-textarea"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="layui-col-md6">
+						<div class="layui-form-item">
+							<label class="layui-form-label">项目预审</label>
+							<div class="layui-input-block">
+								<div class="layui-btn-input">
+									<input type="text" name="" id="" value="" />
+									<button data-title="项目预审" class="moreBtn"><i class="layui-icon layui-icon-more"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">指派时间</label>
+							<div class="layui-input-block">
+								<input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off"
+								 class="layui-input">
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<label class="layui-form-label">项目完成</label>
+							<div class="layui-input-block">
+								<input type="checkbox" name="" lay-skin="switch" lay-text="完成|未完成">
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-input-block">
+								<button class="layui-btn layui-btn-blue" lay-submit lay-filter="">保存</button>
+								<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['layer', 'jquery', 'form', 'element', 'laydate'], function() {
+				var layer = parent.layer == undefined ? layui.layer : parent.layer,
+					form = layui.form,
+					$ = layui.jquery,
+					element = layui.element,
+					laydate = layui.laydate;
+				laydate.render({
+					elem: '#date-input',
+					value: '2018-08-15',
+					isvalueInit: true
+				})
+				$('.moreBtn').click(function() {
+					var title = $(this).attr('data-title');
+					layer.open({
+						type: 2,
+						title: title,
+						skin: 'layer-skin-class',
+						area: ['800px', '600px'],
+						content: '../project/assign/assign-merchandiser.html'
+					})
+				})
+			});
+		</script>
+	</body>
+
+</html>

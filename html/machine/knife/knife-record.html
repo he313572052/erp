@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>刀具出入库记录</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/machine.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div style="padding: 10px 15px">
+			<blockquote class="layer-tools">
+				<div class="layui-form">
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<select name="">
+								<option value="">刀具分类</option>
+								<option value="0">全部</option>
+								<option value="1">新刀</option>
+								<option value="2">旧刀</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<button class="layui-btn layui-btn-sm layui-btn-normal" lay-submit lay-filter="search">查询</button>
+					</div>
+				</div>
+			</blockquote>
+			<div class="staff-table layui-form">
+				<table class="layui-table layui-simple-table" lay-skin="line" lay-even>
+					<colgroup>
+						<col width="65">
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>刀具编号</th>
+							<th>机台编号</th>
+							<th>刀具分类</th>
+							<th>操作时间</th>
+							<th>操作人</th>
+							<th>操作类型</th>
+							<th>输出数量</th>
+							<th>备注</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>DJD003</td>
+							<td>SMJ008</td>
+							<td>新刀</td>
+							<td>2018-07-25 13:30</td>
+							<td>云天明</td>
+							<td>出库</td>
+							<td>-1</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>DJD003</td>
+							<td>SMJ008</td>
+							<td>新刀</td>
+							<td>2018-07-25 13:30</td>
+							<td>云天明</td>
+							<td>出库</td>
+							<td>-1</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>DJD003</td>
+							<td>SMJ008</td>
+							<td>新刀</td>
+							<td>2018-07-25 13:30</td>
+							<td>云天明</td>
+							<td>出库</td>
+							<td>-1</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>DJD003</td>
+							<td>SMJ008</td>
+							<td>新刀</td>
+							<td>2018-07-25 13:30</td>
+							<td>云天明</td>
+							<td>出库</td>
+							<td>-1</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>DJD003</td>
+							<td>SMJ008</td>
+							<td>新刀</td>
+							<td>2018-07-25 13:30</td>
+							<td>云天明</td>
+							<td>出库</td>
+							<td>-1</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>DJD003</td>
+							<td>SMJ008</td>
+							<td>新刀</td>
+							<td>2018-07-25 13:30</td>
+							<td>云天明</td>
+							<td>出库</td>
+							<td>-1</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>DJD003</td>
+							<td>SMJ008</td>
+							<td>新刀</td>
+							<td>2018-07-25 13:30</td>
+							<td>云天明</td>
+							<td>出库</td>
+							<td>-1</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>DJD003</td>
+							<td>SMJ008</td>
+							<td>新刀</td>
+							<td>2018-07-25 13:30</td>
+							<td>云天明</td>
+							<td>出库</td>
+							<td>-1</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>DJD003</td>
+							<td>SMJ008</td>
+							<td>新刀</td>
+							<td>2018-07-25 13:30</td>
+							<td>云天明</td>
+							<td>出库</td>
+							<td>-1</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>DJD003</td>
+							<td>SMJ008</td>
+							<td>新刀</td>
+							<td>2018-07-25 13:30</td>
+							<td>云天明</td>
+							<td>出库</td>
+							<td>-1</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="layui-page" id="page"></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'element', 'laypage'], function() {
+				form = layui.form,
+					$ = layui.jquery,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					laypage = layui.laypage;
+				laypage.render({
+					elem: 'page',
+					count: 20
+				});
+			});
+		</script>
+	</body>
+
+</html>

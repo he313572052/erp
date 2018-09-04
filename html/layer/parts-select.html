@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>选择工程编程零件</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/mCustomScrollbar/css/jquery.mCustomScrollbar.css"
+		/>
+		<link rel="stylesheet" href="../../css/layer.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="parts-select">
+			<blockquote class="layer-tools">
+				<form class="layui-form">
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<select name="">
+								<option value="">制作组别</option>
+								<option value="0">复模</option>
+								<option value="1">国内业务</option>
+								<option value="2">机壳</option>
+								<option value="3">模具</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<select name="">
+								<option value="">订单组别</option>
+								<option value="0">国内业务部</option>
+								<option value="1">日本业务部</option>
+								<option value="2">国际业务部</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" placeholder="下单日期" id="date-input" autocomplete="off">
+						</div>
+						<div class="layui-input-inline" style="width: auto;">
+							<div class="layui-search-input">
+								<select name="">
+									<option value="" selected>生产单号</option>
+									<option value="">四位编码</option>
+									<option value="">下单人员</option>
+									<option value="">产品名称</option>
+								</select>
+								<input type="text" name="" placeholder="请输入关键字" autocomplete="off">
+							</div>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<input type="checkbox" name="" title="只显示委外加工">
+						<button class="layui-btn layui-btn-sm layui-btn-normal" lay-submit lay-filter="search">查询</button>
+					</div>
+				</form>
+			</blockquote>
+			<div class="row">
+				<div class="left">
+					<div class="layui-table-caption">
+						<div>选择生产单</div>
+						<div></div>
+					</div>
+					<div class="table">
+						<table id="orderTable" class="layui-simple-table" lay-filter="orderTable"></table>
+					</div>
+				</div>
+				<div class="right">
+					<div class="layui-table-caption">
+						<div>零件详情</div>
+						<div></div>
+					</div>
+					<div class="table scroll layui-form">
+						<table class="layui-table layui-simple-table" lay-size="sm" lay-skin="line">
+							<colgroup>
+								<col>
+								<col>
+								<col>
+								<col>
+								<col>
+								<col>
+								<col>
+								<col>
+								<col>
+							</colgroup>
+							<thead>
+								<tr>
+									<th>选择</th>
+									<th>零件编号</th>
+									<th>零件名称</th>
+									<th>零件材质</th>
+									<th>零件尺寸</th>
+									<th>制作方式</th>
+									<th>编程人员</th>
+									<th>订单数量</th>
+									<th>制作数量</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="choose"> </td>
+									<td>09YQ01</td>
+									<td>doc01699520180612134041_Lagerblock</td>
+									<td>EN AW-6060</td>
+									<td>60X109X43</td>
+									<td></td>
+									<td></td>
+									<td>10</td>
+									<td>10</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="choose"></td>
+									<td>09YQ01</td>
+									<td>doc01699520180612134041_Lagerblock</td>
+									<td>EN AW-6060</td>
+									<td>60X109X43</td>
+									<td></td>
+									<td></td>
+									<td>10</td>
+									<td>10</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="choose"> </td>
+									<td>09YQ01</td>
+									<td>doc01699520180612134041_Lagerblock</td>
+									<td>EN AW-6060</td>
+									<td>60X109X43</td>
+									<td></td>
+									<td></td>
+									<td>10</td>
+									<td>10</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="choose"> </td>
+									<td>09YQ01</td>
+									<td>doc01699520180612134041_Lagerblock</td>
+									<td>EN AW-6060</td>
+									<td>60X109X43</td>
+									<td></td>
+									<td></td>
+									<td>10</td>
+									<td>10</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name="" lay-skin="primary" lay-filter="choose"> </td>
+									<td>09YQ01</td>
+									<td>doc01699520180612134041_Lagerblock</td>
+									<td>EN AW-6060</td>
+									<td>60X109X43</td>
+									<td></td>
+									<td></td>
+									<td>10</td>
+									<td>10</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="info">
+						<div>
+							<ul>
+								<li>
+									<span>零件名称：车灯罩子</span>
+									<span>零件材质：ABS</span>
+
+								</li>
+								<li><span>零件尺寸:18X25X36</span><span>制作方式：手工</span></li>
+								<li>
+									<span>制作数量：1</span>
+									<span>零件编号:09DR02</span>
+								</li>
+								<li>
+									<span>编程人员：车灯罩子</span>
+									<span>备注：ABS</span>
+								</li>
+							</ul>
+						</div>
+						<div class="layui-image">
+							<img src="../../img/3D3_03.png" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../plugins/jquery/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<script src="../../plugins/mCustomScrollbar/js/jquery.mCustomScrollbar.min.js" type="text/javascript"
+		 charset="utf-8"></script>
+		<script type="text/javascript">
+			var row;
+			layui.use(['jquery', 'form', 'element', 'laydate', 'table'], function() {
+				form = layui.form,
+					$ = layui.jquery,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					element = layui.element,
+					laydate = layui.laydate,
+					table = layui.table;
+				laydate.render({
+					elem: '#date-input',
+					type: 'datetime',
+					range: true
+				});
+				table.render({
+					elem: '#orderTable',
+					height: 500,
+					url: '../../json/order-list.json',
+					limits: [10, 15, 20],
+					page: true,
+					cols: [
+						[{
+							type: 'numbers',
+							width: 65,
+							title: '序号',
+							sort: true,
+							fixed: 'left'
+						}, {
+							field: 'num',
+							title: '生产单号',
+							fixed: 'left',
+							width: 115
+						}, {
+							field: 'name',
+							title: '产品名称',
+							fixed: 'left',
+							width: 90
+						}, {
+							field: 'order_group',
+							title: '订单组别',
+							minWidth: 90
+						}, {
+							field: 'make_group',
+							title: '制作组别',
+							minWidth: 90
+						}, {
+							field: 'commit_time',
+							title: '交货日期',
+							minWidth: 90
+						}, {
+							field: 'order_person',
+							title: '下单人员',
+							width: 90
+						}, {
+							field: 'order_time',
+							title: '下单日期',
+							minWidth: 90
+						}]
+					],
+					done: function(res, curr, count) {
+						$('#orderTable').next().find('.layui-table-body').find("table").find(
+								"tbody").children(
+								"tr")
+							.click(function() {
+								var tr = $('#orderTable').next().find('.layui-table-body').find(
+									"table").find("tbody").find(".layui-table-hover");
+								var id = tr.data('index');
+								row = res.data[id];
+								form.val("codeForm", row)
+								tr.siblings('tr').removeClass('tr-selected')
+								tr.addClass('tr-selected');
+							})
+					}
+				});
+				form.on('checkbox(choose)', function(data) {
+					layer.close(layer.index);
+				})
+				//美化滚动条
+				$.mCustomScrollbar.defaults.axis = "y";
+				$(".scroll").mCustomScrollbar({
+					theme: "minimal-dark"
+				});
+			});
+		</script>
+	</body>
+
+</html>

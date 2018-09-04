@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>工作主页</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../../iconfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/mCustomScrollbar/css/jquery.mCustomScrollbar.css"
+		/>
+		<link rel="stylesheet" type="text/css" href="../../css/header.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/main.css" />
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="logo">
+				<a href="../../index.html"><img src="../../img/logo_03.png" /></a>
+			</div>
+			<nav class="top-nav">
+				<ul>
+					<li>
+						<a href="../../index.html">首页</a>
+					</li>
+					<li>
+						<a href="../user.html">个人工作台</a>
+					</li>
+					<li>
+						<a href="#">运作流程</a>
+					</li>
+					<li>
+						<a href="#">小工具</a>
+					</li>
+					<li>
+						<a href="#">退出</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<div class="top">
+			<div class="breadcrumb">
+				<span class="layui-breadcrumb">
+				  <a href="">首页</a>
+				  <a href="">个人工作台</a>
+				  <a href="">工作主页</a>
+				</span>
+			</div>
+			<nav class="menu">
+				<ul class="layui-nav" lay-filter="topNav">
+					<li class="layui-nav-item">
+						<a href="javascript:;">系统管理</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="1" data-url="../system/user-admin.html"
+								 data-title="用户管理">用户管理</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="2" data-url="../system/permission-admin.html"
+								 data-title="权限管理">权限管理</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="3" data-url="../system/company-info.html"
+								 data-title="公司信息">公司信息</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="4" data-url="../system/data-lexicon.html"
+								 data-title="数据词典">数据词典</a>
+							</dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">基础数据</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="5" data-url="../base/currency.html"
+								 data-title="币别资料">币别资料</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="6" data-url="../base/metering.html"
+								 data-title="计量单位">计量单位</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="7" data-url="../base/settlement.html"
+								 data-title="结算方式">结算方式</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="8" data-url="../base/department.html"
+								 data-title="部门资料">部门资料</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="9" data-url="../base/region.html"
+								 data-title="地区资料">地区资料</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="10" data-url="../base/customer.html"
+								 data-title="客户资料">客户资料</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="11" data-url="../base/group.html"
+								 data-title="组别资料">组别资料</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="12" data-url="../base/makings.html"
+								 data-title="物品资料">物品资料</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="13" data-url="../base/part.html"
+								 data-title="零件材质">零件材质</a>
+							</dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">营业管理</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;" data-order="true" data-id="14" data-url="../business/order.html"
+								 data-title="生产订单">生产订单</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="true" data-id="15" data-url="../business/make.html"
+								 data-title="制作清单">制作清单</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="true" data-id="16" data-url="../business/supply.html"
+								 data-title="供客资料">供客资料</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="true" data-id="17" data-url="../business/change.html"
+								 data-title="订单变更">订单变更</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="true" data-id="18" data-url="../business/complaint.html"
+								 data-title="客诉管理">客诉管理</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="19" data-url="../business/inquiry/inquiry.html"
+								 data-title="询价客户">询价客户</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="20" data-url="../business/enquiry/enquiry.html"
+								 data-title="询价管理">询价管理</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="20" data-url="../business/offer/offer.html"
+								 data-title="报价管理">报价管理</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="true" data-id="21" data-url="../business/send/send.html"
+								 data-title="发货登记">发货登记</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="true" data-id="22" data-url="../business/contract/contract.html"
+								 data-title="合同产品">合同产品</a>
+							</dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">项目管理</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;" data-order="true" data-id="23" data-url="../project/assign/assign.html"
+								 data-title="项目工作指派">项目工作指派</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="true" data-id="24" data-url="../project/pretrial/pretrial.html"
+								 data-title="项目预审">项目预审</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="25" data-url="../project/follow/follow.html"
+								 data-title="项目跟单设置">项目跟单设置</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="26" data-url="../project/external/external.html"
+								 data-title="项目外发">项目外发</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="true" data-id="27" data-url="../project/sheet/sheet.html"
+								 data-title="产品报价单">产品报价单</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="28" data-url="../project/region/region.html"
+								 data-title="产品报价区域设置">产品报价区域设置</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="29" data-url="../project/material/material.html"
+								 data-title="产品报价材质类型设置">产品报价材质类型设置</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="30" data-url="../project/make/make.html"
+								 data-title="产品报价加工项目设置">产品报价加工项目设置</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="31" data-url="../project/dispatch/dispatch.html"
+								 data-title="项目跟单指派">项目跟单指派</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="32" data-url="../project/follow-up/follow-up.html"
+								 data-title="项目跟进表">项目跟进表</a>
+							</dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">工程管理</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;" data-order="true" data-id="33" data-url="../engineering/code/code.html"
+								 data-title="工程编程">工程编程</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="true" data-id="34" data-url="../engineering/datum/datum.html"
+								 data-title="工程资料">工程资料</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="35" data-url="../engineering/progress/progress.html"
+								 data-title="工程编程进度">工程编程进度</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="36" data-url="../engineering/queue/queue.html"
+								 data-title="工程返工队列">工程返工队列</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="37" data-url="../engineering/scrap/scrap.html"
+								 data-title="零件报废登记">零件报废登记</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="38" data-url="../engineering/supply/supply.html"
+								 data-title="加工补单">加工补单</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="38" data-url="../engineering/digital/digital.html"
+								 data-title="数码加工计划表">数码加工计划表</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="39" data-url="../engineering/machining/machining.html"
+								 data-title="数码五金加工">数码五金加工</a>
+							</dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">操机管理</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="40" data-url="../machine/knife/knife.html"
+								 data-title="加工刀具管理">加工刀具管理</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="41" data-url="../machine/queue/queue.html"
+								 data-title="操机加工队列">操机加工队列</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="42" data-url="../machine/progress/progress.html"
+								 data-title="机台加工进度">机台加工进度</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="43" data-url="../machine/record/record.html"
+								 data-title="机台加工记录">机台加工记录</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="44" data-url="../machine/info/info.html"
+								 data-title="加工机台信息">加工机台信息</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="true" data-id="45" data-url="../machine/digital/digital.html"
+								 data-title="数码加工队列">数码加工队列</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="true" data-id="46" data-url="../machine/cut/cut.html"
+								 data-title="车床线切加工">车床线切加工</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-order="false" data-id="47" data-url="../machine/assign/assign.html"
+								 data-title="机台排单">机台排单</a>
+							</dd>
+						</dl>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="main-tab">
+			<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="mainTab">
+				<ul class="layui-tab-title mainTab-title">
+				</ul>
+				<div class="layui-tab-content clildFrame"></div>
+			</div>
+		</div>
+		<aside class="aside-left">
+			<blockquote class="layui-elem-quote layui-quote-nm search">
+				<div class="layui-form">
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<select name="status" lay-verify="">
+								<option value="">全部</option>
+								<option value="1">已审核</option>
+								<option value="2">已暂停</option>
+								<option value="3">已出库</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<div class="layui-input-inline search-input-warp">
+							<input type="search" value="" name="keyword" placeholder="请输入关键字" class="layui-input"
+							 autocomplete="off">
+						</div>
+						<a class="layui-btn layui-btn-sm layui-btn-normal" id="conditionBtn">条件</a>
+						<a class="layui-btn layui-btn-sm layui-btn-blue" lay-submit lay-filter="orderSearch">查询</a>
+					</div>
+				</div>
+			</blockquote>
+			<div class="order">
+				<h2>订单列表</h2>
+				<div class="order-header">
+					<span>状态</span>
+					<span>生产单号</span>
+					<span>名称</span>
+					<span>组别</span>
+					<span>编程</span>
+				</div>
+				<ul class="order-list scroll">
+					<li data-id="1">
+						<span><i class="layui-badge-dot layui-bg-green"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="2">
+						<span><i class="layui-badge-dot layui-bg-green"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="3">
+						<span><i class="layui-badge-dot layui-bg-green"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="4">
+						<span><i class="layui-badge-dot layui-bg-blue"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="5">
+						<span><i class="layui-badge-dot layui-bg-green"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span><i class="iconfont icon-duigou" style="color:#007DDB"></i></span>
+					</li>
+					<li data-id="6">
+						<span><i class="layui-badge-dot layui-bg-orange"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span><i class="iconfont icon-duigou" style="color:#007DDB"></i></span>
+					</li>
+					<li data-id="7">
+						<span><i class="layui-badge-dot layui-bg-blue"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="8">
+						<span><i class="layui-badge-dot layui-bg-blue"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="9">
+						<span><i class="layui-badge-dot layui-bg-orange"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="10">
+						<span><i class="layui-badge-dot layui-bg-orange"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="11">
+						<span><i class="layui-badge-dot layui-bg-orange"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span><i class="iconfont icon-duigou" style="color:#007DDB"></i></span>
+					</li>
+					<li data-id="12">
+						<span><i class="layui-badge-dot layui-bg-orange"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="13">
+						<span><i class="layui-badge-dot layui-bg-orange"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="14">
+						<span><i class="layui-badge-dot layui-bg-orange"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span><i class="iconfont icon-duigou" style="color:#007DDB"></i></span>
+					</li>
+					<li data-id="15">
+						<span><i class="layui-badge-dot layui-bg-orange"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="16">
+						<span><i class="layui-badge-dot layui-bg-red"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span><i class="iconfont icon-duigou" style="color:#007DDB"></i></span>
+					</li>
+					<li data-id="17">
+						<span><i class="layui-badge-dot layui-bg-red"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="18">
+						<span><i class="layui-badge-dot layui-bg-blue"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="19">
+						<span><i class="layui-badge-dot layui-bg-blue"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="20">
+						<span><i class="layui-badge-dot layui-bg-blue"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="21">
+						<span><i class="layui-badge-dot layui-bg-blue"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="22">
+						<span><i class="layui-badge-dot layui-bg-blue"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="23">
+						<span><i class="layui-badge-dot layui-bg-blue"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span>5</span>
+					</li>
+					<li data-id="24">
+						<span><i class="layui-badge-dot layui-bg-blue"></i></span>
+						<span>H180801020</span>
+						<span>SUS板钉</span>
+						<span>机壳</span>
+						<span><i class="iconfont icon-duigou" style="color:#007DDB"></i></span>
+					</li>
+				</ul>
+			</div>
+		</aside>
+		<aside class="aside-right">
+			<button class="shrink">
+				<span><i class="layui-icon layui-icon-spread-left"></i></span>			
+			</button>
+			<div class="image">
+				<img src="../../img/3D3_03.png" alt="" />
+			</div>
+			<div class="order scroll">
+				<table class="layui-table" lay-size="sm" lay-skin="line">
+					<colgroup>
+						<col width="70">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>项目</th>
+							<th>内容</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>制作级别</td>
+							<td>A</td>
+						</tr>
+						<tr>
+							<td>下单日期</td>
+							<td>2018-6-19 11:56</td>
+						</tr>
+						<tr>
+							<td>交货日期</td>
+							<td>20418-7-3 12:00</td>
+						</tr>
+						<tr>
+							<td>营业跟单</td>
+							<td>王敏</td>
+						</tr>
+						<tr>
+							<td>项目跟单</td>
+							<td>邱洪</td>
+						</tr>
+						<tr>
+							<td>产品名称</td>
+							<td>Addon prototype</td>
+						</tr>
+						<tr>
+							<td>订单备注</td>
+							<td>1、此为极其重要汽车客户！！！！！！！！ 2.请按照最高品质按时按质完成，公差严格按照图纸要求制作! 3.交期是6天 4.此单必须按时交货,产品用在展会上，外观效果必须做到最好！
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="discuss">
+				<h2>
+					<div>订单讨论区</div>
+					<div></div>
+					<a href="javascript:;" class="addBtn">New</a>
+				</h2>
+				<div class="discuss-header">
+					<span>发表人</span>
+					<span>发表时间</span>
+					<span>内容</span>
+				</div>
+				<ul class="discuss-list scroll">
+					<li>
+						<span>小张</span>
+						<span>2018-07-02 15:30</span>
+						<span>下午开会，请大家务必参加</span>
+					</li>
+					<li>
+						<span>小张</span>
+						<span>2018-07-02 15:30</span>
+						<span>下午开会，请大家务必参加</span>
+					</li>
+					<li>
+						<span>小张</span>
+						<span>2018-07-02 15:30</span>
+						<span>下午开会，请大家务必参加</span>
+					</li>
+					<li>
+						<span>小张</span>
+						<span>2018-07-02 15:30</span>
+						<span>下午开会，请大家务必参加</span>
+					</li>
+					<li>
+						<span>小张</span>
+						<span>2018-07-02 15:30</span>
+						<span>下午开会，请大家务必参加</span>
+					</li>
+				</ul>
+			</div>
+		</aside>
+		<div style="display: none;" id="condition" class="condition-search">
+			<div class="layui-form">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">订单组别</label>
+						<div class="layui-input-inline">
+							<select name="" lay-verify="required">
+								<option value="">全部</option>
+								<option value="0">国内业务部</option>
+								<option value="1">日本业务部</option>
+								<option value="2">测试组</option>
+								<option value="3">国际业务部</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">制作组别</label>
+						<div class="layui-input-inline">
+							<select name="" lay-verify="required">
+								<option value="">全部</option>
+								<option value="0">复模组</option>
+								<option value="1">五金组</option>
+								<option value="2">模具组</option>
+								<option value="3">数码组</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">下单人员</label>
+						<div class="layui-input-inline">
+							<div class="layui-btn-input" style="max-width: 190px;">
+								<input type="" name="" id="" value="" />
+								<button id="moreBtn_1"><i class="layui-icon layui-icon-more"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">下单日期</label>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" id="date-input1">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">交货日期</label>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" id="date-input2">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">项目核准</label>
+						<div class="layui-input-inline">
+							<select name="" lay-verify="required">
+								<option value="">全部</option>
+								<option value="0">已核准</option>
+								<option value="1">未核准</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">项目预审</label>
+						<div class="layui-input-inline">
+							<select name="" lay-verify="required">
+								<option value="">全部</option>
+								<option value="0">已审核</option>
+								<option value="1">未审核</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">客户单号</label>
+						<div class="layui-input-inline">
+							<input type="text" name="" required lay-verify="required" placeholder="" autocomplete="off"
+							 class="layui-input">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">制作级别</label>
+						<div class="layui-input-inline">
+							<div class="layui-btn-input" style="max-width: 190px;">
+								<input type="" name="" id="" value="" />
+								<button><i class="layui-icon layui-icon-more"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">订单状态</label>
+					<div class="layui-input-block">
+						<input type="checkbox" name="like[write]" title="全部">
+						<input type="checkbox" name="like[write]" title="已审核">
+						<input type="checkbox" name="like[read]" title="已出货" checked>
+						<input type="checkbox" name="like[dai]" title="已暂停">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">生产订单</label>
+						<div class="layui-input-inline">
+							<input type="text" name="" required lay-verify="required" placeholder="" autocomplete="off"
+							 class="layui-input">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">客户名称</label>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../../plugins/jquery/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../plugins/mCustomScrollbar/js/jquery.mCustomScrollbar.min.js" type="text/javascript"
+	 charset="utf-8"></script>
+	<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

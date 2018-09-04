@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>产品报价单</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../plugins/mCustomScrollbar/css/jquery.mCustomScrollbar.css"
+		/>
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../../css/project.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-event="add" data-title="新增"><i class="layui-icon layui-icon-add-1"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-event="save" data-title="保存"><i class="iconfont icon-baocun"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-event="edit" data-title="编辑"><i class="layui-icon layui-icon-edit"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-event="verify" data-title="审核"><i class="iconfont icon-shenhe"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-event="search" data-title="搜索"><i class="layui-icon layui-icon-search"></i></button>
+				</div>
+			</blockquote>
+			<blockquote class="layui-tools layui-tools-margin">
+				<div class="layui-form">
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<select name="">
+								<option>审核状态</option>
+								<option value="0">全部</option>
+								<option value="1">未审核</option>
+								<option value="2">已审核</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<select name="">
+								<option>客户区域</option>
+								<option value="0">全部</option>
+								<option value="1">美国</option>
+								<option value="2">日本</option>
+								<option value="2">欧洲</option>
+								<option value="2">中国</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<input type="text" id="date-input" name="" placeholder="制单日期" class="layui-input">
+						</div>
+						<div class="layui-input-inline">
+							<input type="text" name="" placeholder="报价单号" class="layui-input">
+						</div>
+						<div class="layui-input-inline">
+							<input type="text" name="" placeholder="制单人" class="layui-input">
+						</div>
+						<div class="layui-input-inline">
+							<input type="text" name="" placeholder="客户" class="layui-input">
+						</div>
+					</div>
+				</div>
+			</blockquote>
+			<div class="sheet-table">
+				<div class="layui-table-caption">
+					<div>
+						客户报价
+					</div>
+					<div></div>
+				</div>
+				<div class="sheet-table-warp scroll">
+					<table class="layui-table layui-simple-table" id="sheet-table" lay-skin="line">
+						<colgroup>
+							<col width="65">
+							<col>
+							<col>
+							<col>
+							<col>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>报价单号</th>
+								<th>客户</th>
+								<th>报价金额</th>
+								<th>人民币报价</th>
+								<th>报价币别</th>
+								<th>客户区域</th>
+								<th>制单日期</th>
+								<th>审核日期</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-id="B4565655">
+								<td>1</td>
+								<td>B4565655</td>
+								<td>通用汽车</td>
+								<td>56000</td>
+								<td>78522</td>
+								<td>人民币</td>
+								<td>欧洲</td>
+								<td>2018-08-10</td>
+								<td>2018-08-12</td>
+							</tr>
+							<tr data-id="B4565655">
+								<td>1</td>
+								<td>B4565655</td>
+								<td>通用汽车</td>
+								<td>56000</td>
+								<td>78522</td>
+								<td>人民币</td>
+								<td>欧洲</td>
+								<td>2018-08-10</td>
+								<td>2018-08-12</td>
+							</tr>
+							<tr data-id="B4565655">
+								<td>1</td>
+								<td>B4565655</td>
+								<td>通用汽车</td>
+								<td>56000</td>
+								<td>78522</td>
+								<td>人民币</td>
+								<td>欧洲</td>
+								<td>2018-08-10</td>
+								<td>2018-08-12</td>
+							</tr>
+							<tr data-id="B4565655">
+								<td>1</td>
+								<td>B4565655</td>
+								<td>通用汽车</td>
+								<td>56000</td>
+								<td>78522</td>
+								<td>人民币</td>
+								<td>欧洲</td>
+								<td>2018-08-10</td>
+								<td>2018-08-12</td>
+							</tr>
+							<tr data-id="B4565655">
+								<td>1</td>
+								<td>B4565655</td>
+								<td>通用汽车</td>
+								<td>56000</td>
+								<td>78522</td>
+								<td>人民币</td>
+								<td>欧洲</td>
+								<td>2018-08-10</td>
+								<td>2018-08-12</td>
+							</tr>
+							<tr data-id="B4565655">
+								<td>1</td>
+								<td>B4565655</td>
+								<td>通用汽车</td>
+								<td>56000</td>
+								<td>78522</td>
+								<td>人民币</td>
+								<td>欧洲</td>
+								<td>2018-08-10</td>
+								<td>2018-08-12</td>
+							</tr>
+							<tr data-id="B4565655">
+								<td>1</td>
+								<td>B4565655</td>
+								<td>通用汽车</td>
+								<td>56000</td>
+								<td>78522</td>
+								<td>人民币</td>
+								<td>欧洲</td>
+								<td>2018-08-10</td>
+								<td>2018-08-12</td>
+							</tr>
+							<tr data-id="B4565655">
+								<td>1</td>
+								<td>B4565655</td>
+								<td>通用汽车</td>
+								<td>56000</td>
+								<td>78522</td>
+								<td>人民币</td>
+								<td>欧洲</td>
+								<td>2018-08-10</td>
+								<td>2018-08-12</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="sheet-info">
+					<div class="layui-table-caption">
+						<div>
+							报价详情
+						</div>
+						<div></div>
+					</div>
+					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+						<ul class="layui-tab-title">
+							<li class="layui-this">基本信息</li>
+							<li>产品列表</li>
+						</ul>
+						<div class="layui-tab-content">
+							<div class="layui-tab-item layui-show">
+								<div class="sheet-info-form">
+									<form class="layui-form layui-form-pane" action="">
+										<div class="layui-form-item">
+											<div class="layui-inline">
+												<label class="layui-form-label">报价单号</label>
+												<div class="layui-input-inline">
+													<input type="text" name="" value="BJ18080002" required lay-verify="required" autocomplete="off"
+													 class="layui-input">
+												</div>
+											</div>
+											<div class="layui-inline">
+												<label class="layui-form-label">客户</label>
+												<div class="layui-input-inline">
+													<input type="text" name="" value="甲骨文公司" required lay-verify="required" autocomplete="off"
+													 class="layui-input">
+												</div>
+											</div>
+											<div class="layui-inline">
+												<label class="layui-form-label">币别</label>
+												<div class="layui-input-inline">
+													<select name="" lay-verify="required">
+														<option value="3" selected>人民币</option>
+														<option value="0">港币</option>
+														<option value="1">美元</option>
+														<option value="2">欧元</option>
+													</select>
+												</div>
+											</div>
+											<div class="layui-inline">
+												<label class="layui-form-label">制单人</label>
+												<div class="layui-input-inline">
+													<input type="text" name="" value="汪淼" required lay-verify="required" autocomplete="off"
+													 class="layui-input layui-disabled">
+												</div>
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<div class="layui-inline">
+												<label class="layui-form-label">审核人</label>
+												<div class="layui-input-inline">
+													<input type="text" name="" value="关一帆" required lay-verify="required" autocomplete="off"
+													 class="layui-input layui-disabled">
+												</div>
+											</div>
+											<div class="layui-inline">
+												<label class="layui-form-label">区域</label>
+												<div class="layui-input-inline">
+													<select name="city" lay-verify="required">
+														<option value="0" selected="">中国</option>
+														<option value="1">欧洲</option>
+														<option value="2">日本</option>
+														<option value="3">香港</option>
+													</select>
+												</div>
+											</div>
+											<div class="layui-inline">
+												<label class="layui-form-label">人民币报价</label>
+												<div class="layui-input-inline">
+													<input type="text" name="" value="1864.24" required lay-verify="required" autocomplete="off"
+													 class="layui-input layui-disabled">
+												</div>
+											</div>
+											<div class="layui-inline">
+												<label class="layui-form-label">区域系数</label>
+												<div class="layui-input-inline">
+													<input type="text" name="" value="1" required lay-verify="required" autocomplete="off"
+													 class="layui-input layui-disabled">
+												</div>
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<div class="layui-inline">
+												<label class="layui-form-label">制单日期</label>
+												<div class="layui-input-inline">
+													<input type="text" name="" value="2018-08-10" required lay-verify="required" autocomplete="off"
+													 class="layui-input layui-disabled">
+												</div>
+											</div>
+											<div class="layui-inline">
+												<label class="layui-form-label">审核日期</label>
+												<div class="layui-input-inline">
+													<input type="text" name="" value="20180-08-12" required lay-verify="required" autocomplete="off"
+													 class="layui-input layui-disabled">
+												</div>
+											</div>
+											<div class="layui-inline">
+												<label class="layui-form-label">报价金额</label>
+												<div class="layui-input-inline">
+													<input type="text" name="" value="2268" required lay-verify="required" autocomplete="off"
+													 class="layui-input layui-disabled">
+												</div>
+											</div>
+											<div class="layui-inline">
+												<label class="layui-form-label">币别汇率</label>
+												<div class="layui-input-inline">
+													<input type="text" name="" value="0.82209" required lay-verify="required" autocomplete="off"
+													 class="layui-input layui-disabled">
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="layui-tab-item">
+								<div class="layui-row layui-col-space8">
+									<div class="layui-col-md7">
+										<div class="sheet-info-left">
+											<div class="layui-btn-container">
+												<div class="layui-btn-group">
+													<button class="layui-btn cBtn layui-btn-sm tabBtn" data-event="add-1" data-title="新增产品"><i class="layui-icon layui-icon-add-1"></i></button>
+													<button class="layui-btn cBtn layui-btn-sm tabBtn layui-btn-disabled" data-event="save"
+													 data-title="保存"><i class="iconfont icon-baocun"></i></button>
+													<button class="layui-btn cBtn layui-btn-sm tabBtn layui-btn-disabled" data-event="cancle"
+													 data-title="撤销"><i class="layui-icon layui-icon-refresh-1"></i></button>
+													<button class="layui-btn aBtn layui-btn-sm tabBtn" data-event="add" data-title="新增零件"><i class="layui-icon layui-icon-add-circle"></i></button>
+													<button class="layui-btn aBtn layui-btn-sm tabBtn" data-event="edit" data-title="修改产品"><i class="layui-icon layui-icon-edit"></i></button>
+													<button class="layui-btn aBtn layui-btn-sm tabBtn" data-event="del" data-title="删除产品"><i class="layui-icon layui-icon-delete"></i></button>
+													<button class="layui-btn bBtn layui-btn-sm tabBtn" data-event="edit" data-title="修改零件"><i class="iconfont icon-xiugai"></i></button>
+													<button class="layui-btn bBtn layui-btn-sm tabBtn" data-event="split" data-title="拆分零件"><i class="iconfont icon-chaifen"></i></button>
+													<button class="layui-btn bBtn layui-btn-sm tabBtn" data-event="del" data-title="删除零件"><i class="layui-icon layui-icon-delete"></i></button>
+												</div>
+											</div>
+											<div class="sheet-info-table scroll">
+												<table id="sheet-info-table" class="layui-table layui-simple-table" lay-skin="line">
+													<colgroup>
+														<col width="130">
+														<col>
+														<col>
+														<col>
+														<col>
+														<col>
+														<col>
+													</colgroup>
+													<thead>
+														<tr>
+															<th>名称</th>
+															<th>数量</th>
+															<th>材质</th>
+															<th>开料尺寸</th>
+															<th>材料费</th>
+															<th>加工费</th>
+															<th>其他费</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr id='node-1' data-id="1" class="parent collapsed">
+															<td>
+																<a class="layui-btn layui-btn-xs showSubBtn" data-id='1'>+</a> 汽车车灯
+															</td>
+															<td>1</td>
+															<td></td>
+															<td></td>
+															<td>811.7</td>
+															<td>550</td>
+															<td>0</td>
+														</tr>
+														<tr id='node-2' data-id="2" class="child-node-1 parent collapsed" style="display:none ;"
+														 parentid="1">
+															<td style="padding-left: 15px;">├─车灯
+															</td>
+															<td>1</td>
+															<td>pc</td>
+															<td>45X55X56</td>
+															<td>400</td>
+															<td>200</td>
+															<td>0</td>
+														</tr>
+														<tr id='node-3' data-id="3" class="child-node-1 parent collapsed" style="display: none;"
+														 parentid="1">
+															<td style="padding-left: 15px;">├─车罩</td>
+															<td>1</td>
+															<td>pc</td>
+															<td>45X55X56</td>
+															<td>300</td>
+															<td>200</td>
+															<td>0</td>
+														</tr>
+														<tr id='node-4' data-id="4" class="parent collapsed">
+															<td>
+																<a class="layui-btn layui-btn-xs showSubBtn" data-id='4'>+</a> 汽车车门
+															</td>
+															<td>1</td>
+															<td></td>
+															<td></td>
+															<td>811.7</td>
+															<td>550</td>
+															<td>0</td>
+														</tr>
+														<tr id='node-5' data-id="5" class="child-node-4 parent collapsed" style="display:none ;"
+														 parentid="4">
+															<td style="padding-left: 15px;">├─车床玻璃
+															</td>
+															<td>1</td>
+															<td>pc</td>
+															<td>45X55X56</td>
+															<td>400</td>
+															<td>200</td>
+															<td>0</td>
+														</tr>
+														<tr id='node-6' data-id="6" class="child-node-4 parent collapsed" style="display: none;"
+														 parentid="4">
+															<td style="padding-left: 15px;">├─门把手</td>
+															<td>1</td>
+															<td>pc</td>
+															<td>45X55X56</td>
+															<td>300</td>
+															<td>200</td>
+															<td>0</td>
+														</tr>
+														<tr id='node-7' data-id="7" class="child-node-4 parent collapsed" style="display: none;"
+														 parentid="4">
+															<td style="padding-left: 15px;">├─电动摇窗</td>
+															<td>1</td>
+															<td>pc</td>
+															<td>45X55X56</td>
+															<td>300</td>
+															<td>200</td>
+															<td>0</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="sheet-info-form">
+												<form class="layui-form layui-form-pane" action="">
+													<div class="layui-form-item">
+														<div class="layui-inline">
+															<label class="layui-form-label">零件名称</label>
+															<div class="layui-input-inline">
+																<input type="text" name="" value="车灯" required lay-verify="required" autocomplete="off"
+																 class="layui-input">
+															</div>
+														</div>
+														<div class="layui-inline">
+															<label class="layui-form-label">零件数量</label>
+															<div class="layui-input-inline">
+																<input type="text" name="" value="2" required lay-verify="required" autocomplete="off"
+																 class="layui-input">
+															</div>
+														</div>
+
+													</div>
+													<div class="layui-form-item">
+														<div class="layui-inline">
+															<label class="layui-form-label">其他费用</label>
+															<div class="layui-input-inline">
+																<input type="text" name="" value="0" required lay-verify="required" autocomplete="off"
+																 class="layui-input">
+															</div>
+														</div>
+														<div class="layui-inline">
+															<label class="layui-form-label">零件材质</label>
+															<div class="layui-input-inline">
+																<select name="city" lay-verify="required">
+																	<option value="0" selected="">ABS</option>
+																	<option value="1">PA</option>
+																	<option value="2">PC</option>
+																	<option value="3">PMMA</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="layui-form-item">
+														<div class="layui-inline">
+															<label class="layui-form-label">材质单价</label>
+															<div class="layui-input-inline">
+																<input type="text" name="" value="30" required lay-verify="required" autocomplete="off"
+																 class="layui-input layui-disabled">
+															</div>
+														</div>
+														<div class="layui-inline">
+															<label class="layui-form-label">加工费</label>
+															<div class="layui-input-inline">
+																<input type="text" name="" value="400" required lay-verify="required" autocomplete="off"
+																 class="layui-input layui-disabled">
+															</div>
+														</div>
+													</div>
+													<div class="layui-form-item">
+														<div class="layui-inline">
+															<label class="layui-form-label">材质密度</label>
+															<div class="layui-input-inline">
+																<input type="text" name="" value="1.05" required lay-verify="required" autocomplete="off"
+																 class="layui-input layui-disabled">
+															</div>
+														</div>
+														<div class="layui-inline">
+															<label class="layui-form-label">零件编号</label>
+															<div class="layui-input-inline">
+																<input type="text" name="" value="part001.001" required lay-verify="required" autocomplete="off"
+																 class="layui-input layui-disabled">
+															</div>
+														</div>
+													</div>
+													<div class="layui-form-item">
+														<div class="layui-inline">
+															<label class="layui-form-label">材料费</label>
+															<div class="layui-input-inline">
+																<input type="text" name="" value="93.45" required lay-verify="required" autocomplete="off"
+																 class="layui-input layui-disabled">
+															</div>
+														</div>
+														<div class="layui-inline" id="size">
+															<label class="layui-form-label">开料尺寸</label>
+															<div class="layui-input-inline" style="width: 47px;">
+																<input type="text" name="" value="45" required lay-verify="required" autocomplete="off"
+																 class="layui-input layui-disabled">
+															</div>
+															<div class="layui-input-inline" style="width: 47px;">
+																<input type="text" name="" value="50" required lay-verify="required" autocomplete="off"
+																 class="layui-input layui-disabled">
+															</div>
+															<div class="layui-input-inline" style="width: 47px;">
+																<input type="text" name="" value="75" required lay-verify="required" autocomplete="off"
+																 class="layui-input layui-disabled">
+															</div>
+														</div>
+													</div>
+													<div class="layui-form-item">
+														<div class="layui-inline">
+															<label class="layui-form-label">开料重量</label>
+															<div class="layui-input-inline">
+																<input type="text" name="" value="934500" required lay-verify="required" autocomplete="off"
+																 class="layui-input layui-disabled">
+															</div>
+														</div>
+														<div class="layui-inline">
+															<label class="layui-form-label">开料体积</label>
+															<div class="layui-input-inline">
+																<input type="text" name="" value="2268" required lay-verify="required" autocomplete="off"
+																 class="layui-input layui-disabled">
+															</div>
+														</div>
+													</div>
+													<div class="layui-form-item layui-form-text" >
+														<div class="layui-inline">
+															<label class="layui-form-label" style="width: 100%;">备注</label>
+															<div class="layui-input-inline" style="width: 270px;">
+																<textarea name="" placeholder="请输入内容" class="layui-textarea"></textarea>
+															</div>
+														</div>
+														<div class="image">
+															<img src="../../../img/3D3_03.png" alt="" />
+															<button type="button" class="layui-btn layui-btn-xs" id="partImg">
+  <i class="layui-icon">&#xe67c;</i>
+</button>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-md5">
+										<div class="make-table">
+											<h2>加工项目  <a href="javascript:;">设置</a></h2>
+											<div class="make-table-selected layui-form scroll">
+												<div class="make-table-caption">
+													<div>已选加工项目</div>
+													<div></div>
+												</div>
+												<table class="layui-table layui-simple-table" lay-skin="line" lay-size="sm">
+													<colgroup>
+														<col>
+														<col>
+														<col>
+													</colgroup>
+													<thead>
+														<tr>
+															<th>选择</th>
+															<th>项目名称</th>
+															<th>项目分类</th>
+															<th>加工工时</th>
+															<th>工时单价</th>
+															<th>加工费</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary" checked></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>7</td>
+															<td>100</td>
+															<td>700</td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary" checked></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>7</td>
+															<td>100</td>
+															<td>700</td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary" checked></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>7</td>
+															<td>100</td>
+															<td>700</td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary" checked></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>7</td>
+															<td>100</td>
+															<td>700</td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary" checked></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>7</td>
+															<td>100</td>
+															<td>700</td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary" checked></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>7</td>
+															<td>100</td>
+															<td>700</td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary" checked></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>7</td>
+															<td>100</td>
+															<td>700</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="make-table-unselected layui-form scroll">
+												<div class="make-table-caption">
+													<div>可选择加工项目</div>
+													<div></div>
+												</div>
+												<table class="layui-table layui-simple-table" lay-skin="line" lay-size="sm">
+													<colgroup>
+														<col width="50">
+														<col>
+														<col>
+														<col>
+														<col>
+														<col>
+													</colgroup>
+													<thead>
+														<tr>
+															<th>选择</th>
+															<th>项目分类</th>
+															<th>项目名称</th>
+															<th>工时单价</th>
+															<th>标准工时</th>
+															<th>材质</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary"></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>10</td>
+															<td>10</td>
+															<td>ABS</td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary"></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>10</td>
+															<td>10</td>
+															<td>ABS</td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary"></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>10</td>
+															<td>10</td>
+															<td>ABS</td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary"></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>10</td>
+															<td>10</td>
+															<td>ABS</td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary"></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>10</td>
+															<td>10</td>
+															<td>ABS</td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary"></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>10</td>
+															<td>10</td>
+															<td>ABS</td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary"></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>10</td>
+															<td>10</td>
+															<td>ABS</td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="" lay-skin="primary"></td>
+															<td>后处理</td>
+															<td>白板打磨到600</td>
+															<td>10</td>
+															<td>10</td>
+															<td>ABS</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../../plugins/jquery/jquery-3.2.1.min.js" type="text/javascript"
+		 charset="utf-8"></script>
+		<script src="../../../plugins/mCustomScrollbar/js/jquery.mCustomScrollbar.min.js"
+		 type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			var selected_1;
+			var selected_2;
+			var flag;
+			layui.use(['layer', 'jquery', 'form', 'element', 'table', 'upload'],
+				function() {
+					var layer = parent.layer == undefined ? layui.layer : parent.layer,
+						_layer = layui.layer,
+						form = layui.form,
+						$ = layui.jquery,
+						element = layui.element,
+						upload = layui.upload,
+						table = layui.table;
+					$('.btn').mouseenter(function() {
+						var title = $(this).attr('data-title');
+						_layer.tips(title, this, {
+							tips: [1, '#1E82D2']
+						})
+					}).click(function() {
+						var layeEvent = $(this).attr('data-event');
+						if(layeEvent === 'add') {
+//							layer.open({
+//								title: '新增零件',
+//								type: 2,
+//								area: ['800px', '500px'],
+//								resize: false,
+//								skin: 'layer-skin-class',
+//								content: '../project/sheet/sheet-part-add-edit.html'
+//							})
+						} else if(layeEvent === 'edit') {
+							if(selected_1 == undefined) {
+								layer.msg('请选择要编辑的报价单');
+								return;
+							}
+						} else if(layeEvent === 'verify') {
+							layer.msg('审核完成');
+							return;
+						}
+					})
+					upload.render({
+						elem: '#partImg',
+						url: '/upload/',
+						done: function(res) {
+
+						},
+						error: function() {
+							//请求异常回调
+						}
+					});
+					$('#size').mouseenter(function() {
+						_layer.tips('长X宽X高', this, {
+							tips: [4, '#1E82D2']
+						})
+					});
+					$('.tabBtn').mouseenter(function() {
+						var title = $(this).attr('data-title');
+						_layer.tips(title, this, {
+							tips: [1, '#009688']
+						})
+					}).click(function() {
+						var data_event = $(this).attr('data-event');
+						if(data_event === 'add-1') {
+							layer.open({
+								title: '添加产品',
+								type: 2,
+								area: ['450px', '400px'],
+								resize: false,
+								skin: 'layer-skin-class',
+								content: '../project/sheet/sheet-add-edit.html'
+							})
+							return;
+						}
+						if(flag) {
+							if(data_event === 'add') {
+
+							}
+						} else {
+							if(data_event === 'edit') {
+								layer.open({
+									title: '添加产品',
+									type: 2,
+									area: ['450px', '400px'],
+									resize: false,
+									skin: 'layer-skin-class',
+									content: '../project/sheet/sheet-add-edit.html'
+								})
+							} else if(data_event === 'add') {
+								//							layer.open({
+								//								title: '新增零件',
+								//								type: 2,
+								//								area: ['800px', '500px'],
+								//								resize: false,
+								//								skin: 'layer-skin-class',
+								//								content: '../project/sheet/sheet-part-add-edit.html'
+								//							})
+							}
+						}
+					});
+					$('#sheet-table.layui-table').on('click', 'tr', function() {
+						$(this).addClass('tr-selected').siblings('tr').removeClass(
+							'tr-selected');
+						selected_1 = $(this).attr('data-id');
+					})
+					$('#sheet-info-table.layui-table').on('click', 'tr', function() {
+						$(this).addClass('tr-selected').siblings('tr').removeClass(
+							'tr-selected');
+						selected_2 = $(this).children().eq(0).html();
+						var parent_id = $(this).attr('parentid');
+						if(parent_id) {
+							flag = true;
+							$('.aBtn').css('display', 'none');
+							$('.bBtn').css('display', 'inline-block');
+						} else {
+							flag = false;
+							$('.bBtn').css('display', 'none');
+							$('.aBtn').css('display', 'inline-block');
+						}
+					})
+					//表格展开隐藏
+					$('.showSubBtn').on('click', function() {
+						event.stopPropagation();
+						var _this = $(this);
+						var id = _this.attr('data-id');
+						var parent = _this.parents('.parent');
+						var child = $('.child-node-' + id);
+						var childAll = $('tr[parentid=' + id + ']');
+						if(parent.hasClass('collapsed')) {
+							_this.html('-');
+							parent.addClass('expanded').removeClass('collapsed');
+							child.css('display', '');
+						} else {
+							_this.html('+');
+							parent.addClass('collapsed').removeClass('expanded');
+							child.css('display', 'none');
+							childAll.addClass('collapsed').removeClass('expanded').css('display',
+								'none');
+							childAll.find('.showSubBtn').html('+');
+						}
+
+					})
+					//美化滚动条
+					$.mCustomScrollbar.defaults.axis = "y";
+					$(".scroll").mCustomScrollbar({
+						theme: "minimal-dark"
+					});
+				});
+		</script>
+	</body>
+
+</html>

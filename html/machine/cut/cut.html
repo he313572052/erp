@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>车床线切加工</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../../css/machine.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid digital">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="上机登记" data-event="up"><i class="iconfont icon-msnui-state-poweron"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="下机登记" data-event="down"><i class="iconfont icon-jieshu"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="补料申请" data-event="feed"><i class="layui-icon layui-icon-survey"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="搜索" data-event="search"><i class="layui-icon layui-icon-search"></i></button>
+				</div>
+			</blockquote>
+			<div class="layui-row layui-col-space30">
+				<div class="layui-col-md2">
+					<div class="layui-image" style="margin-top: 10px;">
+						<img src="../../../img/3D3_03.png" height="87"/>
+					</div>
+				</div>
+				<div class="layui-col-md10">
+					<blockquote class="layui-tools layui-tools-margin">
+						<div class="layui-form">
+							<div class="layui-form-item" style="margin-bottom: 5px;">
+								<div class="layui-inline">
+									<div class="layui-input-inline">
+										<select name="" lay-search>
+											<option>机台型号</option>
+											<option value="0">全部</option>
+											<option value="DJ">车床</option>
+											<option value="HJJ">火花机</option>
+											<option value="DJ">线切割</option>
+											<option value="DJ">钳工</option>
+										</select>
+									</div>
+								</div>
+								<div class="layui-inline">
+									<div class="layui-input-inline">
+										<select name="" lay-search>
+											<option>完工状态</option>
+											<option value="0">全部</option>
+											<option value="DJ">未下机</option>
+											<option value="HJJ">已下机</option>
+										</select>
+									</div>
+								</div>
+								<div class="layui-inline">
+									<div class="layui-input-inline">
+										<select name="" lay-search>
+											<option>作废状态</option>
+											<option value="0">未作废</option>
+											<option value="DJ">已作废</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="layui-form-item" style="margin-bottom: 0;">
+								<div class="layui-inline">
+									<div class="layui-input-inline">
+										<select name="" lay-search>
+											<option>制作组别</option>
+											<option value="0">机壳组</option>
+											<option value="DJ">五金组</option>
+											<option value="0">数码组</option>
+											<option value="DJ">委外组</option>
+											<option value="0">其他</option>
+											<option value="DJ">批量</option>
+										</select>
+									</div>
+								</div>
+								<div class="layui-inline">
+									<div class="layui-input-inline">
+										<input type="text" name="" placeholder="生产单号" class="layui-input" autocomplete="off">
+									</div>
+								</div>
+								<div class="layui-inline">
+									<div class="layui-input-inline">
+										<input type="text" name="" id="date-input" placeholder="工程出单时间" class="layui-input"
+										 autocomplete="off">
+									</div>
+								</div>
+							</div>
+						</div>
+					</blockquote>
+				</div>
+			</div>
+			<hr class="layui-bg-blue" style="height: 2px;"/>
+			<div class="layui-table-1">
+				<div class="layui-table-caption">
+					<div>车床线切加工记录</div>
+					<div></div>
+				</div>
+				<div>
+					<table class="layui-table" lay-data="{height:495, url:'../../../json/cut-machining-record.json', page:true, id:'cutTable'}"
+					 lay-filter="cutTable">
+						<thead>
+							<tr>
+								<th lay-data="{type:'numbers', width:65,fixed:'left'}">序号</th>
+								<th lay-data="{field:'product_num', width:120}">生产单号</th>
+								<th lay-data="{field:'goods', minWidth:90}">产品名称</th>
+								<th lay-data="{field:'group', minWidth:90}">生产组别</th>
+								<th lay-data="{field:'rating',align:'center',width:90}">制作级别</th>
+								<th lay-data="{field:'part_num',align:'center',width:90}">零件编号</th>
+								<th lay-data="{field:'part_material',align:'center',width:90}">零件材质</th>
+								<th lay-data="{field:'size',align:'center',width:120}">开料尺寸</th>
+								<th lay-data="{field:'is_code',align:'center',width:80,templet:'#is_code'}">编程</th>
+								<th lay-data="{field:'code_time',align:'center',width:150}">编程时间</th>
+								<th lay-data="{field:'issue_time',align:'center',width:150}">出单时间</th>
+								<th lay-data="{field:'machine_type',align:'center',width:90}">机台类型</th>
+								<th lay-data="{field:'machine_num',align:'center',width:130}">机台编号</th>
+								<th lay-data="{field:'await_amount',align:'center',width:90}">待机数量</th>
+								<th lay-data="{field:'action_times',align:'center',width:150}">执行次数</th>
+								<th lay-data="{field:'is_open',align:'center',width:80,templet:'#is_open'}">开料</th>
+								<th lay-data="{field:'regist_person',align:'center',width:130}">登记人</th>
+								<th lay-data="{field:'up_machine_time',align:'center',width:145}">上机时间</th>
+								<th lay-data="{field:'worked_times',align:'center',width:90}">完工次数</th>
+								<th lay-data="{field:'down_machine_time',align:'center',width:145}">下机时间</th>
+								<th lay-data="{field:'down_machine_person',align:'center',width:90}">下机人</th>
+								<th lay-data="{field:'remarks',align:'center',width:90}">工程备注</th>
+								<th lay-data="{toolbar:'#operation',align:'center',width:60,fixed:'right'}">操作</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="is_open">
+			{{# if(d.is_open === 1){ }}
+			<i class="iconfont icon-duigou" style="color:#007DDB"><i/>
+			{{# }else{ }}
+				<i class="iconfont icon-chacha" style="color:#ff0000"><i/>
+			{{# } }}
+		</script>
+		<script type="text/html" id="is_code">
+			{{# if(d.is_code === 1){ }}
+			<i class="iconfont icon-duigou" style="color:#007DDB"><i/>
+			{{# }else{ }}
+				<i class="iconfont icon-chacha" style="color:#ff0000"><i/>
+			{{# } }}
+		</script>
+		<script type="text/html" id="operation">
+			<a title="作废" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon layui-icon-delete"></i></a>
+		</script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			var row;
+			layui.use(['layer', 'jquery', 'form', 'element', 'table', 'laydate'],
+				function() {
+					var layer = parent.layer == undefined ? layui.layer : parent.layer,
+						_layer = layui.layer,
+						form = layui.form,
+						$ = layui.jquery,
+						laydate = layui.laydate,
+						table = layui.table;
+					laydate.render({
+						elem: '#date-input',
+						format: 'yyyy-MM-dd HH:mm',
+						range: true
+					});
+					$('.btn').mouseenter(function() {
+						var title = $(this).attr('data-title');
+						_layer.tips(title, this, {
+							tips: [1, '#1E82D2']
+						})
+					}).click(function() {
+						var layEvent = $(this).data('event');
+						var title = $(this).data('title');
+						if(layEvent === 'up') {
+							E.tip(row, function() {
+								E.page(title, '../machine/digital/up-machine.html', '700px',
+									'595px')
+							});
+						} else if(layEvent === 'down') {
+							E.tip(row, function() {
+								E.page(title, '../machine/queue/queue-down-machine.html',
+									'700px',
+									'580px')
+							});
+						} else if(layEvent === 'feed') {
+							E.tip(row, function() {
+								E.page(title, '../machine/queue/queue-feed-sheet.html',
+									'870px',
+									'670px')
+							})
+						}
+					});
+					table.on('row(cutTable)', function(obj) {
+						obj.tr.addClass('tr-selected').siblings('tr').removeClass(
+							'tr-selected')
+						row = obj;
+					});
+					table.on('tool(cutTable)', function(obj) {
+						var data = obj.data;
+						var layEvent = obj.event;
+						var tr = obj.tr;
+						if(layEvent === 'del') {
+							layer.confirm('您确定删除吗?', {
+								icon: 3,
+								title: '询问'
+							}, function(index) {
+								obj.del();
+								layer.msg('删除成功');
+							})
+						}
+					});
+					var E = (function(obj) {
+						obj.page = function(title, url, w, h) {
+							layer.open({
+								type: 2,
+								skin: 'layer-skin-class',
+								resize: false,
+								title: title,
+								area: [w, h],
+								content: url
+							});
+						}
+						obj.showLoad = function(msg) {
+							layer.load(1, {
+								time: 2 * 1000
+							})
+							setTimeout(function() {
+								layer.msg(msg);
+							}, 2 * 1000)
+						}
+						obj.tip = function(row, callback) {
+							if(!row) {
+								layer.msg('请选择行');
+								return;
+							}
+							if(callback !== undefined && typeof(callback) === 'function') {
+								callback();
+							}
+						}
+						return obj
+					})(E || {})
+				});
+		</script>
+	</body>
+
+</html>

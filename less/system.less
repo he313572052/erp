@@ -1,0 +1,72 @@
+@import 'reset.less';
+//用户管理面板 
+.order-permission {
+    padding-top: 10px;
+    blockquote {
+        font-size: 16px;
+        background-color: #01AAED;
+        padding: 5px;
+        color: #FFF;
+        border-left: 2px solid #007DDB;
+    }
+    div {
+        margin-top: 5px;
+        p {
+            padding-left: 5px;
+            border-left: 3px solid #1E9FFF;
+        }
+        ul {
+            border: 1px solid #ddd;
+            height: 140px;
+            width: 100%;
+            li {
+                font-size: 13px;
+                line-height: 1.8em;
+                padding: 3px 5px;
+                &:not(:last-of-type) {
+                    border-bottom: 1px dashed #ddd;
+                }
+            }
+        }
+        button {
+            margin-top: 5px;
+        }
+    }
+}
+
+//公司信息面板
+.company-info {
+    padding: 15px 10px;
+    .layui-form-label {
+        width: 116px;
+    }
+    .layui-input-block {
+        margin-left: 116px;
+        .layui-input,
+        .layui-textarea {
+            width: 90%;
+        }
+    }
+    .logo {
+        width: 50%;
+        div {
+            border: 1px solid #ddd;
+            padding: 5px;
+            background: #ddd;
+            position: relative;
+            button {
+                position: absolute;
+                right: 5px;
+                top: 0px
+            }
+            img {
+                max-width: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        button {
+            margin-top: 5px;
+        }
+    }
+}

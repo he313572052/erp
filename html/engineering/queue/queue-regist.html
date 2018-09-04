@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>完工登记</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../../css/engineering.css" media="all" />
+	</head>
+
+	<body class="childrenBody queue">
+		<form class="layui-form" action="">
+			<div class="queue-regist">
+				<div class="box">
+					<h2>新增登记</h2>
+					<div>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">零件编号</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" value="09LY02" required lay-verify="required" autocomplete="off"
+									 class="layui-input layui-disabled" disabled>
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">加工数量</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" value="2" required lay-verify="required" autocomplete="off"
+									 class="layui-input layui-disabled" disabled id="sum">
+								</div>
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">要求交期</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" required lay-verify="required" value="2018-08-23 16:00:00"
+									 autocomplete="off" class="layui-input layui-disabled" disabled="">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">完成时间</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" required lay-verify="required" value="" id="date-input"
+									 autocomplete="off" class="layui-input">
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">转移部门</label>
+								<div class="layui-input-inline">
+									<select name="" lay-verify="required" disabled="">
+										<option>请选择</option>
+										<option value="0" selected="">打磨</option>
+										<option value="1">复模</option>
+										<option value="3">出货品检</option>
+									</select>
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">加工人</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" required lay-verify="required" value="汪淼" autocomplete="off"
+									 class="layui-input layui-disabled" disabled="">
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">完成数量</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" required lay-verify="required|number|isSum" autocomplete="off"
+									 class="layui-input" id="complete">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">报废数量</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" required lay-verify="required|number|isSum" autocomplete="off"
+									 class="layui-input" id="scrap">
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item layui-form-text">
+							<div class="layui-inline">
+								<label class="layui-form-label">完工备注</label>
+								<div class="layui-input-inline" style="width: 512px;">
+									<textarea name="" placeholder="请输入内容" class="layui-textarea"></textarea>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="info">
+					<div>
+						<ul>
+							<li>
+								<span>零件名称：车灯罩子</span>
+								<span>零件材质：ABS</span>
+							</li>
+							<li>
+								<span>零件尺寸:18X25X36</span>
+								<span>制作方式：手工</span>
+
+							</li>
+							<li>
+								<span>制作数量：1</span>
+								<span>零件编号:09DR02</span>
+							</li>
+							<li>
+								<span>编程人员：汪淼</span>
+								<span>备注：ABS</span>
+							</li>
+						</ul>
+					</div>
+					<div class="layui-image">
+						<img src="../../../img/3D3_03.png" />
+					</div>
+				</div>
+			</div>
+			<div class="layui-layer-btns">
+				<button class="layui-btn layui-btn-blue" lay-submit>保存</button>
+			</div>
+		</form>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['layer', 'jquery', 'form', 'laydate', 'util'], function() {
+				var form = layui.form,
+					layer = parent.layer == undefined ? layui.layer : parent.layer,
+					$ = layui.jquery,
+					laydate = layui.laydate,
+					util = layui.util;
+				form.verify({
+					isSum: function(value, item) {
+						var sum = parseInt($('#sum').val());
+						var complete = parseInt($('#complete').val())
+						var scrap = parseInt($('#scrap').val());
+						if(sum != complete + scrap) {
+							return '完工数量与报废数量之和和加工数量不符！';
+						}
+					}
+				})
+				laydate.render({
+					elem: '#date-input',
+					position: 'fixed',
+					type: 'datetime',
+					isValue: true,
+					value: util.toDateString(new Date().getTime(), 'yyyy-MM-dd HH:mm:ss')
+				});
+				$('.moreBtn').click(function() {
+					event.preventDefault();
+				})
+			});
+		</script>
+	</body>
+
+</html>

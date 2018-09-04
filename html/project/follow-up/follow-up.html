@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>项目跟单指派</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css"/>
+		<link rel="stylesheet" href="../../../css/project.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">	
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="搜索" data-event="search"><i class="layui-icon layui-icon-search"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="导出" data-event="export"><i class="iconfont icon-daochu"></i></button>
+				</div>
+			</blockquote>
+			<blockquote class="layui-tools layui-tools-margin">
+				<div class="layui-form">
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<input type="text" name="" id="date-input1" placeholder="下单日期" autocomplete="off"
+							 class="layui-input">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<input type="text" name="" id="date-input2" placeholder="交货日期" autocomplete="off"
+							 class="layui-input">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<input type="text" name="" placeholder="生产单号" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<select name="" lay-verify="">
+								<option>订单组别</option>
+								<option value="010">英语组</option>
+								<option value="021">日语组</option>
+								<option value="0571">国内组</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<div class="layui-btn-input">
+							<input type="" name="" id="" value="" placeholder="下单人员" />
+							<button class="moreBtn" data-title="选择下单人员"><i class="layui-icon layui-icon-more moreBtn"></i></button>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<div class="layui-btn-input">
+							<input type="" name="" id="" value="" placeholder="项目跟单" />
+							<button class="moreBtn" data-title="选择项目跟单"><i class="layui-icon layui-icon-more moreBtn"></i></button>
+						</div>
+					</div>
+				</div>
+			</blockquote>
+			<div class="layui-form layui-table-1">
+				<div class="layui-table-caption">
+					<div>项目跟进表</div>
+					<div></div>
+				</div>
+				<div>
+					<table class="layui-table layui-simple-table" lay-skin="nob" lay-even>
+						<colgroup>
+							<col width="65">
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col width="130">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>类型</th>
+								<th>生产单号</th>
+								<th>产品名称</th>
+								<th>数量</th>
+								<th>交货日期</th>
+								<th>跟单日期</th>
+								<th>跟单进度说明</th>
+								<th>备注</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>H201856562</td>
+								<td>camera</td>
+								<td>1</td>
+								<td>2018-01-08</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									<button class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-about detBtn"></i></button>
+									<button class="layui-btn layui-btn-blue layui-btn-xs"><i class="layui-icon layui-icon-edit editBtn"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>H201856562</td>
+								<td>camera</td>
+								<td>1</td>
+								<td>2018-01-08</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									<button class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-about detBtn"></i></button>
+									<button class="layui-btn layui-btn-blue layui-btn-xs"><i class="layui-icon layui-icon-edit editBtn"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>H201856562</td>
+								<td>camera</td>
+								<td>1</td>
+								<td>2018-01-08</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									<button class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-about detBtn"></i></button>
+									<button class="layui-btn layui-btn-blue layui-btn-xs"><i class="layui-icon layui-icon-edit editBtn"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>H201856562</td>
+								<td>camera</td>
+								<td>1</td>
+								<td>2018-01-08</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									<button class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-about detBtn"></i></button>
+									<button class="layui-btn layui-btn-blue layui-btn-xs"><i class="layui-icon layui-icon-edit editBtn"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>H201856562</td>
+								<td>camera</td>
+								<td>1</td>
+								<td>2018-01-08</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									<button class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-about detBtn"></i></button>
+									<button class="layui-btn layui-btn-blue layui-btn-xs"><i class="layui-icon layui-icon-edit editBtn"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>H201856562</td>
+								<td>camera</td>
+								<td>1</td>
+								<td>2018-01-08</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									<button class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-about detBtn"></i></button>
+									<button class="layui-btn layui-btn-blue layui-btn-xs"><i class="layui-icon layui-icon-edit editBtn"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>H201856562</td>
+								<td>camera</td>
+								<td>1</td>
+								<td>2018-01-08</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									<button class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-about detBtn"></i></button>
+									<button class="layui-btn layui-btn-blue layui-btn-xs"><i class="layui-icon layui-icon-edit editBtn"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>H201856562</td>
+								<td>camera</td>
+								<td>1</td>
+								<td>2018-01-08</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									<button class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-about detBtn"></i></button>
+									<button class="layui-btn layui-btn-blue layui-btn-xs"><i class="layui-icon layui-icon-edit editBtn"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>H201856562</td>
+								<td>camera</td>
+								<td>1</td>
+								<td>2018-01-08</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									<button class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-about detBtn"></i></button>
+									<button class="layui-btn layui-btn-blue layui-btn-xs"><i class="layui-icon layui-icon-edit editBtn"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>H201856562</td>
+								<td>camera</td>
+								<td>1</td>
+								<td>2018-01-08</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									<button class="layui-btn layui-btn-normal layui-btn-xs"><i class="layui-icon layui-icon-about detBtn"></i></button>
+									<button class="layui-btn layui-btn-blue layui-btn-xs"><i class="layui-icon layui-icon-edit editBtn"></i></button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="layui-page" id="page"></div>
+		</div>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'laypage', 'layer', 'laydate'], function() {
+				var $ = layui.jquery,
+					form = layui.form,
+					layer = parent.layer == undefined ? laui.layer : parent.layer,
+					laydate = layui.laydate,
+					laypage = layui.laypage;
+				laypage.render({
+					elem: 'page',
+					count: 50
+				});
+				laydate.render({
+					elem: '#date-input1',
+					type: 'date',
+					range: true
+				});
+				laydate.render({
+					elem: '#date-input2',
+					type: 'date',
+					range: true
+				});
+				$('.moreBtn').click(function() {
+					event.preventDefault();
+					var title = $(this).attr('data-title');
+					layer.open({
+						title: title,
+						type: 2,
+						skin: 'layer-skin-class',
+						area: ['900px', '600px'],
+						content: '../layer/staff.html'
+					})
+				})
+				$('.detBtn').click(function() {
+					layer.open({
+						title: '生产进度登记',
+						type: 2,
+						skin: 'layer-skin-class',
+						area: ['900px', '630px'],
+						resize: false,
+						content: '../project/follow-up/follow-up-detail.html'
+					})
+				})
+				$('.editBtn').click(function() {
+					layer.open({
+						title: '编辑',
+						type: 2,
+						skin: 'layer-skin-class',
+						area: ['450px', '260px'],
+						resize: false,
+						content: '../project/follow-up/follow-up-edit.html'
+					})
+				})
+			});
+		</script>
+	</body>
+
+</html>

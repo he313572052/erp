@@ -1,0 +1,42 @@
+{
+	"code": 0,
+	"msg": "",
+	"count": 20,
+	"data": [
+		{
+			"id": 1,
+			"username": "FGS",
+			"name": "小冯",
+			"department": "研发部",
+			"group": "软件组"
+		},
+		{
+			"id": 2,
+			"username": "FGS",
+			"name": "小冯",
+			"department": "研发部",
+			"group": "软件组"
+		},
+		{
+			"id": 3,
+			"username": "FGS",
+			"name": "小冯",
+			"department": "研发部",
+			"group": "软件组"
+		},
+		{
+			"id": 4,
+			"username": "FGS",
+			"name": "小冯",
+			"department": "研发部",
+			"group": "软件组"
+		},
+		{
+			"id": 5,
+			"username": "FGS",
+			"name": "小冯",
+			"department": "研发部",
+			"group": "软件组"
+		}
+	]
+}

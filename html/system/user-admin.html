@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../css/system.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="新增" data-event="add"><i class="layui-icon layui-icon-add-1"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="搜索" data-event="search"><i class="layui-icon layui-icon-search"></i></button>
+				</div>
+			</blockquote>
+			<blockquote class="layui-tools layui-tools-margin">
+				<div class="layui-form">
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<input type="text" name="username" placeholder="帐号" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-input-inline">
+							<input type="text" name="name" placeholder="姓名" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-input-inline">
+							<select name="status">
+								<option value="">锁定状态</option>
+								<option value="010">已锁定</option>
+								<option value="021">未锁定</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<select name="stop">
+								<option value="">是否停用</option>
+								<option value="010">未停用</option>
+								<option value="021">已停用</option>
+							</select>
+
+						</div>
+					</div>
+				</div>
+			</blockquote>
+			<div class="layui-row layui-col-space10">
+				<div class="layui-col-md2">
+					<ul id="tree" class="layui-tree-warp"></ul>
+				</div>
+				<div class="layui-col-md10">
+					<div class="layui-table-1">
+						<div class="layui-table-caption">
+							<div>用户记录</div>
+							<div></div>
+						</div>
+						<div>
+							<table id="user-table" lay-filter="userTable"></table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<script type="text/html" id="operation">
+			<a title="停用" class="layui-btn layui-btn-xs layui-btn-blue" lay-event="stop"><i class="iconfont icon-icon-"></i></a>
+			<a title="编辑" class="layui-btn layui-btn-xs layui-btn-normal" lay-event="edit"><i class="layui-icon layui-icon-edit"></i></a>
+			<a title="删除" class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del"><i class="layui-icon layui-icon-delete"></i></a>
+		</script>
+		<script type="text/javascript">
+			layui.use(['form', 'layer', 'tree', 'table'], function() {
+				var form = layui.form,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					$ = layui.jquery,
+					table = layui.table;
+				layui.tree({
+					elem: '#tree',
+					click: function(node) {},
+					nodes: [{ //节点
+						name: '所有部位',
+						spread: true,
+						children: [{
+							id: 1,
+							name: '研发部'
+						}, {
+							id: 2,
+							name: '销售部'
+						}, {
+							id: 3,
+							name: '生产部',
+							spread: true,
+							children: [{
+								id: 31,
+								name: '外观模型组'
+							}, {
+								id: 32,
+								name: '功能模型组'
+							}, {
+								id: 33,
+								name: '数码模型组'
+							}, {
+								id: 34,
+								name: '五金加工组'
+							}]
+						}, {
+							id: 4,
+							name: '行政部'
+						}, {
+							id: 5,
+							name: '总经办'
+						}, {
+							id: 6,
+							name: '售后部'
+						}, {
+							id: 7,
+							name: '后勤部'
+						}]
+					}]
+				});
+				//用户管理 用户列表
+				table.render({
+					elem: '#user-table',
+					url: '../../json/user-list.json',
+					page: true,
+					cols: [
+						[ //表头
+							{
+								field: 'id',
+								title: 'ID',
+								width: 50,
+								sort: true,
+								fixed: 'left'
+							}, {
+								field: 'username',
+								title: '帐号',
+								width: 60
+							}, {
+								field: 'name',
+								title: '姓名',
+								width: 60
+							}, {
+								field: 'number',
+								title: '工号',
+								width: 60
+							}, {
+								field: 'department',
+								title: '部门',
+								width: 60
+							}, {
+								field: 'group',
+								title: '组别',
+								width: 60
+							}, {
+								field: 'post',
+								title: '职务',
+								width: 60
+							}, {
+								field: 'createTime',
+								title: '注册时间',
+								width: 100
+							},
+							{
+								field: 'verify',
+								title: '审核人',
+								width: 90
+							},
+							{
+								field: 'verifyTime',
+								title: '审核时间',
+								width: 80
+							}, {
+								field: 'security',
+								title: '密保问题',
+								width: 120
+							},
+
+							{
+								field: 'answer',
+								title: '密保答案',
+								width: 120
+							}, {
+								field: 'security',
+								title: '密保问题',
+								width: 120
+							},
+							{
+								title: '操作',
+								fixed: 'right',
+								width: 150,
+								align: 'center',
+								toolbar: '#operation'
+							}
+						]
+					]
+				});
+			})
+		</script>
+	</body>
+
+</html>

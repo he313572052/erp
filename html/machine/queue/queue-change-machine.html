@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>操机加工队列换机</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/machine.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<form class="layui-form" action="">
+			<div style="padding:15px 15px;">
+				<div class="layui-form-item">
+					<label class="layui-form-label" style="width: 84px;">当前机台类型</label>
+					<div class="layui-input-block" style="margin-left: 114px;">
+						<div class="layui-btn-input" style="max-width: 100%;">
+							<input type="" name="" id="" value="" required lay-verify="required"/>
+							<button class="moreBtn" data-event="type"><i class="layui-icon layui-icon-more"></i></button>
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label" style="width: 84px;">更换机台编号</label>
+					<div class="layui-input-block" style="margin-left: 114px;">
+						<div class="layui-btn-input" style="max-width: 100%;">
+							<input type="" name="" id="" value="" required lay-verify="required"/>
+							<button class="moreBtn"><i class="layui-icon layui-icon-more"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-layer-btns">
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<button class="layui-btn layui-btn-blue" lay-submit>保存</button>
+			</div>
+		</form>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'layer'], function() {
+				var $ = layui.jquery,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					form = layui.form;
+				$('.moreBtn').click(function() {
+					event.preventDefault();
+					var layEvent = $(this).data('event');
+					if(layEvent === 'type') {
+						layer.open({
+							title: '请选择机台类型',
+							type: 2,
+							skin: 'layer-skin-class',
+							area: ['500px', '635px'],
+							resiez: false,
+							content: '../layer/machine-type.html'
+						})
+					} else {
+						layer.open({
+							title: '请选择机台编号',
+							type: 2,
+							skin: 'layer-skin-class',
+							area: ['1200px', '650px'],
+							resiez: false,
+							content: '../layer/machine.html'
+						})
+					}
+				})
+			});
+		</script>
+	</body>
+
+</html>

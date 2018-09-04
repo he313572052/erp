@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>加工机台信息</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../../css/machine.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid info">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue layui-btn-sm btn" data-title="新增"
+					 data-event="add"><i class="layui-icon layui-icon-add-1"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue layui-btn-sm btn" data-title="编辑"
+					 data-event="edit"><i class="layui-icon layui-icon-edit"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue layui-btn-sm btn" data-title="刀具报废"
+					 data-event="scrap"><i class="layui-icon layui-icon-delete"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue layui-btn-sm btn" data-title="导出"
+					 data-event="export"><i class="iconfont icon-daochu"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue layui-btn-sm btn" data-title="机台检修"
+					 data-event="overhaul"><i class="iconfont icon-weixiu"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue layui-btn-sm btn" data-title="查看机台排单"
+					 data-event="find"><i class="iconfont icon-chakan"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue layui-btn-sm btn" data-title="搜索"
+					 data-event="search"><i class="layui-icon layui-icon-search"></i></button>
+				</div>
+			</blockquote>
+			<blockquote class="layui-tools layui-tools-margin">
+				<div class="layui-form">
+					<div>
+						<div class="layui-inline">
+							<div class="layui-input-inline">
+								<input type="text" id="date-input" name="" placeholder="编程日期" class="layui-input"
+								 autocomplete="off">
+							</div>
+							<div class="layui-input-inline">
+								<select name="">
+									<option>机台状态</option>
+									<option>全部</option>
+									<option value="2">机壳</option>
+									<option value="3">模具</option>
+									<option value="4">数码</option>
+									<option value="5">五金</option>
+								</select>
+							</div>
+							<div class="layui-input-inline">
+								<select name="">
+									<option>编程状态</option>
+									<option value="1">未编程</option>
+									<option value="2">已编程</option>
+								</select>
+							</div>
+							<div class="layui-input-inline">
+								<div class="layui-btn-input">
+									<input type="" name="" value="" placeholder="编程人员" />
+									<button class="moreBtn"><i class="layui-icon layui-icon-more"></i></button>
+								</div>
+							</div>
+							<div class="layui-input-inline">
+								<input type="text" name="" placeholder="生产单号" class="layui-input" autocomplete="off">
+							</div>
+						</div>
+					</div>
+					<hr class="layui-bg-red" style="height: 2px;" />
+					<b><i class="iconfont icon-yuan" style="color: #FF5722;font-size: 14px;"></i>  正在制作</b>&#160;&#160;
+					<b><i class="iconfont icon-zheng-triangle" style="color: #009688;"></i>  机台闲置</b>&#160;
+					&#160;
+					<b><i class="iconfont icon-rect" style="color: #FFB800;"></i>  停机检修</b>
+				</div>
+			</blockquote>
+			<div class="layui-row layui-col-space10">
+				<div class="layui-col-md7">
+					<div class="layui-table-1">
+						<div class="layui-table-caption">
+							<div>加工机台信息</div>
+							<div></div>
+						</div>
+						<div>
+							<table class="layui-simple-table" id="infoTable" lay-filter="infoTable"></table>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md5">
+					<div class="tab">
+						<div class="layui-tab layui-tab-card" lay-filter="knifeTab">
+							<ul class="layui-tab-title">
+								<li class="layui-this">机台刀具</li>
+								<li>当前刀具出入库记录</li>
+							</ul>
+							<div class="layui-tab-content">
+								<div class="layui-tab-item layui-show">
+									<table class="layui-simple-table" id="knifeTable" lay-filter="knifeTable"></table>
+								</div>
+								<div class="layui-tab-item">
+									<table class="layui-table layui-simple-table stock" lay-size="sm">
+										<colgroup>
+											<col>
+											<col>
+											<col>
+											<col>
+											<col>
+											<col>
+										</colgroup>
+										<thead>
+											<tr>
+												<th>序号</th>
+												<th>操作时间</th>
+												<th>操作人</th>
+												<th>操作类型</th>
+												<th>出入库数量</th>
+												<th>备注</th>
+											</tr>
+										</thead>
+										<tbody id="stock-tbody"></tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="machine-status">
+			{{# if(d.status === 0){ }}
+			<i class="iconfont icon-yuan" style="color: #FF5722;"></i> {{# }else if(d.status===1){
+			}}
+			<i class="iconfont icon-zheng-triangle" style="color: #009688;">
+			{{# }else{ }}
+			<i class="iconfont icon-rect" style="color: #FFB800;"></i> {{# } }}
+		</script>
+		<script type="text/html" id="end">
+			{{# if(d.status===2){ }}
+			<button title="检修完成" class="layui-btn layui-btn-blue layui-btn-xs" lay-event="stop"><i class="iconfont icon-jieshu"></i></button>			{{# }else{ }}
+			<button class="layui-btn layui-btn-disabled layui-btn-xs" disabled lay-event="stop"><i class="iconfont icon-jieshu"></i></button>			{{# } }}
+		</script>
+		<script type="text/html" id="stockTpl">
+			{{# for(var i=1;i
+			<=4;i++){ }} <tr>
+				<td>{{i}}</td>
+				<td>2016-06-15 14:25</td>
+				<td>汪淼</td>
+				<td>出库</td>
+				<td>1</td>
+				<td>机台刀具导入</td>
+				</tr>
+				{{# } }}
+				<tr>
+					<td></td>
+					<td colspan="3">合计</td>
+					<td colspan="2">4</td>
+				</tr>
+		</script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['layer', 'jquery', 'form', 'element', 'table', 'laydate',
+					'laytpl'
+				],
+				function() {
+					var layer = parent.layer == undefined ? layui.layer : parent.layer,
+						_layer = layui.layer,
+						form = layui.form,
+						$ = layui.jquery,
+						laydate = layui.laydate,
+						table = layui.table,
+						laytpl = layui.laytpl;
+					var machine_row,
+						knife_row,
+						knife_table;
+					laydate.render({
+						elem: '#date-input',
+						type: 'datetime',
+						range: true,
+					});
+					$('.btn').mouseenter(function() {
+						var title = $(this).attr('data-title');
+						_layer.tips(title, this, {
+							tips: [1, '#1E82D2']
+						})
+					}).click(function() {
+						var layEvent = $(this).data('event');
+						var title = $(this).data('title');
+						if(layEvent === 'add') {
+							E.page(title, '../machine/info/machine-add.html', '825px', '475px');
+						} else if(layEvent === 'export') {
+							E.showLoad('导出成功');
+						} else if(layEvent === 'edit') {
+							E.tip(machine_row, function() {
+								E.page(title, '../machine/info/machine-add.html', '825px', '475px');
+							})
+						} else if(layEvent === 'scrap') {
+							E.tip(knife_row, function() {
+								E.page(title, '../machine/info/machine-knife-scrap.html', '1000px',
+									'540px');
+							}, '请选择刀具')
+						} else if(layEvent === 'overhaul') {
+							E.tip(machine_row, function() {
+								E.page(title, '../machine/info/machine-overhaul-sheet.html',
+									'1200px',
+									'405px');
+							})
+						} else if(layEvent === 'find') {
+							E.tip(machine_row, function() {
+								E.page(title, '../layer/machine-platoon.html', '1400px',
+									'540px')
+							});
+						}
+					});
+					$('.moreBtn').click(function() {
+						event.preventDefault();
+						layer.open({
+							title: '请选择编程员',
+							type: 2,
+							skin: 'layer-skin-class',
+							area: ['800px', '610px'],
+							resiez: false,
+							content: '../layer/staff.html'
+						})
+					});
+					table.render({
+						elem: '#infoTable',
+						height: 495,
+						limits: [10, 15, 20],
+						url: '../../../json/machine-info.json',
+						page: true,
+						cols: [
+							[{
+									type: 'numbers',
+									width: 65,
+									title: '序号',
+									sort: true,
+									fixed: 'left'
+								},
+								{
+									field: 'status',
+									title: '状态',
+									align: 'center',
+									templet: '#machine-status',
+									width: 60
+								}, {
+									field: 'machine_num',
+									title: '机台编号',
+									minWidth: 90
+								}, {
+									field: 'machine_type',
+									title: '机台类型',
+									align: 'center',
+									width: 90
+								}, {
+									field: 'machine_trip',
+									title: '机台行程',
+									align: 'center',
+									minWidth: 90
+								}, {
+									field: 'speed',
+									align: 'center',
+									title: '主轴转速',
+									width: 90
+								}, {
+									field: 'cut',
+									align: 'center',
+									title: '切削速度',
+									width: 90
+								}, {
+									field: 'department',
+									align: 'center',
+									title: '加工部门',
+									width: 90
+								}, {
+									field: 'group',
+									title: '加工组别',
+									align: 'center',
+									width: 90
+								},
+								{
+									field: 'product_num',
+									title: '生产单号',
+									align: 'center',
+									width: 130
+								}, {
+									field: 'goods',
+									align: 'center',
+									title: '产品名称',
+									minWidth: 90
+								}, {
+									field: 'parts_num',
+									title: '零件编号',
+									width: 90
+								}, {
+									field: 'machiner_person',
+									minWidth: 75,
+									title: '加工人'
+								}, {
+									field: 'operate_machine_time',
+									minWidth: 90,
+									title: '上机时间'
+								}, {
+									field: 'await_amount',
+									minWidth: 130,
+									align: 'center',
+									title: '待机数量'
+								}, {
+									field: 'remarks',
+									minWidth: 90,
+									title: '机台备注'
+								}, {
+									title: '操作',
+									width: 60,
+									align: 'center',
+									fixed: 'right',
+									toolbar: '#end'
+								}
+							]
+						]
+					});
+
+					table.on('row(infoTable)', function(obj) {
+						obj.tr.addClass('tr-selected').siblings('tr').removeClass(
+							'tr-selected')
+						machine_row = obj;
+						reloadKnifeTable();
+					});
+					table.on('tool(infoTable)', function(obj) {
+						var layEvent = obj.event;
+						var tr = obj.tr;
+						if(layEvent === 'stop') {
+							E.confirm('您确定该机台已经检修完成吗?', function() {
+								tr.find('.layui-btn').attr('disabled', true).removeClass(
+									'layui-btn-blue').addClass('layui-btn-disabled');
+							})
+						}
+					});
+					table.on('row(knifeTable)', function(obj) {
+						obj.tr.addClass('tr-selected').siblings('tr').removeClass(
+							'tr-selected')
+						knife_row = obj;
+						var getTpl = stockTpl.innerHTML,
+							stock_tbody = $('#stock-tbody');
+						laytpl(getTpl).render({}, function(html) {
+							stock_tbody.html(html);
+						});
+					});
+					var reloadKnifeTable = function() {
+						if(knife_table) {
+							knife_table.reload()
+						} else {
+							knife_table = table.render({
+								elem: '#knifeTable',
+								height: 500,
+								limits: [10, 15, 20],
+								url: '../../../json/machine-info-knife.json',
+								page: true,
+								cols: [
+									[{
+											type: 'numbers',
+											width: 65,
+											title: '序号',
+											sort: true,
+											fixed: 'left'
+										},
+										{
+											field: 'knife_num',
+											title: '刀具编号',
+											align: 'center',
+											width: 90
+										}, {
+											field: 'knife_type',
+											title: '刀具类型',
+											minWidth: 90
+										}, {
+											field: 'knife_spec',
+											title: '刀具规格',
+											align: 'center',
+											width: 90
+										}, {
+											field: 'old_stock',
+											title: '旧刀库存',
+											align: 'center',
+											minWidth: 90
+										}, {
+											field: 'edge_length',
+											align: 'center',
+											title: '刀具刃长',
+											width: 90
+										}, {
+											field: 'overall_length',
+											align: 'center',
+											title: '刀具总长',
+											width: 90
+										}, {
+											field: 'remarks',
+											align: 'center',
+											title: '备注',
+											minWidth: 65
+										}
+									]
+								]
+							})
+						}
+					}
+					var E = (function(obj) {
+						obj.confirm = function(msg, callback) {
+							layer.confirm(msg, {
+								title: '询问',
+								icon: 3
+							}, function(index) {
+								callback();
+								layer.close(index);
+							})
+						}
+						obj.page = function(title, url, w, h) {
+							layer.open({
+								type: 2,
+								skin: 'layer-skin-class',
+								resize: false,
+								title: title,
+								area: [w, h],
+								content: url
+							});
+						}
+						obj.showLoad = function(msg) {
+							layer.load(1, {
+								time: 2 * 1000
+							})
+							setTimeout(function() {
+								layer.msg(msg);
+							}, 2 * 1000)
+						}
+						obj.tip = function(row, callback, msg) {
+							var _msg = msg === undefined ? '请选择行' : msg;
+							if(!row) {
+								layer.msg(_msg);
+								return;
+							}
+							if(callback !== undefined && typeof(callback) === 'function') {
+								callback();
+							}
+						}
+						return obj
+					})(E || {})
+				});
+		</script>
+	</body>
+
+</html>

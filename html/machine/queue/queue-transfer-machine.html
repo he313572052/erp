@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>机壳加工队列转分机登记登记</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/engineering.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<form class="layui-form" action="">
+			<div class="supply">
+				<blockquote class="layer-tools">
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<div class="layui-btn-input" style="height: 32px;">
+								<input type="" name="" id="" value="" placeholder="机台类型" />
+								<button class="moreBtn"><i class="layui-icon layui-icon-more"></i></button>
+							</div>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<button class="layui-btn layui-btn-sm layui-btn-normal" lay-submit lay-filter="search">查询</button>
+					</div>
+				</blockquote>
+				<div class="supply-edit" style="border-color: #1E82D2;padding: 5px 10px;">
+					<span class="layui-badge">当前机台：TEST</span>&#160;&#160;&#160;
+					<input type="checkbox" name="" title="当前机台下机" lay-skin="primary" checked>
+					<hr class="layui-bg-green" style="height: 2px;" />
+					<table class="layui-simple-table" id="machineTable" lay-filter="machineTable" style="margin-top: -15px;"></table>
+				</div>
+				<div class="info">
+					<div>
+						<ul>
+							<li>
+								<span>生产单号：H18062805</span>
+								<span>产品名称：游戏机部件</span>
+								<span>生产部门：研发部</span>
+							</li>
+							<li>
+								<span>生产组别:机壳组</span>
+								<span>生产人员：云天明</span>
+								<span>上机时间：2018-08-30 11:33</span>
+							</li>
+							<li>
+								<span>零件名称：機構ベース</span>
+								<span>零件材质：PC透明</span>
+								<span>零件尺寸:</span>
+							</li>
+							<li>
+								<span>制作方式：研发部</span>
+								<span>制作数量：1</span>
+								<span>零件编号：2630530BARI</span>
+							</li>
+							<li>
+								<span>编程人员：罗辑</span>
+								<span>备注：</span>
+								<span></span>
+							</li>
+						</ul>
+					</div>
+					<div class="layui-image">
+						<img src="../../../img/3D3_03.png" />
+					</div>
+				</div>
+			</div>
+			<div class="layui-layer-btns">
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<button class="layui-btn layui-btn-blue" lay-submit lay-filter="">保存</button>
+			</div>
+		</form>
+		<script type="text/html" id="auto_up">
+			{{# if(d.auto_up===1){ }}
+			<i class="iconfont icon-duigou" style="color: #1E82D2;"></i> {{# }else{ }}
+			<i class="iconfont icon-chacha" style="color: #FF1E00;"></i> {{# } }}
+		</script>
+		<script type="text/html" id="toolbar">
+			<div class="layui-btn-container">
+				<button class="layui-btn layui-btn-normal layui-btn-xs" lay-event="add"><i class="layui-icon layui-icon-add-1"></i></button>
+				<button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon layui-icon-delete"></i></button>
+			</div>
+		</script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			var row;
+			layui.use(['jquery', 'form', 'table', 'layer'], function() {
+				var $ = layui.jquery,
+					table = layui.table,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					form = layui.form;
+				table.render({
+					elem: '#machineTable',
+					height: 280,
+					toolbar: '#toolbar',
+					defaultToolbar: [],
+					limit: 5,
+					limits: [5],
+					size: 'sm',
+					url: '../../../json/queue-transfer-machine-list.json',
+					page: true,
+					cols: [
+						[{
+								type: 'numbers',
+								width: 65,
+								title: '序号',
+								sort: true,
+								fixed: 'left'
+							}, {
+								field: 'machine_type',
+								title: '机台类型',
+								align: 'center',
+								width: 90
+							}, {
+								field: 'transfer_machine',
+								title: '转机机台',
+								minWidth: 90
+							}, {
+								field: 'machining_amount',
+								align: 'center',
+								title: '加工数量',
+								width: 90
+							}, {
+								field: 'auto_up',
+								align: 'center',
+								title: '自动上机',
+								templet: '#auto_up',
+								width: 90
+							}, {
+								field: 'action_times',
+								align: 'center',
+								title: '执行次数',
+								width: 90
+							}, {
+								field: 'machining_time',
+								title: '预计加工工时',
+								align: 'center',
+								width: 120
+							},
+							{
+								field: 'over_time',
+								title: '要求完成时间',
+								align: 'center',
+								width: 145
+							}, {
+								field: 'remarks',
+								align: 'center',
+								title: '加工备注',
+								minWidth: 90
+							}
+						]
+					]
+				});
+				$('.moreBtn').click(function() {
+					event.preventDefault();
+					E.page('请选择机台类型', '../layer/machine-type.html', '800px', '630px');
+				});
+				table.on('toolbar(machineTable)', function(obj) {
+					event.preventDefault();
+					var layEvent = obj.event;
+					if(layEvent === 'add') {
+						E.page('请选择机台', '../layer/machine.html', '1000px', '650px');
+					} else if(layEvent === 'del') {
+						E.tip(row, function() {
+							E.confirm('您确定删除吗?', function() {
+								row.del();
+								layer.msg('删除成功');
+							})
+						});
+					}
+				});
+				table.on('row(machineTable)', function(obj) {
+					obj.tr.addClass('tr-selected').siblings('tr').removeClass(
+						'tr-selected');
+					row = obj
+				});
+				var E = (function(e) {
+					e.page = function(title, url, w, h) {
+						layer.open({
+							type: 2,
+							skin: 'layer-skin-class',
+							resize: false,
+							title: title,
+							area: [w, h],
+							content: url
+						});
+					}
+					e.tip = function(row, callback) {
+						if(!row) {
+							layer.msg('请选择行');
+							return;
+						}
+						callback();
+					}
+					e.confirm = function(msg, callback) {
+						layer.confirm(msg, {
+							title: '询问',
+							icon: 3
+						}, function(index) {
+							callback();
+							layer.close(index);
+						})
+					}
+					return e;
+				})(E || {});
+			});
+		</script>
+	</body>
+
+</html>

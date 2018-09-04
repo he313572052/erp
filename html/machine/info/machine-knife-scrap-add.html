@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>机台信息刀具报废新增</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../../css/machine.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<form class="layui-form" action="">
+			<div style="padding:15px 0">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width:60px">刀具编号</label>
+						<div class="layui-input-inline" style="width:150px">
+							<input type="text" class="layui-input layui-disabled" value="PD096" required lay-verify="required"
+							 disabled="">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width:60px">刀具类型</label>
+						<div class="layui-input-inline" style="width:150px">
+							<input type="text" value="平刀" class="layui-input layui-disabled" required lay-verify="required"
+							 disabled="">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label" style="width:60px">刀具规格</label>
+						<div class="layui-input-inline" style="width:150px">
+							<input type="text" value="F6*75*2*75/2刃同柄" class="layui-input layui-disabled" required
+							 lay-verify="required" disabled="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label" style="width:60px">组别</label>
+					<div class="layui-input-inline" style="width:150px">
+						<input type="text" value="机壳组" class="layui-input layui-disabled" required lay-verify="required"
+						 disabled="">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label" style="width:60px">刀具刃长</label>
+					<div class="layui-input-inline" style="width:150px">
+						<input type="text" value="30" class="layui-input layui-disabled" required lay-verify="required"
+						 disabled="">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label" style="width:60px">刀具总长</label>
+					<div class="layui-input-inline" style="width:150px">
+						<input type="text" value="75" class="layui-input layui-disabled" required lay-verify="required"
+						 disabled="">
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label" style="width:60px">报废人</label>
+					<div class="layui-input-inline" style="width:150px">
+						<div class="layui-btn-input">
+							<input type="" name="" id="" value="汪淼" />
+							<button class="moreBtn"><i class="layui-icon layui-icon-more"></i></button>
+						</div>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label" style="width:60px">报废数量</label>
+					<div class="layui-input-inline" style="width:150px">
+						<input type="text" value="" class="layui-input" required lay-verify="required|number">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label" style="width:60px">机台编号</label>
+					<div class="layui-input-inline" style="width:150px">
+						<input type="text" value="JKJD004" class="layui-input layui-disabled" required lay-verify="required"
+						 disabled="">
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item layui-form-text">
+				<label class="layui-form-label" style="width:60px">备注</label>
+				<div class="layui-input-inline" style="width: 678px">
+					<textarea name="" placeholder="请输入内容" class="layui-textarea"></textarea>
+				</div>
+			</div>
+			<div class="layui-layer-btns">
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<button class="layui-btn layui-btn-blue" lay-submit>保存</button>
+			</div>
+		</form>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form', 'layer'], function() {
+				var $ = layui.jquery,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					form = layui.form;
+				$('.moreBtn').click(function() {
+					event.preventDefault();
+					layer.open({
+						type: 2,
+						skin: 'layer-skin-class',
+						resize: false,
+						title: '请选择报废人',
+						area: ['800px', '610px'],
+						content: '../layer/staff.html'
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

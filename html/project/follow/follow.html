@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>项目跟单设置</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/project.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="刷新"><i class="layui-icon layui-icon-refresh"></i></button>
+				</div>
+			</blockquote>
+			<div class="follow layui-form layui-table-1">
+				<div class="layui-table-caption">
+					<div>项目跟单</div>
+					<div></div>
+				</div>
+				<div>
+					<table class="layui-table layui-simple-table" lay-skin="nob" lay-even>
+						<colgroup>
+							<col width="65">
+							<col>
+							<col>
+							<col>
+							<col>
+							<col width="100">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>订单组别</th>
+								<th>下单人员</th>
+								<th>制作组别</th>
+								<th>项目跟单</th>
+								<th>选择跟单</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>国际业务部</td>
+								<td>边倩倩</td>
+								<td>复模组</td>
+								<td>陈伟玲</td>
+								<td><button class="layui-btn layui-btn-blue layui-btn-xs moreBtn"><i class="layui-icon layui-icon-more"></i></button></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>国际业务部</td>
+								<td>边倩倩</td>
+								<td>复模组</td>
+								<td>陈伟玲</td>
+								<td><button class="layui-btn layui-btn-blue layui-btn-xs moreBtn"><i class="layui-icon layui-icon-more"></i></button></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>国际业务部</td>
+								<td>边倩倩</td>
+								<td>复模组</td>
+								<td>陈伟玲</td>
+								<td><button class="layui-btn layui-btn-blue layui-btn-xs moreBtn"><i class="layui-icon layui-icon-more"></i></button></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>国际业务部</td>
+								<td>边倩倩</td>
+								<td>复模组</td>
+								<td>陈伟玲</td>
+								<td><button class="layui-btn layui-btn-blue layui-btn-xs moreBtn"><i class="layui-icon layui-icon-more"></i></button></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>国际业务部</td>
+								<td>边倩倩</td>
+								<td>复模组</td>
+								<td>陈伟玲</td>
+								<td><button class="layui-btn layui-btn-blue layui-btn-xs moreBtn"><i class="layui-icon layui-icon-more"></i></button></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>国际业务部</td>
+								<td>边倩倩</td>
+								<td>复模组</td>
+								<td>陈伟玲</td>
+								<td><button class="layui-btn layui-btn-blue layui-btn-xs moreBtn"><i class="layui-icon layui-icon-more"></i></button></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>国际业务部</td>
+								<td>边倩倩</td>
+								<td>复模组</td>
+								<td>陈伟玲</td>
+								<td><button class="layui-btn layui-btn-blue layui-btn-xs moreBtn"><i class="layui-icon layui-icon-more"></i></button></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>国际业务部</td>
+								<td>边倩倩</td>
+								<td>复模组</td>
+								<td>陈伟玲</td>
+								<td><button class="layui-btn layui-btn-blue layui-btn-xs moreBtn"><i class="layui-icon layui-icon-more"></i></button></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>国际业务部</td>
+								<td>边倩倩</td>
+								<td>复模组</td>
+								<td>陈伟玲</td>
+								<td><button class="layui-btn layui-btn-blue layui-btn-xs moreBtn"><i class="layui-icon layui-icon-more"></i></button></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>国际业务部</td>
+								<td>边倩倩</td>
+								<td>复模组</td>
+								<td>陈伟玲</td>
+								<td><button class="layui-btn layui-btn-blue layui-btn-xs moreBtn"><i class="layui-icon layui-icon-more"></i></button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="layui-page" id="page"></div>
+		</div>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['layer', 'jquery', 'form', 'element', 'laypage'], function() {
+				var layer = parent.layer == undefined ? layui.layer : parent.layer,
+					_layer = layui.layer,
+					form = layui.form,
+					$ = layui.jquery,
+					element = layui.element,
+					laypage = layui.laypage;
+				$('.btn').mouseenter(function() {
+					var title = $(this).attr('data-title');
+					_layer.tips(title, this, {
+						tips: [1, '#1E82D2']
+					})
+				})
+				laypage.render({
+					elem: 'page',
+					count: 50
+				});
+				$('.moreBtn').click(function() {
+					layer.open({
+						type: 2,
+						title: '选择跟单',
+						btn: ['确定'],
+						yes: function(index, layero) {
+
+						},
+						skin: 'layer-skin-class',
+						area: ['900px', '675px'],
+						content: '../layer/staff.html'
+					})
+				})
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,57 @@
+{
+	"code": 0,
+	"msg": "",
+	"count": 10,
+	"data": [
+		{
+			"machine_type": "精雕",
+			"transfer_machine": "JKJT003",
+			"machining_amount": 4,
+			"auto_up": 1,
+			"action_times": 3,
+			"machining_time": 3000,
+			"over_time": "2018-08-29 12:00",
+			"remarks": "仅为测试"
+		},
+		{
+			"machine_type": "精雕",
+			"transfer_machine": "JKJT003",
+			"machining_amount": 4,
+			"auto_up": 1,
+			"action_times": 3,
+			"machining_time": 3000,
+			"over_time": "2018-08-29 12:00",
+			"remarks": "仅为测试"
+		},
+		{
+			"machine_type": "精雕",
+			"transfer_machine": "JKJT003",
+			"machining_amount": 4,
+			"auto_up": 1,
+			"action_times": 3,
+			"machining_time": 3000,
+			"over_time": "2018-08-29 12:00",
+			"remarks": "仅为测试"
+		},
+		{
+			"machine_type": "精雕",
+			"transfer_machine": "JKJT003",
+			"machining_amount": 4,
+			"auto_up": 1,
+			"action_times": 3,
+			"machining_time": 3000,
+			"over_time": "2018-08-29 12:00",
+			"remarks": "仅为测试"
+		},
+		{
+			"machine_type": "精雕",
+			"transfer_machine": "JKJT003",
+			"machining_amount": 4,
+			"auto_up": 1,
+			"action_times": 3,
+			"machining_time": 3000,
+			"over_time": "2018-08-29 12:00",
+			"remarks": "仅为测试"
+		}
+	]
+}

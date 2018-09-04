@@ -1,0 +1,300 @@
+{
+	"code": 0,
+	"msg": "",
+	"count": 10,
+	"data": [
+		{
+			"status": 2,
+			"machine_num": "JKJD001",
+			"group": "机壳组",
+			"await_amount": 4,
+			"assign_list": [
+				{
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				},{
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				},{
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				},{
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}
+			]
+		}, {
+			"status": 2,
+			"machine_num": "JKJD001",
+			"group": "机壳组",
+			"await_amount": 4,
+			"assign_list": [
+				{
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}
+			]
+		}, {
+			"status": 2,
+			"machine_num": "JKJD001",
+			"group": "机壳组",
+			"await_amount": 4,
+			"assign_list": [
+				{
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}
+			]
+		}, {
+			"status": 2,
+			"machine_num": "JKJD001",
+			"group": "机壳组",
+			"await_amount": 4,
+			"assign_list": [
+				{
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}
+			]
+		}, {
+			"status": 0,
+			"machine_num": "JKJD001",
+			"group": "机壳组",
+			"await_amount": 4,
+			"assign_list": [
+				{
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}
+			]
+		}, {
+			"status": 2,
+			"machine_num": "JKJD001",
+			"group": "机壳组",
+			"await_amount": 4,
+			"assign_list": [
+				{
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}
+			]
+		}, {
+			"status": 2,
+			"machine_num": "JKJD001",
+			"group": "机壳组",
+			"await_amount": 4,
+			"assign_list": [
+				{
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}
+			]
+		}, {
+			"status": 0,
+			"machine_num": "JKJD001",
+			"group": "机壳组",
+			"await_amount": 4,
+			"assign_list": [
+				{
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}
+			]
+		}, {
+			"status": 2,
+			"machine_num": "JKJD001",
+			"group": "机壳组",
+			"await_amount": 4,
+			"assign_list": [
+				{
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}
+			]
+		}, {
+			"status": 1,
+			"machine_num": "JKJD001",
+			"group": "机壳组",
+			"await_amount": 4,
+			"assign_list": [
+				{
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}, {
+					"part_num": "08VJ021",
+					"forecast_time": 300,
+					"part_material": "ABS"
+				}
+			]
+		}
+	]
+}

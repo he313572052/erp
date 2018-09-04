@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>生产订单</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../css/business.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="新增"><i class="layui-icon layui-icon-add-1"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="编辑"><i class="layui-icon layui-icon-edit"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="提交"><i class="layui-icon layui-icon-ok"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="审核"><i class="iconfont icon-shenhe"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="撤销"><i class="layui-icon layui-icon-refresh-1"></i></button>
+				</div>
+			</blockquote>
+			<div class="order">
+				<div class="layui-form layui-form-pane">
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">生产单号</label>
+							<div class="layui-input-block">
+								<input type="text" name="" value="H180803011" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">下单人员</label>
+							<div class="layui-input-block">
+								<input type="text" name="title" value="黄捷贤" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">下单时间</label>
+							<div class="layui-input-block">
+								<input type="text" name="" value="2018-08-03 10:58" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">客户</label>
+							<div class="layui-input-block">
+								<input type="text" name="" value="MTLL" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">客户部门</label>
+							<div class="layui-input-block">
+								<input type="text" name="" value="" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">客户单号</label>
+							<div class="layui-input-block">
+								<input type="text" name="" value="" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">订单组别</label>
+							<div class="layui-input-block">
+								<input type="text" name="" value="国际业务部" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">制作组别</label>
+							<div class="layui-input-block">
+								<select name="" lay-verify="required">
+									<option value="是" selected="">机壳组</option>
+									<option value="否">复模组</option>
+									<option value="否">五金组</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">制作基本</label>
+							<div class="layui-input-block">
+								<select name="" lay-verify="required">
+									<option value="是" selected="">A</option>
+									<option value="否">B</option>
+									<option value="否">C</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">是否快递</label>
+							<div class="layui-input-block">
+								<select name="" lay-verify="required">
+									<option value="是" selected="">是</option>
+									<option value="否">否</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">是否报关</label>
+							<div class="layui-input-block">
+								<select name="" lay-verify="required">
+									<option value="是" selected="">是</option>
+									<option value="否">否</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">是否收费</label>
+							<div class="layui-input-block">
+								<select name="" lay-verify="required">
+									<option value="是" selected="">是</option>
+									<option value="否">否</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">产品名称</label>
+							<div class="layui-input-block">
+								<input type="text" name="" value="Bracket1376x" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">交货日期</label>
+							<div class="layui-input-block">
+								<input type="text" name="" id="date" value="2018-08-13 12:00:00" autocomplete="off"
+								 class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">订单状态</label>
+							<div class="layui-input-block">
+								<select name="" lay-verify="required">
+									<option value="是" selected="">已审核</option>
+									<option value="否">未审核</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">是否暂停</label>
+						<div class="layui-input-block">
+							<input type="checkbox" name="" lay-skin="switch" lay-text="暂停|启动">
+						</div>
+					</div>
+					<div class="layui-form-item layui-form-text">
+						<label class="layui-form-label">订单备注</label>
+						<div class="layui-input-block">
+							<textarea name="" style="resize: none;" placeholder="请严格按照客户文件，如有问题请及时联系，按时按质交货。谢谢！请严格按照客户的左右图纸分别进行加工，不要只用一个图纸直接做镜像！！！"
+							 class="layui-textarea"></textarea>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">提交人</label>
+							<div class="layui-input-block">
+								<input type="text" name="" value="王敏" autocomplete="off" class="layui-input layui-disabled">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">核准人</label>
+							<div class="layui-input-block">
+								<input type="text" name="" value="罗芳" autocomplete="off" class="layui-input layui-disabled">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">核准时间</label>
+							<div class="layui-input-block">
+								<input type="text" name="" value="是" autocomplete="off" class="layui-input layui-disabled">
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<button class="layui-btn" lay-submit lay-filter="">保存</button>
+							<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['form', 'layer', 'jquery', 'laydate'], function() {
+				var layer = layui.layer,
+					$ = layui.jquery,
+					form = layui.from,
+					laydate = layui.laydate;
+				laydate.render({
+					elem: '#date'
+				});
+				$('.btn').mouseenter(function() {
+					var title = $(this).attr('data-title');
+					layer.tips(title, this, {
+						tips: [1, '#1E82D2']
+					})
+				})
+			})
+		</script>
+	</body>
+
+</html>

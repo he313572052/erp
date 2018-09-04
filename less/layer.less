@@ -1,0 +1,114 @@
+@import 'reset.less';
+.machine {
+    padding: 10px;
+    &-info {
+        border: 1px solid #DDD;
+        box-shadow: 0 0 2px #DDD;
+        border-radius: 3px;
+        background-color: #F5F5F5;
+        padding: 15px;
+        li {
+            display: flex;
+            span {
+                flex: 1;
+                font-size: 15px;
+                padding: 10px 0;
+                border-bottom: 1px dashed #DDD;
+            }
+            .space {
+                display: inline-block;
+                width: 28px;
+            }
+        }
+    }
+    &-status {
+        padding: 5px 10px;
+        overflow: hidden;
+        background-color: #F2F2F2;
+        border-bottom: 2px solid @theme_color;
+        div {
+            float: left;
+        }
+        span {
+            width: 12px;
+            height: 12px;
+            margin: 0 10px;
+        }
+    }
+    &-table {
+        .layui-badge-dot {
+            width: 12px;
+            height: 12px;
+        }
+    }
+}
+
+.parts-select {
+    padding: 10px 15px;
+    .row {
+        margin-top: 10px;
+        .layui-table,
+        .layui-table-view {
+            margin: 0;
+        }
+        .left {
+            float: left;
+            width: 30%;
+            .table {
+                border-left: 2px solid #71c14e;
+                border-right: 2px solid #71c14e;
+                border-bottom: 2px solid #71c14e;
+            }
+        }
+        .right {
+            float: left;
+            width: 69%;
+            margin-left: 1%;
+            .layui-table-caption {
+                border-color: #009E94;
+                div:first-of-type {
+                    background-color: #009E94;
+                }
+                div:last-of-type {
+                    border-left-color: #009E94;
+                    border-bottom-color: #009E94;
+                }
+            }
+            .table {
+                border-left: 2px solid #009E94;
+                border-right: 2px solid #009E94;
+                border-bottom: 2px solid #009E94;
+                height: 250px;
+            }
+            .info {
+                padding: 15px;
+                background-color: #F2F2F2;
+                margin-top: 10px;
+                border: 1px solid #DDDDDD;
+                box-shadow: 0 0 2px #DDDDDD;
+                overflow: hidden;
+                div {
+                    float: left;
+                    box-sizing: border-box;
+                    &:first-of-type {
+                        width: 65%;
+                    }
+                    &:last-of-type {
+                        width: 33%;
+                        margin-left: 2%;
+                    }
+                    li {
+                        font-size: 15px;
+                        display: flex;
+                        padding: 10px 0;
+                        font-weight: bold;
+                        border-bottom: 1px dashed #D0D0D0;
+                        span {
+                            flex: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

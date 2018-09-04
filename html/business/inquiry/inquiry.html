@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>询价客户</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../../css/business.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="刷新"><i class="layui-icon layui-icon-refresh"></i></button>
+				</div>
+			</blockquote>
+			<div class="inquiry-table layui-table-1">
+				<div class="layui-table-caption">
+					<div>客户记录</div>
+					<div></div>
+				</div>
+				<div>
+					<table id="inquiry-table" lay-filter="inquiryTable"></table>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="operation">
+			<a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="edit"><i class="layui-icon layui-icon-edit"></i></a>
+			<a class="layui-btn layui-btn-xs layui-btn-blue" lay-event="verify"><i class="iconfont icon-shenhe"></i></a>
+			<a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="stop"><i class="iconfont icon-icon-"></i></a>
+		</script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['layer', 'jquery', 'element', 'table'], function() {
+				var layer = parent.layer == undefined ? layui.layer : parent.layer,
+					_layer = layui.layer,
+					$ = layui.jquery,
+					element = layui.element,
+					table = layui.table;
+				$('.btn').mouseenter(function() {
+					var title = $(this).attr('data-title');
+					_layer.tips(title, this, {
+						tips: [1, '#1E82D2']
+					})
+				})
+				//第一个实例
+				table.render({
+					elem: '#inquiry-table',
+					height: 500,
+					url: '../../../json/inquiry-list.json',
+					page: true,
+					cols: [
+						[{
+								type: 'numbers',
+								title: '序号',
+								width: 70,
+								sort: true,
+								fixed: 'left'
+							}, {
+								field: 'username',
+								title: '账户',
+								minWidth: 70
+							}, {
+								field: 'name',
+								title: '姓名',
+								minWidth: 70
+							}, {
+								field: 'group',
+								title: '组别',
+								width: 70
+							}, {
+								field: 'company_code',
+								title: '公司代码',
+								width: 90
+							}, {
+								field: 'merchandiser',
+								title: '跟单员',
+								width: 80
+							}, {
+								field: 'company',
+								title: '公司',
+								minWidth: 70
+							}, {
+								field: 'tel',
+								title: '电话',
+								minWidth: 70
+							}, {
+								field: 'email',
+								title: '邮箱',
+								minWidth: 70
+							}, {
+								field: 'country',
+								title: '国家',
+								minWidth: 70
+							}, {
+								field: 'region',
+								title: '地区',
+								minWidth: 70
+							}, {
+								field: 'phone',
+								title: '手机',
+								minWidth: 70
+							}, {
+								field: 'fax',
+								title: '传真',
+								minWidth: 70
+							}, {
+								field: 'skype',
+								title: 'Skype',
+								minWidth: 80
+							}, {
+								field: 'whatapp',
+								title: 'Whatapp',
+								minWidth: 90
+							}, {
+								field: 'qq',
+								title: 'QQ',
+								minWidth: 60
+							}, {
+								field: 'weixin',
+								title: 'WeiXin',
+								minWidth: 80
+							}, {
+								field: 'company_address',
+								title: '公司地址',
+								minWidth: 90
+							}, {
+								field: 'remarks',
+								title: '备注',
+								minWidth: 70
+							},
+							{
+								field: 'status',
+								title: '状态',
+								width: 80,
+								templet: '<div><span class="layui-badge layui-bg-blue">{{d.status}}</span><div>'
+							},
+							{
+								title: '操作',
+								fixed: 'right',
+								width: 130,
+								toolbar: '#operation'
+							}
+						]
+					]
+				});
+				table.on('tool(inquiryTable)', function(obj) {
+					var data = obj.data;
+					var event = obj.event;
+					var tr = obj.tr;
+					console.log(tr)
+					if(event === 'edit') {
+						layer.open({
+							type: 2,
+							skin: 'layer-skin-class',
+							title: '编辑',
+							resize: false,
+							area: ['1000px', '590px'],
+							content: '../business/inquiry/inquiry-edit.html'
+						})
+					} else if(event === 'verify') {
+						layer.msg('审核完成');
+						obj.update({
+							status: '已审核'
+						});
+
+					} else if(event === 'stop') {
+						layer.confirm('您确定停用此账号吗?', {
+							icon: 3,
+							title: '提示'
+						}, function(index) {
+							obj.del();
+							layer.close(index);
+						});
+					}
+				})
+			});
+		</script>
+	</body>
+
+</html>

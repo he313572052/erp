@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>询价客户</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/business.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<form  class="layui-form" action="" method="get">
+			<div style="padding: 15px">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">物流单号</label>
+						<div class="layui-input-block">
+							<input type="text" name="" required lay-verify="required" value="4893684356" autocomplete="off"
+							 class="layui-input layui">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">物流公司</label>
+						<div class="layui-input-block">
+							<input type="text" name="" required lay-verify="required" value="顺丰速递" autocomplete="off"
+							 class="layui-input">
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label">备注</label>
+					<div class="layui-input-block" style="width: 492px;">
+						<textarea name="" placeholder="" class="layui-textarea"></textarea>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">发货日期</label>
+						<div class="layui-input-block">
+							<input type="text" name="" id="date-input1" required lay-verify="required" autocomplete="off"
+							 class="layui-input layui">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">发货人</label>
+						<div class="layui-input-block">
+							<input type="text" name="" required lay-verify="required" value="汪淼" autocomplete="off"
+							 class="layui-input layui">
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">登记时间</label>
+						<div class="layui-input-block">
+							<input type="text" name="" id="date-input2" required lay-verify="required" value=""
+							 autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">登记人</label>
+						<div class="layui-input-block">
+							<input type="text" name="" required lay-verify="required" value="叶文杰" autocomplete="off"
+							 class="layui-input">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-layer-btns">
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<button class="layui-btn layui-btn-blue" lay-submit lay-filter="">提交</button>
+			</div>
+		</form>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['layer', 'jquery', 'element', 'form', 'laydate'], function() {
+				var layer = parent.layer == undefined ? layui.layer : parent.layer,
+					$ = layui.jquery,
+					form = layui.form,
+					element = layui.element,
+					laydate = layui.laydate;
+				laydate.render({
+					elem: '#date-input1',
+					type: 'datetime',
+					value: '2018-08-08 12:00',
+					isInitValue: true
+				});
+				laydate.render({
+					elem: '#date-input2',
+					type: 'datetime',
+					value: '2018-08-08 12:10',
+					isInitValue: true
+				});
+			});
+		</script>
+	</body>
+
+</html>

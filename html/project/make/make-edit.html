@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>产品报价加工项目设置</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../css/project.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<form class="layui-form" action="">
+			<div style="padding:15px">
+
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">开始体积</label>
+						<div class="layui-input-block">
+							<select name="" lay-verify="">
+								<option>项目分类</option>
+								<option value="010">CNC</option>
+								<option value="021">手工</option>
+								<option value="0571">后处理</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">结束体积</label>
+						<div class="layui-input-block">
+							<select name="" lay-verify="">
+								<option>材质</option>
+								<option value="010">CNC</option>
+								<option value="021">全部</option>
+								<option value="0571">无</option>
+								<option value="010">ABS</option>
+								<option value="021">PA</option>
+								<option value="0571">PC</option>
+								<option value="010">PMMA</option>
+								<option value="021">POM</option>
+								<option value="0571">黑色ABS</option>
+								<option value="0571">黑色PC</option>
+								<option value="0571">黑色POM</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">开始体积</label>
+						<div class="layui-input-block">
+							<input type="text" name="" value="" required lay-verify="required" placeholder=""
+							 autocomplete="off" class="layui-input layui-disabled">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">结束体积</label>
+						<div class="layui-input-block">
+							<input type="text" name="" required lay-verify="required" placeholder="" autocomplete="off"
+							 class="layui-input">
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">项目名称</label>
+						<div class="layui-input-block">
+							<input type="text" name="" value="" required lay-verify="required" placeholder=""
+							 autocomplete="off" class="layui-input">
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">标准工时</label>
+						<div class="layui-input-block">
+							<input type="text" name="" value="" required lay-verify="required" placeholder=""
+							 autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">工时单价</label>
+						<div class="layui-input-block">
+							<input type="text" name="" required lay-verify="required" placeholder="" autocomplete="off"
+							 class="layui-input">
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label">备注</label>
+					<div class="layui-input-block" style="width: 490px;">
+						<textarea name="" placeholder="请输入内容" class="layui-textarea"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="layui-layer-btns">
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<button class="layui-btn layui-btn-blue" lay-submit lay-filter="">保存</button>
+			</div>
+		</form>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['jquery', 'form'], function() {
+				var $ = layui.jquery,
+					form = layui.form;
+			});
+		</script>
+	</body>
+
+</html>

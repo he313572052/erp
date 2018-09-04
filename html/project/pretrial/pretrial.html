@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>制作清单</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../../plugins/mCustomScrollbar/css/jquery.mCustomScrollbar.css"
+		/>
+		<link rel="stylesheet" href="../../../css/project.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="预审确认"><i class="layui-icon layui-icon-ok-circle"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="项目核准"><i class="iconfont icon-shenhe"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="取消核准"><i class="layui-icon layui-icon-close"></i></button>
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="刷新"><i class="layui-icon layui-icon-refresh"></i></button>
+				</div>
+			</blockquote>
+			<div class="layui-row layui-col-space10">
+				<div class="layui-col-md9">
+					<div class="pretrial-parts-table scroll">
+						<table class="layui-table layui-simple-table" lay-skin="nob" lay-even>
+							<colgroup>
+								<col width="95">
+								<col>
+								<col width="95">
+								<col width="95">
+								<col width="95">
+								<col width="95">
+								<col width="95">
+								<col>
+								<col>
+							</colgroup>
+							<thead>
+								<tr>
+									<th>零件编号</th>
+									<th>零件名称</th>
+									<th>零件材质</th>
+									<th>零件尺寸</th>
+									<th>订单数量</th>
+									<th>制作数量</th>
+									<th>工业要求</th>
+									<th>预审说明</th>
+									<th>备注事项</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>09YU01</td>
+									<td>大きな声でaを</td>
+									<td>SUS303</td>
+									<td>130x130x90</td>
+									<td>1</td>
+									<td>1</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>09YU01</td>
+									<td>大きな声でaを</td>
+									<td>SUS303</td>
+									<td>130x130x90</td>
+									<td>1</td>
+									<td>1</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>09YU01</td>
+									<td>大きな声でaを</td>
+									<td>SUS303</td>
+									<td>130x130x90</td>
+									<td>1</td>
+									<td>1</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>09YU01</td>
+									<td>大きな声でaを</td>
+									<td>SUS303</td>
+									<td>130x130x90</td>
+									<td>1</td>
+									<td>1</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="layui-col-md3">
+					<div class="pretrial-image">
+						<img src="../../../img/3D3_03.png" />
+					</div>
+				</div>
+			</div>
+			<div class="layui-tab pretrial-tab">
+				<ul class="layui-tab-title">
+					<li class="layui-this">生成计划/资料预审</li>
+					<li>CMF工艺图</li>
+					<li>作业指导书</li>
+				</ul>
+				<div class="layui-tab-content">
+					<div class="layui-tab-item layui-show">
+						<div class="layui-row layui-col-space8">
+							<div class="layui-col-md2">
+								<div class="pretrial-process">
+									<div class="layui-panel-title-1">
+										<div></div>
+									</div>
+									<div class="pretrial-process-panel">
+										<h2>工序</h2>
+										<ul class="layui-timeline">
+											<li class="layui-timeline-item">
+												<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+												<div class="layui-timeline-content layui-text">
+													<h3 class="layui-timeline-title">项目</h3>
+												</div>
+											</li>
+											<li class="layui-timeline-item">
+												<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+												<div class="layui-timeline-content layui-text">
+													<h3 class="layui-timeline-title">工程</h3>
+												</div>
+											</li>
+											<li class="layui-timeline-item">
+												<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+												<div class="layui-timeline-content layui-text">
+													<h3 class="layui-timeline-title">后处理</h3>
+												</div>
+											</li>
+											<li class="layui-timeline-item">
+												<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+												<div class="layui-timeline-content layui-text">
+													<h3 class="layui-timeline-title">品检</h3>
+												</div>
+											</li>
+											<li class="layui-timeline-item">
+												<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+												<div class="layui-timeline-content layui-text">
+													<h3 class="layui-timeline-title">营业出货</h3>
+												</div>
+											</li>
+											<li class="layui-timeline-item">
+												<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+												<div class="layui-timeline-content layui-text">
+													<h3 class="layui-timeline-title">复模</h3>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-md7">
+								<div class="pretrial-process-table">
+									<div class="layui-table-caption">
+										<div>生产计划</div>
+										<div></div>
+									</div>
+									<div class="pretrial-process-table-warp scroll">
+										<table class="layui-table layui-simple-table layui-form" lay-skin="line">
+											<colgroup>
+												<col width="65">
+												<col>
+												<col>
+												<col>
+												<col width="100">
+											</colgroup>
+											<thead>
+												<tr>
+													<th>次序</th>
+													<th>工序名称</th>
+													<th>工序排期</th>
+													<th>完成</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>项目<span class="layui-badge layui-btn-blue"><i class="iconfont icon-xiangxiajiantou"></i></span></td>
+													<td>2018-6-29 12:00</td>
+													<td><span class="layui-badge layui-bg-blue"><i class="layui-icon layui-icon-ok"></i> </span></td>
+													<td>
+														<button class="layui-btn layui-btn layui-btn-normal layui-btn-xs" onclick="addhander()"><i class="layui-icon layui-icon-add-1"></i></button>
+														<button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delhander()"><i class="layui-icon layui-icon-delete"></i></button>
+													</td>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>工程<span class="layui-badge layui-btn-blue"><i class="iconfont icon-xiangxiajiantou"></i></span></td>
+													<td>2018-6-29 12:00</td>
+													<td><span class="layui-badge layui-bg-blue"><i class="layui-icon layui-icon-ok"></i> </span></td>
+													<td>
+														<button class="layui-btn layui-btn layui-btn-normal layui-btn-xs" onclick="addhander()"><i class="layui-icon layui-icon-add-1"></i></button>
+														<button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delhander()"><i class="layui-icon layui-icon-delete"></i></button>
+													</td>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>品质<span class="layui-badge layui-btn-blue"><i class="iconfont icon-xiangxiajiantou"></i></span></td>
+													<td>2018-6-29 12:00</td>
+													<td><span class="layui-badge layui-bg-blue"><i class="layui-icon layui-icon-ok"></i> </span></td>
+													<td>
+														<button class="layui-btn layui-btn layui-btn-normal layui-btn-xs" onclick="addhander()"><i class="layui-icon layui-icon-add-1"></i></button>
+														<button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delhander()"><i class="layui-icon layui-icon-delete"></i></button>
+													</td>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>项目<span class="layui-badge layui-btn-blue"><i class="iconfont icon-xiangxiajiantou"></i></span></td>
+													<td>2018-6-29 12:00</td>
+													<td><span class="layui-badge layui-bg-blue"><i class="layui-icon layui-icon-ok"></i> </span></td>
+													<td>
+														<button class="layui-btn layui-btn layui-btn-normal layui-btn-xs" onclick="addhander()"><i class="layui-icon layui-icon-add-1"></i></button>
+														<button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delhander()"><i class="layui-icon layui-icon-delete"></i></button>
+													</td>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>营业出货<span class="layui-badge layui-btn-blue"><i class="iconfont icon-xiangxiajiantou"></i></span></td>
+													<td>2018-6-29 12:00</td>
+													<td><span class="layui-badge layui-bg-blue"><i class="layui-icon layui-icon-ok"></i> </span></td>
+													<td>
+														<button class="layui-btn layui-btn layui-btn-normal layui-btn-xs" onclick="addhander()"><i class="layui-icon layui-icon-add-1"></i></button>
+														<button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delhander()"><i class="layui-icon layui-icon-delete"></i></button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-md3">
+								<div class="pretrial-form-warp">
+									<div class="layui-table-caption">
+										<div>项目预审</div>
+										<div></div>
+									</div>
+									<div class="layui-form">
+										<div class="layui-form-item">
+											<label class="layui-form-label">确认人员</label>
+											<div class="layui-input-block">
+												<input type="text" name="" value="邱洪" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label">确认日期</label>
+											<div class="layui-input-block">
+												<input type="text" name="title" value="2018-06-29 11:14" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label">核准人员</label>
+											<div class="layui-input-block">
+												<input type="text" name="" value="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label">核准日期</label>
+											<div class="layui-input-block">
+												<input type="text" name="" value="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label">资料预审</label>
+											<div class="layui-input-block">
+												<input type="text" name="" value="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<div class="layui-input-block">
+												<button class="layui-btn" lay-submit lay-filter="">提交</button>
+												<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-tab-item">
+						<div class="pretrial-figure">
+							<h2>工艺图</h2>
+							<blockquote class="layui-btns">
+								<div class="layui-btn-group">
+									<button id="uploadBtn" class="layui-btn layui-btn-normal layui-btn-sm btn" data-title="添加"><i class="layui-icon layui-icon-add-1"></i></button>
+									<button class="layui-btn layui-btn-normal layui-btn-sm btn" data-title="下载"><i class="iconfont icon-download"></i></button>
+									<button class="layui-btn layui-btn-normal layui-btn-sm btn" data-title="刷新"><i class="layui-icon layui-icon-refresh"></i></button>
+								</div>
+							</blockquote>
+							<div class="layui-form scroll">
+								<figure title="点击查看大图">
+									<div>
+										<input type="checkbox" name="" lay-skin="primary" checked>
+										<button class="layui-btn layui-btn-danger layui-btn-xs delBtn"><i class="layui-icon layui-icon-delete"></i></button>
+										<img src="../../../img/3D3_03.png" alt="" />
+										<figcaption>工艺图1</figcaption>
+									</div>
+								</figure>
+								<figure title="点击查看大图">
+									<div>
+										<input type="checkbox" name="" lay-skin="primary" checked>
+										<button class="layui-btn layui-btn-danger layui-btn-xs delBtn"><i class="layui-icon layui-icon-delete"></i></button>
+										<img src="../../../img/3D3_03.png" alt="" />
+										<figcaption>工艺图1</figcaption>
+									</div>
+								</figure>
+								<figure title="点击查看大图">
+									<div>
+										<input type="checkbox" name="" lay-skin="primary" checked>
+										<button class="layui-btn layui-btn-danger layui-btn-xs delBtn"><i class="layui-icon layui-icon-delete"></i></button>
+										<img src="../../../img/3D3_03.png" alt="" />
+										<figcaption>工艺图1</figcaption>
+									</div>
+								</figure>
+								<figure title="点击查看大图">
+									<div>
+										<input type="checkbox" name="" lay-skin="primary" checked>
+										<button class="layui-btn layui-btn-danger layui-btn-xs delBtn"><i class="layui-icon layui-icon-delete"></i></button>
+										<img src="../../../img/3D3_03.png" alt="" />
+										<figcaption>工艺图1</figcaption>
+									</div>
+								</figure>
+								<figure title="点击查看大图">
+									<div>
+										<input type="checkbox" name="" lay-skin="primary" checked>
+										<button class="layui-btn layui-btn-danger layui-btn-xs delBtn"><i class="layui-icon layui-icon-delete"></i></button>
+										<img src="../../../img/3D3_03.png" alt="" />
+										<figcaption>工艺图1</figcaption>
+									</div>
+								</figure>
+								<figure title="点击查看大图">
+									<div>
+										<input type="checkbox" name="" lay-skin="primary" checked>
+										<button class="layui-btn layui-btn-danger layui-btn-xs delBtn"><i class="layui-icon layui-icon-delete"></i></button>
+										<img src="../../../img/3D3_03.png" alt="" />
+										<figcaption>工艺图1</figcaption>
+									</div>
+								</figure>
+								<figure title="点击查看大图">
+									<div>
+										<input type="checkbox" name="" lay-skin="primary" checked>
+										<button class="layui-btn layui-btn-danger layui-btn-xs delBtn"><i class="layui-icon layui-icon-delete"></i></button>
+										<img src="../../../img/3D3_03.png" alt="" />
+										<figcaption>工艺图1</figcaption>
+									</div>
+								</figure>
+								<figure title="点击查看大图">
+									<div>
+										<input type="checkbox" name="" lay-skin="primary" checked>
+										<button class="layui-btn layui-btn-danger layui-btn-xs delBtn"><i class="layui-icon layui-icon-delete"></i></button>
+										<img src="../../../img/3D3_03.png" alt="" />
+										<figcaption>工艺图1</figcaption>
+									</div>
+								</figure>
+							</div>
+						</div>
+					</div>
+					<div class="layui-tab-item">
+						<div class="layui-row layui-col-space10">
+							<div class="layui-col-md7">
+								<div class="pretrial-guide-form">
+									<form class="layui-form" action="">
+										<div class="layui-form-item">
+											<div class="layui-inline">
+												<label class="layui-form-label">零件编号</label>
+												<div class="layui-input-block">
+													<input type="text" name="" required lay-verify="required" value="09YT02" autocomplete="off"
+													 class="layui-input layui-disabled">
+												</div>
+											</div>
+											<div class="layui-inline">
+												<label class="layui-form-label">零件名称</label>
+												<div class="layui-input-block">
+													<input type="text" name="" required lay-verify="required" value="0119682019900FP00_A0" autocomplete="off"
+													 class="layui-input layui-disabled">
+												</div>
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<div class="layui-inline">
+												<label class="layui-form-label">订单数量</label>
+												<div class="layui-input-block">
+													<input type="text" name="" required lay-verify="required" value="57" autocomplete="off" class="layui-input layui-disabled">
+												</div>
+											</div>
+											<div class="layui-inline">
+												<div class="layui-input-block">
+													<input type="checkbox" name="" title="零件委外" checked>
+												</div>
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<div class="layui-inline">
+												<label class="layui-form-label">零件材质</label>
+												<div class="layui-input-block">
+													<input type="text" name="" required lay-verify="required" value="EN-AW 6082-T6" autocomplete="off"
+													 class="layui-input layui-disabled">
+												</div>
+											</div>
+											<div class="layui-inline">
+												<label class="layui-form-label">零件尺寸</label>
+												<div class="layui-input-block">
+													<input type="text" name="" required lay-verify="required" value="57 X 57 X 6" autocomplete="off"
+													 class="layui-input layui-disabled">
+												</div>
+											</div>
+
+										</div>
+										<div class="layui-form-item layui-form-text">
+											<label class="layui-form-label">工艺要求</label>
+											<div class="layui-input-block">
+												<textarea name="desc" placeholder="无色铬盐酸处理标准为 MIL-DTL-5541-TYPE II-CLASS 3." class="layui-textarea"></textarea>
+											</div>
+										</div>
+										<div class="layui-form-item layui-form-text">
+											<label class="layui-form-label">预审说明</label>
+											<div class="layui-input-block">
+												<textarea name="desc" placeholder="" class="layui-textarea"></textarea>
+											</div>
+										</div>
+										<div class="layui-form-item layui-form-text">
+											<label class="layui-form-label">备注事项</label>
+											<div class="layui-input-block">
+												<textarea name="desc" placeholder="" class="layui-textarea"></textarea>
+											</div>
+										</div>
+										<div class="layui-form-item layui-form-text">
+											<div class="layui-inline">
+												<label class="layui-form-label">制作数量</label>
+												<div class="layui-input-block">
+													<input type="text" name="" required lay-verify="required" value="" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+											<div class="layui-inline">
+												<button class="layui-btn" lay-submit lay-filter="">保存</button>
+												<button class="layui-btn layui-btn-normal">更改所有工序</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="layui-col-md5">
+								<div class="pretrial-guide-table">
+									<h2>工序情况</h2>
+									<div class="scroll">
+										<table class="layui-table layui-form layui-simple-table" lay-skin="line">
+											<colgroup>
+												<col width="65">
+												<col>
+												<col width="100">
+											</colgroup>
+											<thead>
+												<tr>
+													<th>次序</th>
+													<th>工序名称</th>
+													<th>制作数量</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>项目<span class="layui-badge layui-btn-blue"><i class="iconfont icon-xiangxiajiantou"></i></span></td>
+													<td><input type="number" class="layui-input" name="" id="" value="25" /></td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>工程<span class="layui-badge layui-btn-blue"><i class="iconfont icon-xiangxiajiantou"></i></span></td>
+													<td><input type="number" class="layui-input" name="" id="" value="25" /></td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>品质<span class="layui-badge layui-btn-blue"><i class="iconfont icon-xiangxiajiantou"></i></span></td>
+													<td><input type="number" class="layui-input" name="" id="" value="25" /></td>
+												</tr>
+												<tr>
+													<td>4</td>
+													<td>项目<span class="layui-badge layui-btn-blue"><i class="iconfont icon-xiangxiajiantou"></i></span></td>
+													<td><input type="number" class="layui-input" name="" id="" value="25" /></td>
+												</tr>
+												<tr>
+													<td>5</td>
+													<td>营业出货<span class="layui-badge layui-btn-blue"><i class="iconfont icon-jieshu"></i></span></td>
+													<td><input type="number" class="layui-input" name="" id="" value="25" /></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../../plugins/jquery/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../plugins/mCustomScrollbar/js/jquery.mCustomScrollbar.min.js" type="text/javascript"
+		 charset="utf-8"></script>
+		<script type="text/javascript" src="../../../layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['form', 'layer', 'jquery', 'element', 'upload'], function() {
+				var layer = parent.layer == undefined ? layui.layer : parent.layer,
+					_layer = layui.layer,
+					$ = layui.jquery,
+					upload = layui.upload,
+					form = layui.form;
+				$('.btn').mouseenter(function() {
+					var title = $(this).attr('data-title');
+					_layer.tips(title, this, {
+						tips: [1, '#1E82D2']
+					})
+				})
+				upload.render({
+					elem: '#uploadBtn',
+					url: '/upload/',
+					done: function(res) {
+						//上传完毕回调
+					},
+					error: function() {
+						//请求异常回调
+					}
+				});
+				addhander = function() {
+					var elem = event.target;
+					var html = '<tr>';
+					html +=
+						'<td>1</td><td><span class="layui-badge layui-btn-blue"><i class="iconfont icon-xiangxiajiantou"></i></span></td><td></td>';
+					html += '<td><span class="layui-badge layui-bg-blue">';
+					html += '<i class="layui-icon layui-icon-ok"></i></span></td>';
+					html +=
+						'<td><button class="layui-btn layui-btn layui-btn-normal layui-btn-xs" onclick="addhander()">';
+					html += '<i class="layui-icon layui-icon-add-1"></i></button>';
+					html +=
+						'<button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delhander()">';
+					html += '<i class="layui-icon layui-icon-delete"></i></button></td></tr>';
+					$(elem).parents('tr').after(html);
+				}
+				$('.delBtn').click(function() {
+					var parent = $(this).parents('figure');
+					layer.confirm('您确认删除吗？', {
+						icon: 3,
+						title: '询问'
+					}, function(index) {
+						parent.fadeOut(500, function() {
+							$(this).remove();
+						});
+						layer.close(index);
+					})
+
+				});
+
+				delhander = function() {
+					var elem = event.target;
+					layer.confirm('您确认删除吗？', {
+						icon: 3,
+						title: '询问'
+					}, function(index) {
+						$(elem).parents('tr').remove();
+						layer.close(index);
+					})
+				}
+				$.mCustomScrollbar.defaults.axis = "y";
+				$(".scroll").mCustomScrollbar({
+					theme: "minimal-dark"
+				});
+			})
+		</script>
+	</body>
+
+</html>

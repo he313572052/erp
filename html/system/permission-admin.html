@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="../../iconfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/mCustomScrollbar/css/jquery.mCustomScrollbar.css"
+		/>
+		<link rel="stylesheet" href="../../css/system.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-fluid">
+			<blockquote class="layui-btns">
+				<div class="layui-btn-group">
+					<button class="layui-btn layui-btn-sm layui-btn-blue btn" data-title="搜索" data-event="search"><i class="layui-icon layui-icon-search"></i></button>
+				</div>
+			</blockquote>
+			<blockquote class="layui-tools layui-tools-margin">
+				<div class="layui-form">
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<input type="text" name="username" placeholder="帐号" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-input-inline">
+							<input type="text" name="name" placeholder="姓名" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-input-inline">
+							<select name="status">
+								<option value="">组别</option>
+								<option value="010">数码组</option>
+								<option value="021">机壳组</option>
+								<option value="010">五金组</option>
+								<option value="021">模具组</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<select name="stop">
+								<option value="">部门</option>
+								<option value="010">打磨部</option>
+								<option value="021">手板部</option>
+								<option value="010">调色部</option>
+								<option value="021">包装部</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</blockquote>
+			<div class="layui-row layui-col-space10">
+				<div class="layui-col-md9 layui-col-sm9">
+					<div class="layui-table-1">
+						<div class="layui-table-caption">
+							<div>
+								用户
+							</div>
+							<div>
+
+							</div>
+						</div>
+						<div>
+							<table id="user-list-table" lay-filter="userTable"></table>
+						</div>
+					</div>
+					<div class="layui-form layui-table-1">
+						<div class="layui-table-caption">
+							<div>权限</div>
+							<div></div>
+						</div>
+						<div class="scroll" style="height: 265px">
+							<table class="layui-table layui-simple-table" lay-skin="line">
+								<colgroup>
+									<col width="65">
+									<col>
+									<col width="100">
+									<col width="100">
+									<col>
+									<col width="80">
+									<col width="130">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>权限</th>
+										<th>模块名称</th>
+										<th>控制级别</th>
+										<th>部门</th>
+										<th>组别</th>
+										<th>制单</th>
+										<th>范围控制</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr id='node-1' class="parent collapsed">
+										<td><input type="checkbox" name="" lay-skin="primary" data-id="1"></td>
+										<td>系统管理
+											<a class="layui-btn layui-btn-xs layui-btn-normal showSubBtn" data-id='1'>+</a>
+										</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr id='node-2' class="child-node-1 parent collapsed" style="display:none ;" parentid="1">
+										<td><input type="checkbox" name="" lay-skin="primary" data-id="2"></td>
+										<td style="padding-left: 15px;">├─用户管理
+											<a class="layui-btn layui-btn-xs layui-btn-normal showSubBtn" data-id='2'>+</a>
+										</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr id='node-3' class="child-node-2 parent collapsed" style="display: none;" parentid="1">
+										<td><input type="checkbox" name="" lay-skin="primary"></td>
+										<td style="padding-left: 25px;">├─查询</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td><input type="checkbox" name="" lay-skin="primary" data-id="3"></td>
+									</tr>
+									<tr id='node-4' class="child-node-2 parent collapsed" style="display: none;" parentid="1">
+										<td><input type="checkbox" name="" lay-skin="primary"></td>
+										<td style="padding-left: 25px;">├─修改</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td><input type="checkbox" name="" lay-skin="primary" data-id="4"></td>
+									</tr>
+									<tr id='node-5' class="parent collapsed">
+										<td><input type="checkbox" name="" lay-skin="primary" data-id="5"></td>
+										<td>权限管理
+											<a class="layui-btn layui-btn-xs layui-btn-normal showSubBtn" data-id='5'>+</a>
+										</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr id='node-6' class="child-node-5 parent collapsed" style="display:none ;" parentid="5">
+										<td><input type="checkbox" name="" lay-skin="primary" data-id="2"></td>
+										<td style="padding-left: 25px;">├─查询
+										</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td><input type="checkbox" name="" lay-skin="primary" data-id="1"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md3 layui-col-sm3">
+					<div class="order-permission">
+						<blockquote>订单查询权限</blockquote>
+						<div>
+							<div>
+								<p>订单组别限制</p>
+								<ul class="scroll">
+									<li>国内业务部</li>
+									<li>其他</li>
+									<li>日本业务部</li>
+									<li>国际业务部</li>
+								</ul>
+								<button class="layui-btn layui-btn-blue layui-btn-sm layui-btn-fluid addBtn" data-title="订单组别限制"
+								 data-id="1">授权管理</button>
+							</div>
+							<div>
+								<p>制作组别限制</p>
+								<ul class="scroll">
+									<li>国内业务部</li>
+									<li>其他</li>
+									<li>日本业务部</li>
+									<li>国际业务部</li>
+									<li>日本业务部</li>
+									<li>国际业务部</li>
+									<li>日本业务部</li>
+									<li>国际业务部</li>
+								</ul>
+								<button class="layui-btn layui-btn-blue layui-btn-sm layui-btn-fluid addBtn" data-title="制作组别限制"
+								 data-id="2">授权管理</button>
+							</div>
+							<div>
+								<p>下单人员限制</p>
+								<ul class="scroll">
+									<li>国内业务部</li>
+									<li>其他</li>
+									<li>日本业务部</li>
+									<li>国际业务部</li>
+								</ul>
+								<button class="layui-btn layui-btn-blue layui-btn-sm layui-btn-fluid addBtn" data-title="下单人员限制"
+								 data-id="3">授权管理</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="order-group-table" class="order-permission-content" style="display: none;">
+			<div class="layui-form">
+				<table id="group-table-list" lay-filter="groupTable"></table>
+			</div>
+		</div>
+		<script src="../../plugins/jquery/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<script src="../../plugins/mCustomScrollbar/js/jquery.mCustomScrollbar.min.js" type="text/javascript"
+		 charset="utf-8"></script>
+		<script type="text/javascript">
+			layui.use(['form', 'layer', 'table'], function() {
+				var form = layui.form,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					$ = layui.jquery,
+					table = layui.table;
+				$('.order-list').on('click', 'li', function() {
+					$(this).siblings('li').removeClass('selected');
+					selectedOrder = $(this).addClass('selected').children('span').eq(0).html()
+				})
+				//权限展开隐藏
+				$('.showSubBtn').on('click', function() {
+					var _this = $(this);
+					var id = _this.attr('data-id');
+					var parent = _this.parents('.parent');
+					var child = $('.child-node-' + id);
+					var childAll = $('tr[parentid=' + id + ']');
+					if(parent.hasClass('collapsed')) {
+						_this.html('-');
+						parent.addClass('expanded').removeClass('collapsed');
+						child.css('display', '');
+					} else {
+						_this.html('+');
+						parent.addClass('collapsed').removeClass('expanded');
+						child.css('display', 'none');
+						childAll.addClass('collapsed').removeClass('expanded').css('display',
+							'none');
+						childAll.find('.showSubBtn').html('+');
+					}
+
+				})
+				table.set({
+					even: true,
+					limet: 5
+				})
+				$('.addBtn').click(function() {
+					var id = $(this).attr('data-id');
+					var title = $(this).attr('data-title');
+					table.render({
+						elem: '#group-table-list',
+						id: 'groubTable',
+						url: '../../json/permissionList.json',
+						done: function() {
+							layer.open({
+								type: 1,
+								title: title,
+								btn: ['保存'],
+								area: ['650px', '400px'],
+								content: $('#order-group-table'),
+								yes: function(index, layero) {
+									var checkStatus = table.checkStatus('groubTable');
+									console.log(checkStatus.data)
+								}
+							});
+						},
+						cols: [
+							[{
+								type: 'checkbox',
+								title: '选择',
+								width: 50
+							}, {
+								field: 'id',
+								title: 'ID',
+								width: 50
+							}, {
+								field: 'groupName',
+								title: '组别名称',
+								width: 100
+							}, {
+								field: 'groupCode',
+								title: '组别代码',
+								width: 100
+							}, {
+								field: 'category',
+								title: '类别',
+								width: 150
+							}, {
+								field: 'username',
+								title: '用户名',
+								width: 100
+							}]
+						]
+					})
+
+				});
+
+				//权限管理 用户列表
+				table.render({
+					elem: '#user-list-table',
+					url: '../../json/user-list-1.json',
+					page: true,
+					cols: [
+						[{
+								field: 'department',
+								title: '部门'
+							}, {
+								field: 'group',
+								title: '组别'
+							},
+							{
+								field: 'username',
+								title: '帐号'
+							}, {
+								field: 'name',
+								title: '姓名'
+							},
+							{
+								title: '操作',
+								fixed: 'right',
+								width: 65,
+								align: 'center',
+								templet: '<div><a title="停用" class="layui-btn layui-btn-blue layui-btn-xs" lay-event="stop"><i class="iconfont icon-icon-"></i></a></div>'
+							}
+						]
+					]
+				});
+				$.mCustomScrollbar.defaults.axis = "y";
+				$(".scroll").mCustomScrollbar({
+					theme: "minimal-dark"
+				});
+			})
+		</script>
+	</body>
+
+</html>
